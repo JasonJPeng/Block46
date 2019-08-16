@@ -10,7 +10,9 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			mounted: false
+			mounted: false,
+			email: "",
+			password: ""
 		};
 	}
 
@@ -18,9 +20,23 @@ class App extends Component {
 		this.setState({ mounted: true });
 	}
 	
-	handleSubmit = (e) => {
+	handleSignInSubmit = (e) => {
+		// TODO: add sign in authentication
 		this.setState({ mounted: false });
 		e.preventDefault();
+		console.log("submit sign in");
+	}
+
+	handleSignUpSubmit = (e) => {
+		// TODO: add sign up authentication
+		this.setState({mounted: false});
+		e.preventDefault();
+		console.log("submit sign up");
+	}
+
+	handleChangeForm = (event) => {
+		const {name, value} = event.target;
+		this.setState({[name] : value}, () => (console.log(this.state)));
 	}
 
 	render() {
@@ -33,7 +49,9 @@ class App extends Component {
 			child = (
 				<div className="App_test">
 					<NavigationPanel></NavigationPanel>
-					<Modal onSubmit={this.handleSubmit}/>
+					<Modal onSubmitSignIn={this.handleSignInSubmit}
+					       onSubmitSignUp={this.handleSignUpSubmit}
+						   onChangeForm={this.handleChangeForm}/>
 				</div>
 			);
 		}
