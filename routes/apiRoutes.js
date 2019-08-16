@@ -3,7 +3,9 @@ const router = require("express").Router();
 const db = require("../models");
 const axios = require('axios')
 
+const myKey = "9138ceccb8ae2a81647da57c17710ce8";
 
+// Coint Info = https://cryptocontrol.io/api/v1/public/details/coin/bitcoin?key=9138ceccb8ae2a81647da57c17710ce8
 // https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD
 
 // https://min-api.cryptocompare.com/data/histoday?fsym=DASH&tsym=USD&limit=2000
@@ -27,6 +29,34 @@ router.route("/")
             })
         }
         res.json(outputData);
+     })
+  })
+
+  router.route("/info/:id") 
+  .get(function(req,res){
+     db.Coin.find({Id: req.params.id}).then(function(coinData){
+         db.Headline.find({Symbol: coinData[0].Symbol}).then(function(headlineData){
+            let apiUrl = "https://cryptocontrol.io/api/v1/public/details/coin/" + 
+                         headlineData[0].NewsName + "?key=" + myKey;
+            axios.get(apiUrl).then(function(infoData){
+                 let infoLinks = []
+                 infoData.data.links.forEach(function(e){
+                     infoLinks.push({
+                         Website: e.name,
+                         url: e.link
+                     })
+                 })
+
+                 let outObj = {
+                     Id: req.params.id,
+                     Name: coinData[0].Name,
+                     Symbol: coinData[0].Symbol,
+                     Description: infoData.data.description,
+                     Links: infoLinks
+                 }
+                 res.json(outObj)
+            })
+         })
      })
   })
 
