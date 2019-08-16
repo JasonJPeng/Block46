@@ -45,6 +45,9 @@ curl "https://cryptocontrol.io/api/v1/public/details/coin/bitcoin" \
   -H "x-api-key: API_KEY_HERE"
 
 
+https://cryptocontrol.io/api/v1/public/details/coin/bitcoin?key=9138ceccb8ae2a81647da57c17710ce8
+
+
 Bitcoin (BTC)
 
 Ethereum (ETH)
