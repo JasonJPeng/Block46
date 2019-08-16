@@ -1,0 +1,1830 @@
+[
+    {
+        "_id": "5d56342f568eb80018926449",
+        "hotness": 72496.79032407409,
+        "activityHotness": 0.1,
+        "primaryCategory": "General",
+        "words": 470,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "5a7b931102ac032bc99781f1",
+                "name": "DATA",
+                "slug": "data",
+                "tradingSymbol": "dta"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45e20",
+                "name": "DECENT",
+                "slug": "decent",
+                "tradingSymbol": "dct"
+            }
+        ],
+        "description": "Ripple price trimmed losses after it traded as low as $0.2336 against the US dollar. The price is currently trading above the $0.2500 pivot level with a few positive signs. A major contracting triangle pattern is forming with resistance near $0.2670 on the hourly chart of the XRP/USD pair (data…",
+        "publishedAt": "2019-08-16T04:08:31.000Z",
+        "title": "Ripple Price (XRP) Showing Recovery Signs, Bitcoin Back Above $10.2K",
+        "url": "https://cryptocontrol.io/r/api/article/5d56342f568eb80018926449?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d71bd7ef8bf95cc2aaf579",
+            "name": "NewsBTC",
+            "url": "http://www.newsbtc.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d71bd7ef8bf95cc2aaf579.png"
+        },
+        "sourceDomain": "newsbtc.com",
+        "originalImageUrl": "https://www.newsbtc.com/wp-content/uploads/2018/01/Ripple_Price_XRP_USD_Analysis3.jpg"
+    },
+    {
+        "_id": "5d560b31568eb800187b3981",
+        "hotness": 72496.4042958315,
+        "activityHotness": 0.11133286853070033,
+        "primaryCategory": "Exchanges",
+        "words": 375,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Ripple content sharing platform Coil receives one billion Ripple (XRP) funding from Ripple Labs, the company behind XRP’s investing arm Xpring. Coil is a monetization platform that rewards content creators with micropayments. According to the announcement, the investment worth around quarter-million…",
+        "publishedAt": "2019-08-16T01:45:28.000Z",
+        "title": "Ripple content sharing platform Coil receives 1bn in XRP funding",
+        "url": "https://cryptocontrol.io/r/api/article/5d560b31568eb800187b3981?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5bda96120c38a7001984d502",
+            "name": "Cryptopolitan",
+            "url": "https://www.cryptopolitan.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5bda96120c38a7001984d502.png"
+        },
+        "sourceDomain": "cryptopolitan.com",
+        "originalImageUrl": "https://cdn.cryptopolitan.com/wp-content/uploads/2019/08/ripple-content-sharing-platform.jpg"
+    },
+    {
+        "_id": "5d55ee59568eb800186c2bb1",
+        "hotness": 72495.9898420005,
+        "activityHotness": 0.11484200051182732,
+        "primaryCategory": "General",
+        "words": 473,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45f2b",
+                "name": "Altcoin",
+                "slug": "altcoin-alt",
+                "tradingSymbol": "alt"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Most top cryptocurrencies are still falling in price, while Bitcoin price sees some rebound on the day after drop earlier this week.\nThursday, Aug. 15 — Bitcoin ( BTC ) is seeing some upward movement as Ether ( ETH ) and XRP continue to slump.\nMarket visualization. Source: Coin360\nBitcoin is trading…",
+        "publishedAt": "2019-08-15T23:15:00.000Z",
+        "title": "Bitcoin Price Shows Signs of Recovery as Altcoin Market Stays Red",
+        "url": "https://cryptocontrol.io/r/api/article/5d55ee59568eb800186c2bb1?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d70be3ef8bf95cc2aa2b4f",
+            "name": "CoinTelegraph",
+            "url": "https://cointelegraph.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d70be3ef8bf95cc2aa2b4f.png"
+        },
+        "sourceDomain": "cointelegraph.com",
+        "originalImageUrl": "https://images.cointelegraph.com/images/740_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy8zMDFiMWE5OGJjZmQ0MmIxNTRhYzI0ZDcwMGYxNGExNC5qcGc=.jpg"
+    },
+    {
+        "_id": "5d55bbf0568eb800184fa709",
+        "hotness": 72495.46185882435,
+        "activityHotness": 0.12070141693843262,
+        "primaryCategory": "Analysis",
+        "words": 357,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The latest Ripple XRP price analysis reveals that the XRP price owners should tread the market carefully Subsiding from any activities that even remotely resemble the act of buying. XRP price has been bearish with a downward trend that has been in a correction pattern which hasn’t ended and has…",
+        "publishedAt": "2019-08-15T20:02:49.000Z",
+        "title": "Ripple XRP price analysis: XRP price down by 2.5 percent",
+        "url": "https://cryptocontrol.io/r/api/article/5d55bbf0568eb800184fa709?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5bda96120c38a7001984d502",
+            "name": "Cryptopolitan",
+            "url": "https://www.cryptopolitan.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5bda96120c38a7001984d502.png"
+        },
+        "sourceDomain": "cryptopolitan.com",
+        "originalImageUrl": "https://cdn.cryptopolitan.com/wp-content/uploads/2019/08/ripple-xrp-price-analysis-15-august-2019.jpg"
+    },
+    {
+        "_id": "5d55b987568eb800184e4717",
+        "hotness": 72495.40284821176,
+        "activityHotness": 0.14446858212614458,
+        "primaryCategory": "ICO",
+        "words": 368,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Amid the Ripple XRP price dropping by more than 10%, the CEO of company Brad Garlinghouse decide to homologate the acts of its investors. Today, he posted a tweet includes the main events that will hold within the scope of the Economic club NY this fall. This event can affect the price of the token…",
+        "publishedAt": "2019-08-15T19:33:01.000Z",
+        "title": "Brad Garlinghouse Provides XRP Investors With Huge Hint of What’s to Come",
+        "url": "https://cryptocontrol.io/r/api/article/5d55b987568eb800184e4717?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b922ec60c38a7001951cbe6",
+            "name": "Today's Gazette",
+            "url": "https://todaysgazette.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b922ec60c38a7001951cbe6.png"
+        },
+        "sourceDomain": "todaysgazette.com",
+        "originalImageUrl": "https://e6q4r7g2.stackpathcdn.com/wp-content/uploads/2018/12/Brad-Garlinghouse-CEO-Ripple.png"
+    },
+    {
+        "_id": "5d55b8af568eb800184dcd63",
+        "hotness": 72495.36105879575,
+        "activityHotness": 0.10953101798043251,
+        "primaryCategory": "General",
+        "words": 458,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The web monetization platform Coil wants to build awareness among creators, consumers and strategic partners and process micropayments using XRP or other digital assets. Ripple's investments will help it with this aim.",
+        "publishedAt": "2019-08-15T19:30:33.000Z",
+        "title": "To Boost XRP Adoption, Ripple Gives 1 Billion XRP Tokens to Content Platform...",
+        "url": "https://cryptocontrol.io/r/api/article/5d55b8af568eb800184dcd63?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b4b5794c831fd000f6b5152",
+            "name": "CoinSpeaker",
+            "url": "https://www.coinspeaker.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b4b5794c831fd000f6b5152.png"
+        },
+        "sourceDomain": "coinspeaker.com",
+        "originalImageUrl": null
+    },
+    {
+        "_id": "5d55ad8a568eb80018474c86",
+        "hotness": 72495.29703641274,
+        "activityHotness": 0.12851789422336624,
+        "primaryCategory": "General",
+        "words": 596,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45f2b",
+                "name": "Altcoin",
+                "slug": "altcoin-alt",
+                "tradingSymbol": "alt"
+            }
+        ],
+        "description": "Across the crypto market, there’s extreme pain, fear, uncertainty, and doubt. Bitcoin is pulling back from recent highs, and altcoins like Ethereum, Ripple, and others have only bled out and fallen deeper to new lows. And while most crypto investors believe there is more pain to come for the altcoin…",
+        "publishedAt": "2019-08-15T19:00:40.000Z",
+        "title": "Bitcoin and Altcoin Crashes Correlating Could Be Catalyst for Alt Bottom",
+        "url": "https://cryptocontrol.io/r/api/article/5d55ad8a568eb80018474c86?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d71bd7ef8bf95cc2aaf579",
+            "name": "NewsBTC",
+            "url": "http://www.newsbtc.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d71bd7ef8bf95cc2aaf579.png"
+        },
+        "sourceDomain": "newsbtc.com",
+        "originalImageUrl": "https://www.newsbtc.com/wp-content/uploads/2019/08/altcoin-bitcoin-crypto-ethereum-ripple-shutterstock_1237760869-1200x780.jpg"
+    },
+    {
+        "_id": "5d55aafb568eb80018460528",
+        "hotness": 72495.21355273812,
+        "activityHotness": 0.11739533071234382,
+        "primaryCategory": "General",
+        "words": 466,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Ripple’s funding initiative Xpring has granted a billion XRP tokens – roughly $250M at current prices – to Coil, a new sharing and monetization platform that rewards content creators with micropayments. According to the announcement, Coil will use the grant to build out an ecosystem in which…",
+        "publishedAt": "2019-08-15T18:34:37.000Z",
+        "title": "Ripple Pumps 1bn XRP Into New Content Sharing Platform",
+        "url": "https://cryptocontrol.io/r/api/article/5d55aafb568eb80018460528?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5badd3ca0c38a70019e41912",
+            "name": "Crypto Briefing",
+            "url": "https://cryptobriefing.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5badd3ca0c38a70019e41912.png"
+        },
+        "sourceDomain": "cryptobriefing.com",
+        "originalImageUrl": "https://cryptobriefing.com/wp-content/uploads/2019/08/Ripple-Pumps-1bn-XRP-into-content-creation-platform.jpg"
+    },
+    {
+        "_id": "5d559c3e568eb800183db066",
+        "hotness": 72495.00903475027,
+        "activityHotness": 0.12070141693843262,
+        "primaryCategory": "Analysis",
+        "words": 337,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Ripple has announced plans to expend over $260 million in XRP to content monetization platform Coil, a content monetization firm. Ripple’s investment arm Xpring reportedly participated in a $4 million round for the startup. According to a press release, Ripple’s donation is for establishing a…",
+        "publishedAt": "2019-08-15T17:19:48.000Z",
+        "title": "Ripple Disburses One Billion XRP To Online Content Startup Coil",
+        "url": "https://cryptocontrol.io/r/api/article/5d559c3e568eb800183db066?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5adc20e7ec0af7be3539d369",
+            "name": "ZyCrypto",
+            "url": "https://zycrypto.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5adc20e7ec0af7be3539d369.png"
+        },
+        "sourceDomain": "zycrypto.com",
+        "originalImageUrl": "https://zycrypto.com/wp-content/uploads/2019/02/Ripples-XRP-Listing-on-Coinbase-Settles-the-Issue-of-XRP-Being-a-Security-1.png"
+    },
+    {
+        "_id": "5d559f7c568eb800183f7098",
+        "hotness": 72499.31863629086,
+        "activityHotness": 4.64946962418361,
+        "primaryCategory": "Analysis",
+        "words": 148,
+        "similarArticles": [
+            {
+                "_id": "5d55898a568eb8001833a88c",
+                "title": "Ripple’s Xpring Gives $265 Mil in XRP to Content Platform Coil",
+                "publishedAt": "2019-08-15T16:25:00.000Z",
+                "sourceDomain": "cointelegraph.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d55898a568eb8001833a88c?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d556b71568eb80018227eae",
+                "title": "Ripple’s Xpring Gives a One Billion XRP Grant to Coil to Increase Utility of XRP",
+                "publishedAt": "2019-08-15T13:50:30.000Z",
+                "sourceDomain": "",
+                "url": "https://cryptocontrol.io/r/api/article/5d556b71568eb80018227eae?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d558702568eb8001832459b",
+                "title": "Ripple Gives Away USD 263M in XRP that Lost 27% of its Value this Year",
+                "publishedAt": "2019-08-15T15:41:07.000Z",
+                "sourceDomain": "cryptonews.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d558702568eb8001832459b?ref=5d532cd5568eb80018ddbb73"
+            }
+        ],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The donation will be deployed towards driving adoption of XRP and the Interledger Protocol (ILP) by growing Coil's monetization platform.\n",
+        "publishedAt": "2019-08-15T16:00:54.000Z",
+        "title": "Ripple Donates to Coil Startup 1 Billion XRP",
+        "url": "https://cryptocontrol.io/r/api/article/5d559f7c568eb800183f7098?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b6b761b3bda0e0010d82323",
+            "name": "Insider.pro EN",
+            "url": "https://en.insider.pro",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b6b761b3bda0e0010d82323.png"
+        },
+        "sourceDomain": "ihodl.com",
+        "originalImageUrl": "https://ihodl.com/media/articles/facebook/d/1c/d2cf581cd__800x420__q85_016750202803.jpg"
+    },
+    {
+        "_id": "5d5583f3568eb8001830576b",
+        "hotness": 72494.78364536929,
+        "activityHotness": 0.11906203596086498,
+        "primaryCategory": "Exchanges",
+        "words": 422,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Ripple Inc. has announced a weighty investment in a nascent web monetization platform Coil, created by a former Ripple’s CTO. As contained in a message, Ripple’s investment arm, Xpring, states it is partnering with Coil, and has therefore granted the platform 1 billion XRP in other to gather…",
+        "publishedAt": "2019-08-15T15:59:15.000Z",
+        "title": "Ripple Doles out 1 Billion XRP on Web Monetization Platform Coil",
+        "url": "https://cryptocontrol.io/r/api/article/5d5583f3568eb8001830576b?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b922ec60c38a7001951cbe6",
+            "name": "Today's Gazette",
+            "url": "https://todaysgazette.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b922ec60c38a7001951cbe6.png"
+        },
+        "sourceDomain": "todaysgazette.com",
+        "originalImageUrl": "https://e6q4r7g2.stackpathcdn.com/wp-content/uploads/2019/07/Ripple-Regulation-in-UK.png"
+    },
+    {
+        "_id": "5d55858a568eb80018314c9c",
+        "hotness": 72494.77905743425,
+        "activityHotness": 0.12151113796169455,
+        "primaryCategory": "General",
+        "words": 272,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The crypto maket looks shaky as many coins suffer double digit losses.",
+        "publishedAt": "2019-08-15T15:56:43.000Z",
+        "title": "Ethereum falls below $200 in sea of red",
+        "url": "https://cryptocontrol.io/r/api/article/5d55858a568eb80018314c9c?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5badd2e80c38a70019e35b97",
+            "name": "Decrypt Media",
+            "url": "https://decryptmedia.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5badd2e80c38a70019e35b97.jpg"
+        },
+        "sourceDomain": "decrypt.co",
+        "originalImageUrl": "https://screenshot.dmedia.cloud/capture/aHR0cHM6Ly9kZWNyeXB0bWVkaWEuY29tL3NjcmVlbnNob3QvcG9zdC84NDE4Lz9zZWxlY3Rvcj0ucG9zdENhcmQtU3R5bGVkQ2FyZCZoZWlnaHQ9NDcwcHgmd2lkdGg9OTAwcHg=.png"
+    },
+    {
+        "_id": "5d5576c0568eb800182905bf",
+        "hotness": 72494.65978770015,
+        "activityHotness": 0.1418710334858185,
+        "primaryCategory": "General",
+        "words": 432,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Peter Brandt, a professional crypto trader, has called on XRP’s doomsday. According to Brandt in a tweet on August 14, 2019, if XRP fails to trade above $0.24, then nothing is stopping it from sinking to $0.020725. On the other hand, loyal holders of XRP, the third-largest asset by market cap have…",
+        "publishedAt": "2019-08-15T15:06:27.000Z",
+        "title": "Ripple Needs To Keep ‘Manipulating’ The Price Of XRP To Prevent It Crashing To $0.02, Peter Brandt Opines",
+        "url": "https://cryptocontrol.io/r/api/article/5d5576c0568eb800182905bf?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5adc20e7ec0af7be3539d369",
+            "name": "ZyCrypto",
+            "url": "https://zycrypto.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5adc20e7ec0af7be3539d369.png"
+        },
+        "sourceDomain": "zycrypto.com",
+        "originalImageUrl": "https://zycrypto.com/wp-content/uploads/2018/12/Binance-Ready-to-Open-Trading-of-Two-Pairs-Using-Ripple-XRP-as-the-Quote-Currency.png"
+    },
+    {
+        "_id": "5d557509568eb800182805e7",
+        "hotness": 72494.60573215569,
+        "activityHotness": 0.11823215567939548,
+        "primaryCategory": "Analysis",
+        "words": 541,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "XRP saw a very sharp decrease of around 10% over the past 24 hours, bringing its the price beneath the 2019 strong support at $0.30 to reach where it is currently trading at $0.2598. The decline is perhaps reactive to Bitcoin’s plunge today.  XRP remains the third-largest cryptocurrency with a…",
+        "publishedAt": "2019-08-15T14:55:30.000Z",
+        "title": "Ripple Price Analysis: XRP Plumets Below $0.30, New 2019 Low Coming Up?",
+        "url": "https://cryptocontrol.io/r/api/article/5d557509568eb800182805e7?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5ce406880175730010f47558",
+            "name": "Crypto Potato",
+            "url": "https://cryptopotato.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5ce406880175730010f47558.png"
+        },
+        "sourceDomain": "cryptopotato.com",
+        "originalImageUrl": "https://cryptopotato.com/wp-content/uploads/2019/01/ripple_xrp_cover.jpg"
+    },
+    {
+        "_id": "5d556cf8568eb80018236070",
+        "hotness": 72494.45397289643,
+        "activityHotness": 0.11823215567939548,
+        "primaryCategory": "General",
+        "words": 427,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59d21e9b83a0523906a45de2",
+                "name": "Civic",
+                "slug": "civic",
+                "tradingSymbol": "cvc"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Bitcoin does not have a wealth distribution problem after all, another expert has said as the debate continues to mushroom within the industry. BTC Ownership ‘Seems Balanced’ In a tweet August 15, Gabor Gurbacs, digital asset strategist and director at investment management giant VanEck, took claims…",
+        "publishedAt": "2019-08-15T14:00:52.000Z",
+        "title": "Bitcoin Wealth Centralization Is A Myth, Says VanEck Strategist",
+        "url": "https://cryptocontrol.io/r/api/article/5d556cf8568eb80018236070?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d8e471ef8bf95cc2c16858",
+            "name": "Bitcoinist",
+            "url": "https://bitcoinist.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d8e471ef8bf95cc2c16858.png"
+        },
+        "sourceDomain": "bitcoinist.com",
+        "originalImageUrl": "https://bitcoinist.com/wp-content/uploads/2019/08/gabor-gurbacs__25528-e1565873338451.jpeg"
+    },
+    {
+        "_id": "5d5567e7568eb8001820b561",
+        "hotness": 72498.97763621493,
+        "activityHotness": 4.654812140850969,
+        "primaryCategory": "Analysis",
+        "words": 634,
+        "similarArticles": [
+            {
+                "_id": "5d546c24568eb80018941073",
+                "title": "XRP Massively Falls Amid New Lawsuit Claiming The Digital Asset Is An Unregistered Security",
+                "publishedAt": "2019-08-14T19:43:35.000Z",
+                "sourceDomain": "usethebitcoin.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d546c24568eb80018941073?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d542720568eb800186bd351",
+                "title": "Twitter Post is Evidence: New Lawsuit Filed Against Ripple",
+                "publishedAt": "2019-08-14T14:44:36.000Z",
+                "sourceDomain": "todaysgazette.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d542720568eb800186bd351?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d5420ba568eb80018683533",
+                "title": "XRP Class Action turns new SEC directives on Ripple and Brad Garlinghouse",
+                "publishedAt": "2019-08-14T14:50:39.000Z",
+                "sourceDomain": "",
+                "url": "https://cryptocontrol.io/r/api/article/5d5420ba568eb80018683533?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d53f363568eb800184e6580",
+                "title": "Ripple Faces Another Lawsuit from Investors Claiming XRP Is an Unregistered...",
+                "publishedAt": "2019-08-14T11:07:54.000Z",
+                "sourceDomain": "coinspeaker.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d53f363568eb800184e6580?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d53e4fc568eb80018461dad",
+                "title": "SEC Delays Decision on Bitcoin ETFs Again",
+                "publishedAt": "2019-08-14T09:08:11.000Z",
+                "sourceDomain": "insidebitcoins.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d53e4fc568eb80018461dad?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d53a4ec568eb80018209c32",
+                "title": "This Cryptocurrency Plunges 75% Over SEC Security View – Is Ripple’s XRP Next?",
+                "publishedAt": "2019-08-14T05:39:40.000Z",
+                "sourceDomain": "coingape.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d53a4ec568eb80018209c32?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d53475f568eb80018ec6a55",
+                "title": "Hard Nuts for Ripple? XRP “Unregistered Security” Legal Battle Takes New Turn",
+                "publishedAt": "2019-08-13T23:26:51.000Z",
+                "sourceDomain": "coinfomania.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d53475f568eb80018ec6a55?ref=5d532cd5568eb80018ddbb73"
+            }
+        ],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dbe",
+                "name": "Tether",
+                "slug": "tether",
+                "tradingSymbol": "usdt"
+            }
+        ],
+        "description": "XRP and other digital currencies in the cryptocurrency space have been experiencing notable price plummet over the past 48 hours. It has quite been devastating for the majority of cryptocurrencies, including XRP and Bitcoin. Peter Brandt, a popular and experienced trader in the crypto space has…",
+        "publishedAt": "2019-08-15T13:56:13.000Z",
+        "title": "Veteran Peter Brandt Accuses Ripple of Market Manipulation, Expects Further XRP Price Drop",
+        "url": "https://cryptocontrol.io/r/api/article/5d5567e7568eb8001820b561?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b922ec60c38a7001951cbe6",
+            "name": "Today's Gazette",
+            "url": "https://todaysgazette.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b922ec60c38a7001951cbe6.png"
+        },
+        "sourceDomain": "todaysgazette.com",
+        "originalImageUrl": "https://e6q4r7g2.stackpathcdn.com/wp-content/uploads/2019/07/Ripples-XRP.png"
+    },
+    {
+        "_id": "5d5560e3568eb800181cbc3b",
+        "hotness": 72497.38508194916,
+        "activityHotness": 3.1559615787935424,
+        "primaryCategory": "Exchanges",
+        "words": 976,
+        "similarArticles": [
+            {
+                "_id": "5d542720568eb800186bd351",
+                "title": "Twitter Post is Evidence: New Lawsuit Filed Against Ripple",
+                "publishedAt": "2019-08-14T14:44:36.000Z",
+                "sourceDomain": "todaysgazette.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d542720568eb800186bd351?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d5422f5568eb8001869547b",
+                "title": "Case Against Ripple Toughens as SEC may “Hammer” XRP",
+                "publishedAt": "2019-08-14T14:26:52.000Z",
+                "sourceDomain": "zycrypto.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d5422f5568eb8001869547b?ref=5d532cd5568eb80018ddbb73"
+            }
+        ],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45de5",
+                "name": "Status",
+                "slug": "status",
+                "tradingSymbol": "snt"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            }
+        ],
+        "description": "A new update to the Ripple XRP lawsuit has turned it into the illegal trading case after the initial draft submitted in the honorable court following the old Security Exchange Commission guidelines.  The lawsuit was initially filed in the May of 2018 where the investor Bradley Sostak initiated a…",
+        "publishedAt": "2019-08-15T13:22:29.000Z",
+        "title": "Ripple XRP lawsuit turns into illegal trading case? SEC guidelines quoted",
+        "url": "https://cryptocontrol.io/r/api/article/5d5560e3568eb800181cbc3b?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5bda96120c38a7001984d502",
+            "name": "Cryptopolitan",
+            "url": "https://www.cryptopolitan.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5bda96120c38a7001984d502.png"
+        },
+        "sourceDomain": "cryptopolitan.com",
+        "originalImageUrl": "https://cdn.cryptopolitan.com/wp-content/uploads/2019/08/ripple-xrp-lawsuit-turns-illegal-trading-case.jpg"
+    },
+    {
+        "_id": "5d555a7a568eb8001818fdd6",
+        "hotness": 72494.287246197,
+        "activityHotness": 0.11988508587451652,
+        "primaryCategory": "Analysis",
+        "words": 684,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Ripple is making a major investment in Coil, a media platform that pays content creators XRP.",
+        "publishedAt": "2019-08-15T13:00:15.000Z",
+        "title": "Ripple Is Giving Away 1 Billion XRP in Massive Bid to Fund Online Content",
+        "url": "https://cryptocontrol.io/r/api/article/5d555a7a568eb8001818fdd6?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59ce11393a44cf289a9a71f5",
+            "name": "CoinDesk",
+            "url": "http://coindesk.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59ce11393a44cf289a9a71f5.png"
+        },
+        "sourceDomain": "coindesk.com",
+        "originalImageUrl": "https://www.coindesk.com/wp-content/uploads/2018/06/Construct-2017-Innovation-Hanger-SF-Jan-3031-2017-Steven-Gregory-Photography-6128_preview-e1528246992307-150x150.jpg"
+    },
+    {
+        "_id": "5d555102568eb800181366cc",
+        "hotness": 72494.09994465896,
+        "activityHotness": 0.14054651081081646,
+        "primaryCategory": "Blockchain",
+        "words": 416,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45db0",
+                "name": "Litecoin",
+                "slug": "litecoin",
+                "tradingSymbol": "ltc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "As Bitcoin sees the third day of red values, the cryptocurrency market continues to struggle to regain values.\n",
+        "publishedAt": "2019-08-15T11:45:23.000Z",
+        "title": "Top cryptos down again, with Ripple losing nearly 10% for the day",
+        "url": "https://cryptocontrol.io/r/api/article/5d555102568eb800181366cc?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5ac5f375ec0af7be35314264",
+            "name": "Coin Insider",
+            "url": "https://www.coininsider.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5ac5f375ec0af7be35314264.jpg"
+        },
+        "sourceDomain": "coininsider.com",
+        "originalImageUrl": "https://www.coininsider.com/wp-content/uploads/2018/10/bear-market-1200x630.jpg"
+    },
+    {
+        "_id": "5d5535e1568eb8001804b244",
+        "hotness": 72493.85227897776,
+        "activityHotness": 0.13001045924503382,
+        "primaryCategory": "General",
+        "words": 329,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "New Zealand is pushing the boundaries on digital currency. The sovereign island country in the southwest Pacific Ocean has deemed it legal for employers to pay their employees in crypto-assets, such as Bitcoin (BTC), bringing the controversial currency further into the realm of everyday payment…",
+        "publishedAt": "2019-08-15T10:20:01.000Z",
+        "title": "New Zealand Gives Bitcoin a Vote of Confidence",
+        "url": "https://cryptocontrol.io/r/api/article/5d5535e1568eb8001804b244?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5af1c9d401aed341ae236047",
+            "name": "CoinDoo",
+            "url": "https://coindoo.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5af1c9d401aed341ae236047.png"
+        },
+        "sourceDomain": "coindoo.com",
+        "originalImageUrl": "https://coindoo.com/wp-content/uploads/2019/06/market-cap.jpg"
+    },
+    {
+        "_id": "5d5528bc568eb80018fd8f62",
+        "hotness": 72493.75434378149,
+        "activityHotness": 0.15364933705145686,
+        "primaryCategory": "Exchanges",
+        "words": 586,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45db6",
+                "name": "Ethereum Classic",
+                "slug": "ethereum-classic",
+                "tradingSymbol": "etc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            }
+        ],
+        "description": "With so many cryptocurrency exchanges now offering margin trading, it may be difficult to know where to start. Luckily, we’ve compiled a list of the top options for crypto traders looking to multiply their gains. Margin trading is an extremely risky (but also very lucrative) way to trade…",
+        "publishedAt": "2019-08-15T09:36:15.000Z",
+        "title": "The Top 5 Cryptocurrency Exchanges for Margin Trading",
+        "url": "https://cryptocontrol.io/r/api/article/5d5528bc568eb80018fd8f62?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b964b640c38a70019787e71",
+            "name": "BeInCrypto",
+            "url": "https://beincrypto.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b964b640c38a70019787e71.jpg"
+        },
+        "sourceDomain": "beincrypto.com",
+        "originalImageUrl": "https://beincrypto.com/wp-content/uploads/2019/08/bic_Top_Best_Cryptocurrency_Exchanges.jpg"
+    },
+    {
+        "_id": "5d5524ff568eb80018fb7ec8",
+        "hotness": 72493.6371367482,
+        "activityHotness": 0.1343589704390077,
+        "primaryCategory": "Analysis",
+        "words": 338,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "5a7b931102ac032bc99781f1",
+                "name": "DATA",
+                "slug": "data",
+                "tradingSymbol": "dta"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45f2b",
+                "name": "Altcoin",
+                "slug": "altcoin-alt",
+                "tradingSymbol": "alt"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            }
+        ],
+        "description": "Peter Brandt joins critics of the third-largest altcoin, which currently trades at two-year lows against Bitcoin.\nAltcoin XRP has received fresh claims its price is artificially high as a well-known cryptocurrency trader warns of serious losses. \nBrandt: Ripple manipulated XRP for years\nIn a series…",
+        "publishedAt": "2019-08-15T09:01:00.000Z",
+        "title": "XRP Could Fall 20% Says Trader Accusing Ripple of Manipulating Market",
+        "url": "https://cryptocontrol.io/r/api/article/5d5524ff568eb80018fb7ec8?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d70be3ef8bf95cc2aa2b4f",
+            "name": "CoinTelegraph",
+            "url": "https://cointelegraph.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d70be3ef8bf95cc2aa2b4f.png"
+        },
+        "sourceDomain": "cointelegraph.com",
+        "originalImageUrl": "https://images.cointelegraph.com/images/740_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy8xMjUzOWJmZmQwZGY1NjY5YjU5M2YyNGQwNTYyZTRiZS5qcGc=.jpg"
+    },
+    {
+        "_id": "5d552274568eb80018f9ffa9",
+        "hotness": 72493.61985843715,
+        "activityHotness": 0.15481214085096875,
+        "primaryCategory": "General",
+        "words": 553,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45db0",
+                "name": "Litecoin",
+                "slug": "litecoin",
+                "tradingSymbol": "ltc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dc5",
+                "name": "EOS",
+                "slug": "eos",
+                "tradingSymbol": "eos"
+            }
+        ],
+        "description": "This week, we saw a steady decline in bitcoin price below the USD 11,200 and USD 11,000 support levels. Yesterday, we discussed the chances of bearish continuation below the USD 10,500 support area. BTC/USD did move down and fell significantly below the USD 10,000 support. Also, altcoins failed to…",
+        "publishedAt": "2019-08-15T08:47:25.000Z",
+        "title": "Bitcoin and Altcoins Breakdown Could Trigger Additional Losses",
+        "url": "https://cryptocontrol.io/r/api/article/5d552274568eb80018f9ffa9?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5c8fbb44a4410000111f614b",
+            "name": "CryptoNews",
+            "url": "https://cryptonews.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5c8fbb44a4410000111f614b.png"
+        },
+        "sourceDomain": "cryptonews.com",
+        "originalImageUrl": "https://cimg.co/w/articles/0/5d5/51c3b1a8b6.png"
+    },
+    {
+        "_id": "5d550f73568eb80018ef2a7c",
+        "hotness": 72493.36658453333,
+        "activityHotness": 0.13001045924503382,
+        "primaryCategory": "Analysis",
+        "words": 374,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Ripple and XRP have been in the spotlight a lot this year, and the two entities were mainly surrounded by positive news. The San Francisco-based company managed to achieve a lot of important partnership, while at the same time, boosting their products. It also made sure to support the entire XRP…",
+        "publishedAt": "2019-08-15T07:25:10.000Z",
+        "title": "XRP Lawsuit: Ripple Is Forced To Respond By September – Is XRP A Security?",
+        "url": "https://cryptocontrol.io/r/api/article/5d550f73568eb80018ef2a7c?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5bac83ff0c38a70019d8ffd9",
+            "name": "Oracle Times",
+            "url": "https://oracletimes.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5bac83ff0c38a70019d8ffd9.png"
+        },
+        "sourceDomain": "oracletimes.com",
+        "originalImageUrl": "https://i0.wp.com/oracletimes.com/wp-content/uploads/2019/07/xrgeeqfwsasdrse.png?fit=810%2C475&ssl=1"
+    },
+    {
+        "_id": "5d54f0aa568eb80018ddf512",
+        "hotness": 72493.10684897624,
+        "activityHotness": 0.1883767540168595,
+        "primaryCategory": "Analysis",
+        "words": 361,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45f2b",
+                "name": "Altcoin",
+                "slug": "altcoin-alt",
+                "tradingSymbol": "alt"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dbe",
+                "name": "Tether",
+                "slug": "tether",
+                "tradingSymbol": "usdt"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dd4",
+                "name": "Binance Coin",
+                "slug": "binance-coin",
+                "tradingSymbol": "bnb"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dcb",
+                "name": "Stellar Lumens",
+                "slug": "stellar",
+                "tradingSymbol": "xlm"
+            }
+        ],
+        "description": "The current king of cryptocurrency Bitcoin price plunge is taking all major altcoin prices down in the red zone. As per the data, the king itself is down by over five percent and a half percent (5.8%), whereas the market cap took a six billion dollars ($16B) hit coming down to one hundred and…",
+        "publishedAt": "2019-08-15T05:30:39.000Z",
+        "title": "ETH, LTC, BCH, XRP major altcoin prices down after Bitcoin price plunge",
+        "url": "https://cryptocontrol.io/r/api/article/5d54f0aa568eb80018ddf512?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5bda96120c38a7001984d502",
+            "name": "Cryptopolitan",
+            "url": "https://www.cryptopolitan.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5bda96120c38a7001984d502.png"
+        },
+        "sourceDomain": "cryptopolitan.com",
+        "originalImageUrl": "https://cdn.cryptopolitan.com/wp-content/uploads/2019/08/Altcoins.jpg"
+    },
+    {
+        "_id": "5d54f1e7568eb80018de9707",
+        "hotness": 72492.99145763273,
+        "activityHotness": 0.15766133643039937,
+        "primaryCategory": "Analysis",
+        "words": 471,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59d21e9b83a0523906a45dd4",
+                "name": "Binance Coin",
+                "slug": "binance-coin",
+                "tradingSymbol": "bnb"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45db0",
+                "name": "Litecoin",
+                "slug": "litecoin",
+                "tradingSymbol": "ltc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45df4",
+                "name": "TRON",
+                "slug": "tron",
+                "tradingSymbol": "trx"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dc5",
+                "name": "EOS",
+                "slug": "eos",
+                "tradingSymbol": "eos"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The total crypto market cap extended its decline and broke the key $265.0B support area. Bitcoin price is down more than 5% and it tested the $10,000 support area. Binance coin (BNB) price broke the key $28.50 support level to move into a bearish zone. Litecoin (LTC) price is down 10% and it broke…",
+        "publishedAt": "2019-08-15T05:00:10.000Z",
+        "title": "Bitcoin & Crypto Market Cap Nosedived: LTC, BNB, BCH, TRX Analysis",
+        "url": "https://cryptocontrol.io/r/api/article/5d54f1e7568eb80018de9707?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d71bd7ef8bf95cc2aaf579",
+            "name": "NewsBTC",
+            "url": "http://www.newsbtc.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d71bd7ef8bf95cc2aaf579.png"
+        },
+        "sourceDomain": "newsbtc.com",
+        "originalImageUrl": "https://www.newsbtc.com/wp-content/uploads/2019/08/Crypto_Market_Bitcoin_Declining-1200x780.jpg"
+    },
+    {
+        "_id": "5d54e2b1568eb80018d64432",
+        "hotness": 72492.83998493619,
+        "activityHotness": 0.15007752879124892,
+        "primaryCategory": "General",
+        "words": 467,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "5a7b931102ac032bc99781f1",
+                "name": "DATA",
+                "slug": "data",
+                "tradingSymbol": "dta"
+            }
+        ],
+        "description": "Ripple price declined sharply after it broke the key $0.2900 support area against the US dollar. The price is down more than 10% and even tumbled to test the $0.2350 level. A short term breakout pattern is forming with resistance near $0.2685 on the hourly chart of the XRP/USD pair (data source from…",
+        "publishedAt": "2019-08-15T04:08:22.000Z",
+        "title": "Ripple Price (XRP) Decline Could Accelerate: BTC and ETH Weakens Further",
+        "url": "https://cryptocontrol.io/r/api/article/5d54e2b1568eb80018d64432?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d71bd7ef8bf95cc2aaf579",
+            "name": "NewsBTC",
+            "url": "http://www.newsbtc.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d71bd7ef8bf95cc2aaf579.png"
+        },
+        "sourceDomain": "newsbtc.com",
+        "originalImageUrl": "https://www.newsbtc.com/wp-content/uploads/2018/01/Ripple_Price_XRP_USD_Analysis15.jpg"
+    },
+    {
+        "_id": "5d54a91d568eb80018b6170a",
+        "hotness": 72492.17515807052,
+        "activityHotness": 0.1418710334858185,
+        "primaryCategory": "Analysis",
+        "words": 470,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The Ripple XRP price analysis doesn’t carry any exciting news this time around, given the king of cryptocurrency is down, and the market is going through an overall correction. This time XRP’s journey started from July 9 when it reached a low of 0.285 dollars. Then the price tag got an increment,…",
+        "publishedAt": "2019-08-15T00:11:59.000Z",
+        "title": "Ripple XRP price analysis: XRP price drops down to $0.25",
+        "url": "https://cryptocontrol.io/r/api/article/5d54a91d568eb80018b6170a?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5bda96120c38a7001984d502",
+            "name": "Cryptopolitan",
+            "url": "https://www.cryptopolitan.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5bda96120c38a7001984d502.png"
+        },
+        "sourceDomain": "cryptopolitan.com",
+        "originalImageUrl": "https://cdn.cryptopolitan.com/wp-content/uploads/2019/08/ripple-xrp-price-analysis-14-august-2019.jpg"
+    },
+    {
+        "_id": "5d54a64e568eb80018b46cf6",
+        "hotness": 72492.16589835157,
+        "activityHotness": 0.1641853886172395,
+        "primaryCategory": "Analysis",
+        "words": 536,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dcb",
+                "name": "Stellar Lumens",
+                "slug": "stellar",
+                "tradingSymbol": "xlm"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            }
+        ],
+        "description": "The artist formerly known as Ripple fell off a cliff edge on Wednesday, as the value of XRP plunged 12.4% in the space of just ten minutes. […]\n",
+        "publishedAt": "2019-08-15T00:00:37.000Z",
+        "title": "XRP Meets Cliff Edge as Centralized Security Claims Gain Momentum",
+        "url": "https://cryptocontrol.io/r/api/article/5d54a64e568eb80018b46cf6?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b4b5727c831fd000f6b0af9",
+            "name": "Hacked.com",
+            "url": "https://hacked.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b4b5727c831fd000f6b0af9.png"
+        },
+        "sourceDomain": "hacked.com",
+        "originalImageUrl": "https://hacked.com/wp-content/uploads/2019/07/xrp.jpg"
+    },
+    {
+        "_id": "5d549133568eb80018a89201",
+        "hotness": 72491.91802051882,
+        "activityHotness": 0.16575200029167944,
+        "primaryCategory": "Analysis",
+        "words": 786,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45db0",
+                "name": "Litecoin",
+                "slug": "litecoin",
+                "tradingSymbol": "ltc"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            }
+        ],
+        "description": "The cryptocurrency segment is a sea of red today, with all of the major coins sporting significant losses in the wake of a concerted move below the […]\n",
+        "publishedAt": "2019-08-14T22:30:49.000Z",
+        "title": "Crypto Update: Key Support Levels Fall as Altcoins Crash",
+        "url": "https://cryptocontrol.io/r/api/article/5d549133568eb80018a89201?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b4b5727c831fd000f6b0af9",
+            "name": "Hacked.com",
+            "url": "https://hacked.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b4b5727c831fd000f6b0af9.png"
+        },
+        "sourceDomain": "hacked.com",
+        "originalImageUrl": "https://hacked.com/wp-content/uploads/2019/08/bear_cute.jpg"
+    },
+    {
+        "_id": "5d546cbe568eb80018946141",
+        "hotness": 72491.46951327974,
+        "activityHotness": 0.1598836501088704,
+        "primaryCategory": "Analysis",
+        "words": 359,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dcb",
+                "name": "Stellar Lumens",
+                "slug": "stellar",
+                "tradingSymbol": "xlm"
+            }
+        ],
+        "description": "In the last 6 months, there has been plenty to report about Ripple. The company behind XRP has gone to great lengths to ensure the success of XRP. This has been appreciated by investors and seen more confidence built between the company and its investors. However, while prices will spike following…",
+        "publishedAt": "2019-08-14T19:51:28.000Z",
+        "title": "Ripple’s XRP In A Bearish Slump Despite Recent Product Developments And Regulatory Clarity",
+        "url": "https://cryptocontrol.io/r/api/article/5d546cbe568eb80018946141?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5adc20e7ec0af7be3539d369",
+            "name": "ZyCrypto",
+            "url": "https://zycrypto.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5adc20e7ec0af7be3539d369.png"
+        },
+        "sourceDomain": "zycrypto.com",
+        "originalImageUrl": "https://zycrypto.com/wp-content/uploads/2018/11/Ripple-XRP-Price-Analysis-Bears-Take-Control-Of-The-Market.png"
+    },
+    {
+        "_id": "5d5456dc568eb8001887eac6",
+        "hotness": 72491.24483999456,
+        "activityHotness": 0.14946962418361073,
+        "primaryCategory": "Analysis",
+        "words": 437,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59d21e9b83a0523906a45dcb",
+                "name": "Stellar Lumens",
+                "slug": "stellar",
+                "tradingSymbol": "xlm"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Beaxy, a cryptocurrency exchange entered the competitive crypto market only in May 2019 and has been introduced to Partial Payment option on August 13, however through an XRP exploit. The Partial Payment being exploited has been recognized by the XRP ecosystem since 2014 when it claimed its first…",
+        "publishedAt": "2019-08-14T18:34:20.000Z",
+        "title": "Beaxy’s encounter with Partial Payments via XRP echoes JustCoin’s experience",
+        "url": "https://cryptocontrol.io/r/api/article/5d5456dc568eb8001887eac6?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b4b57d8c831fd000f6b7e16",
+            "name": "AMB Crypto",
+            "url": "https://ambcrypto.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b4b57d8c831fd000f6b7e16.png"
+        },
+        "sourceDomain": "eng.ambcrypto.com",
+        "originalImageUrl": "https://eng.ambcrypto.com/wp-content/uploads/2019/08/security-265130_960_720-e1565787778187.jpg"
+    },
+    {
+        "_id": "5d542082568eb800186806dc",
+        "hotness": 72490.59401317366,
+        "activityHotness": 0.12776317365982798,
+        "primaryCategory": "Exchanges",
+        "words": 407,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "UK-Based Bank Santander has reportedly halted payments to popular US cryptocurrency exchange Coinbase. Apparently, the decision has been made in regard to the increase of fraud related to the exchange.  UK Bank Santander Halts Coinbase Payments According to a Reddit user, the UK-based Bank Santander…",
+        "publishedAt": "2019-08-14T14:47:51.000Z",
+        "title": "Breaking: Santander UK Bank Reportedly Halts Coinbase Payments",
+        "url": "https://cryptocontrol.io/r/api/article/5d542082568eb800186806dc?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5ce406880175730010f47558",
+            "name": "Crypto Potato",
+            "url": "https://cryptopotato.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5ce406880175730010f47558.png"
+        },
+        "sourceDomain": "cryptopotato.com",
+        "originalImageUrl": "https://cryptopotato.com/wp-content/uploads/2019/08/shutterstock_133644740-min.jpg"
+    },
+    {
+        "_id": "5d54a9ee568eb80018b6851e",
+        "hotness": 72490.58364533071,
+        "activityHotness": 0.11739533071234382,
+        "primaryCategory": "Exchanges",
+        "words": 407,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "UK-Based Bank Santander has reportedly halted payments to popular US cryptocurrency exchange Coinbase. Apparently, the decision has been made in regard to the increase of fraud related to the exchange.  UK Bank Santander Halts Coinbase Payments According to a Reddit user, the UK-based Bank Santander…",
+        "publishedAt": "2019-08-14T14:47:51.000Z",
+        "title": "Breaking: Santander UK Bank Reportedly Halts Coinbase Payments",
+        "url": "https://cryptocontrol.io/r/api/article/5d54a9ee568eb80018b6851e?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5ce406880175730010f47558",
+            "name": "Crypto Potato",
+            "url": "https://cryptopotato.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5ce406880175730010f47558.png"
+        },
+        "sourceDomain": "cryptopotato.com",
+        "originalImageUrl": "https://cryptopotato.com/wp-content/uploads/2019/08/shutterstock_133644740-min.jpg"
+    },
+    {
+        "_id": "5d541202568eb800185f05ad",
+        "hotness": 72490.37068523058,
+        "activityHotness": 0.16151856390902336,
+        "primaryCategory": "Analysis",
+        "words": 476,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            }
+        ],
+        "description": "Financial expert and Economist Charles Lee, has been kicking himself hard for buying XRP at the price of $0.3. The crypto investor believes that if he had been patient enough or calculated better before investing in the third top crypto, he would be able to buy more today at the price of $0.295.…",
+        "publishedAt": "2019-08-14T13:15:18.000Z",
+        "title": "Charles Lee Regrets Buying Into XRP at $0.3 Instead of  $0.295 Today",
+        "url": "https://cryptocontrol.io/r/api/article/5d541202568eb800185f05ad?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b922ec60c38a7001951cbe6",
+            "name": "Today's Gazette",
+            "url": "https://todaysgazette.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b922ec60c38a7001951cbe6.png"
+        },
+        "sourceDomain": "todaysgazette.com",
+        "originalImageUrl": "https://e6q4r7g2.stackpathcdn.com/wp-content/uploads/2019/07/RIpple-XRP.png"
+    },
+    {
+        "_id": "5d5408de568eb8001859f579",
+        "hotness": 72490.28775027879,
+        "activityHotness": 0.1662687973075237,
+        "primaryCategory": "Exchanges",
+        "words": 501,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45db0",
+                "name": "Litecoin",
+                "slug": "litecoin",
+                "tradingSymbol": "ltc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Although many of the top-tier exchanges like Coinbase Pro require ID verification, many exchanges still don’t. Here are the top picks for cryptocurrency exchanges that have no KYC. In most countries around the world, ID verification is required due to Know Your Customer (KYC) laws. These regulations…",
+        "publishedAt": "2019-08-14T12:43:44.000Z",
+        "title": "The Top Cryptocurrency Exchanges That Don’t Require KYC Verification",
+        "url": "https://cryptocontrol.io/r/api/article/5d5408de568eb8001859f579?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b964b640c38a70019787e71",
+            "name": "BeInCrypto",
+            "url": "https://beincrypto.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b964b640c38a70019787e71.jpg"
+        },
+        "sourceDomain": "beincrypto.com",
+        "originalImageUrl": "https://beincrypto.com/wp-content/uploads/2019/08/bic_Top_Cryptocurrency_Exchanges.jpg"
+    },
+    {
+        "_id": "5d5407d3568eb80018597025",
+        "hotness": 72490.21069398476,
+        "activityHotness": 0.12231435513142097,
+        "primaryCategory": "General",
+        "words": 393,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "5a7b931102ac032bc99781f1",
+                "name": "DATA",
+                "slug": "data",
+                "tradingSymbol": "dta"
+            }
+        ],
+        "description": "Hi Everyone, Since landing in California last week, it’s become very clear to me how quickly the retail landscape is moving to the cloud. My family and […]\n",
+        "publishedAt": "2019-08-14T12:31:49.000Z",
+        "title": "Retail Shakeout | Hacked: Hacking Finance",
+        "url": "https://cryptocontrol.io/r/api/article/5d5407d3568eb80018597025?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b4b5727c831fd000f6b0af9",
+            "name": "Hacked.com",
+            "url": "https://hacked.com",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b4b5727c831fd000f6b0af9.png"
+        },
+        "sourceDomain": "hacked.com",
+        "originalImageUrl": "https://hacked.com/wp-content/uploads/2017/11/Untitled-design-18.jpg"
+    },
+    {
+        "_id": "5d540826568eb80018598f1f",
+        "hotness": 72491.71192895719,
+        "activityHotness": 1.646373401623214,
+        "primaryCategory": "Exchanges",
+        "words": 783,
+        "similarArticles": [
+            {
+                "_id": "5d52fd93568eb80018c2d788",
+                "title": "Chicken Shit XRP Trading Manipulators May Find Beaxy In Their KYC",
+                "publishedAt": "2019-08-13T17:46:53.000Z",
+                "sourceDomain": "cryptobriefing.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d52fd93568eb80018c2d788?ref=5d532cd5568eb80018ddbb73"
+            }
+        ],
+        "coins": [
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The biggest threat to cryptocurrency holders is bad code, as the latest exchange hack has shown. Beaxy, a recently launched exchange based in Nevis and St Kitts, will roll back a number of trades after falling victim to a little-known exploit in the XRP Ledger. The exploit was discovered after...\n",
+        "publishedAt": "2019-08-14T12:23:36.000Z",
+        "title": "Chicken Shit XRP Trading Manipulators May Find Beaxy In Their KYC",
+        "url": "https://cryptocontrol.io/r/api/article/5d540826568eb80018598f1f?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5b5626158cb221000fe2f223",
+            "name": "Currency Times",
+            "url": "http://currencytimes.co.in/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5b5626158cb221000fe2f223.png"
+        },
+        "sourceDomain": "currencytimes.co.in",
+        "originalImageUrl": "https://www.currencytimes.co.in/wp-content/uploads/2019/08/Chicken-Shit-XRP-Trading-Manipulators-May-Find-Beaxy-In-Their-KYC.jpg"
+    },
+    {
+        "_id": "5d53d4df568eb800183cbbe7",
+        "hotness": 72489.68298966665,
+        "activityHotness": 0.13576744442718158,
+        "primaryCategory": "ICO",
+        "words": 293,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "The veteran trader openly calls XRP a scam as Ripple lawsuit edges closer to unregistered securities verdict.\nRipple is coming under fire from a serial Bitcoin ( BTC ) proponent this week after news emerged a lawsuit against the company has intensified.\nRipple will feel U.S. regulators’ wrath, says…",
+        "publishedAt": "2019-08-14T09:17:00.000Z",
+        "title": "SEC Is Bringing ‘Thor’s Hammer’ Against Ripple, Warns Tone Vays",
+        "url": "https://cryptocontrol.io/r/api/article/5d53d4df568eb800183cbbe7?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "59d70be3ef8bf95cc2aa2b4f",
+            "name": "CoinTelegraph",
+            "url": "https://cointelegraph.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/59d70be3ef8bf95cc2aa2b4f.png"
+        },
+        "sourceDomain": "cointelegraph.com",
+        "originalImageUrl": "https://images.cointelegraph.com/images/740_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy9kMmY1ZGNhYjhlZjYxMGFkZGQ1MDUwZmM3N2YzMjgyMS5qcGc=.jpg"
+    },
+    {
+        "_id": "5d53d235568eb800183b1947",
+        "hotness": 72489.66338879213,
+        "activityHotness": 0.16931471805599455,
+        "primaryCategory": "General",
+        "words": 419,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dc5",
+                "name": "EOS",
+                "slug": "eos",
+                "tradingSymbol": "eos"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45f2b",
+                "name": "Altcoin",
+                "slug": "altcoin-alt",
+                "tradingSymbol": "alt"
+            }
+        ],
+        "description": "Large-cap altcoins are marking notable increases today when trading against Bitcoin, as the world’s largest cryptocurrency went through a sharp decline. Bitcoin is currently trading at $10,500 while BTC dominance is also down almost 1.5%.  Altcoins Regaining Strength The altcoin market is showing…",
+        "publishedAt": "2019-08-14T08:57:52.000Z",
+        "title": "Altcoins Soaring As Bitcoin Tumbles $1,000 In 24-Hours",
+        "url": "https://cryptocontrol.io/r/api/article/5d53d235568eb800183b1947?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5ce406880175730010f47558",
+            "name": "Crypto Potato",
+            "url": "https://cryptopotato.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5ce406880175730010f47558.png"
+        },
+        "sourceDomain": "cryptopotato.com",
+        "originalImageUrl": "https://cryptopotato.com/wp-content/uploads/2019/08/plane-50893_640-min.jpg"
+    },
+    {
+        "_id": "5d53dbf3568eb8001840e112",
+        "hotness": 72489.65720125176,
+        "activityHotness": 0.1631271776841858,
+        "primaryCategory": "General",
+        "words": 419,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dc5",
+                "name": "EOS",
+                "slug": "eos",
+                "tradingSymbol": "eos"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45f2b",
+                "name": "Altcoin",
+                "slug": "altcoin-alt",
+                "tradingSymbol": "alt"
+            }
+        ],
+        "description": "Large-cap altcoins are marking notable increases today when trading against Bitcoin, as the world’s largest cryptocurrency went through a sharp decline. Bitcoin is currently trading at $10,500 while BTC dominance is also down almost 1.5%.  Altcoins Regaining Strength The altcoin market is showing…",
+        "publishedAt": "2019-08-14T08:57:52.000Z",
+        "title": "Altcoins Soaring As Bitcoin Tumbles $1,000 In 24-Hours",
+        "url": "https://cryptocontrol.io/r/api/article/5d53dbf3568eb8001840e112?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5ce406880175730010f47558",
+            "name": "Crypto Potato",
+            "url": "https://cryptopotato.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5ce406880175730010f47558.png"
+        },
+        "sourceDomain": "cryptopotato.com",
+        "originalImageUrl": "https://cryptopotato.com/wp-content/uploads/2019/08/plane-50893_640-min.jpg"
+    },
+    {
+        "_id": "5d53d1b7568eb800183acc9d",
+        "hotness": 72494.1799026976,
+        "activityHotness": 4.701523067972905,
+        "primaryCategory": "General",
+        "words": 552,
+        "similarArticles": [
+            {
+                "_id": "5d512b54568eb80018bcc498",
+                "title": "Bitcoin and Altcoins Target Fresh Monthly Lows",
+                "publishedAt": "2019-08-12T08:48:00.000Z",
+                "sourceDomain": "cryptonews.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d512b54568eb80018bcc498?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d50fb19568eb80018a1afb9",
+                "title": "Crypto Market And Bitcoin Could Correct Further: BCH, BSV, BNB, ADA Analysis",
+                "publishedAt": "2019-08-12T05:00:12.000Z",
+                "sourceDomain": "newsbtc.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d50fb19568eb80018a1afb9?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d50db6a568eb80018911f2f",
+                "title": "Ethereum Price (ETH) Near Inflection Point With Bearish Angle",
+                "publishedAt": "2019-08-12T03:08:40.000Z",
+                "sourceDomain": "newsbtc.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d50db6a568eb80018911f2f?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d527f72568eb800187abc8d",
+                "title": "Bitcoin and Altcoins at Risk of Further Declines",
+                "publishedAt": "2019-08-13T09:06:00.000Z",
+                "sourceDomain": "cryptonews.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d527f72568eb800187abc8d?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d50eaaf568eb8001898e210",
+                "title": "Ripple Price (XRP) Could Recover While BTC and ETH Facing Hurdles",
+                "publishedAt": "2019-08-12T04:08:09.000Z",
+                "sourceDomain": "newsbtc.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d50eaaf568eb8001898e210?ref=5d532cd5568eb80018ddbb73"
+            },
+            {
+                "_id": "5d53a540568eb8001820c5ba",
+                "title": "Bitcoin (BTC) Price Hits Weekly Bearish Target: $10K Could Be Next",
+                "publishedAt": "2019-08-14T06:00:32.000Z",
+                "sourceDomain": "newsbtc.com",
+                "url": "https://cryptocontrol.io/r/api/article/5d53a540568eb8001820c5ba?ref=5d532cd5568eb80018ddbb73"
+            }
+        ],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45daf",
+                "name": "Bitcoin Cash",
+                "slug": "bitcoin-cash",
+                "tradingSymbol": "bch"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45dc5",
+                "name": "EOS",
+                "slug": "eos",
+                "tradingSymbol": "eos"
+            },
+            {
+                "_id": "59d21e9b83a0523906a45e20",
+                "name": "DECENT",
+                "slug": "decent",
+                "tradingSymbol": "dct"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            }
+        ],
+        "description": "This week, bitcoin price declined steadily below the USD 11,500 support. Recently, there was a sharp increase in selling, resulting in a bearish break below the USD 11,200 and USD 11,000 supports. BTC/USD even broke the key USD 10,750 support and moved into a downtrend. On the other hand, most major…",
+        "publishedAt": "2019-08-14T08:52:13.000Z",
+        "title": "Bitcoin Signaling Downtrend While Altcoins Holding Ground",
+        "url": "https://cryptocontrol.io/r/api/article/5d53d1b7568eb800183acc9d?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5c8fbb44a4410000111f614b",
+            "name": "CryptoNews",
+            "url": "https://cryptonews.com/",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5c8fbb44a4410000111f614b.png"
+        },
+        "sourceDomain": "cryptonews.com",
+        "originalImageUrl": "https://cimg.co/w/articles/0/5d5/3cbdbb7455.png"
+    },
+    {
+        "_id": "5d53c07c568eb8001830b1e5",
+        "hotness": 72489.4532424847,
+        "activityHotness": 0.14574248470388756,
+        "primaryCategory": "Analysis",
+        "words": 647,
+        "similarArticles": [],
+        "coins": [
+            {
+                "_id": "59cb59e81c073f09e76f614b",
+                "name": "Bitcoin",
+                "slug": "bitcoin",
+                "tradingSymbol": "btc"
+            },
+            {
+                "_id": "59d8e9a849f28d56105674fd",
+                "name": "First Bitcoin",
+                "slug": "first-bitcoin",
+                "tradingSymbol": "bit"
+            },
+            {
+                "_id": "59cb59f9b0836b0a63aebc7c",
+                "name": "Ethereum",
+                "tradingSymbol": "eth",
+                "slug": "ethereum"
+            },
+            {
+                "_id": "59cb5a047ab17a0b2ec00edf",
+                "name": "Ripple",
+                "tradingSymbol": "xrp",
+                "slug": "ripple"
+            }
+        ],
+        "description": "Cryptocurrency market over the course of this week has lost nearly US$ 17 Billion in overall market capitalisation and most of the decline stems from Bitcoins sharp decline. The progenitor of cryptocurrency suffered loss of nearly seven percent since Monday. This decline was triggered by delay from…",
+        "publishedAt": "2019-08-14T07:50:42.000Z",
+        "title": "Crypto Tech Analysis: SEC Influenced Bearish Market Rally in Play",
+        "url": "https://cryptocontrol.io/r/api/article/5d53c07c568eb8001830b1e5?ref=5d532cd5568eb80018ddbb73",
+        "source": {
+            "_id": "5af6a56b01aed341ae8ed135",
+            "name": "Crypto-News India",
+            "url": "https://crypto-news.in",
+            "favicon": "https://assets.cryptocontrol.io/favicons/5af6a56b01aed341ae8ed135.png"
+        },
+        "sourceDomain": "crypto-news.in",
+        "originalImageUrl": "https://i0.wp.com/www.crypto-news.in/wp-content/uploads/2018/07/Ethereum-ETH-Crypto-Coin-Stock-Photo.jpg?fit=2048%2C1365&ssl=1"
+    }
+]

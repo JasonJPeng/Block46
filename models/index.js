@@ -1,3 +1,5 @@
 module.exports = {
-    // Book: require("./book")
+    Coin: require("./coin"),
+    History: require("./history"),
+    Headline: require("./headline")
   };
