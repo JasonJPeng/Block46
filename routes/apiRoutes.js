@@ -16,24 +16,21 @@ router.route("/")
      })
   })
 
-  router.route("/:id")
+  router.route("/history/:id")
   .get(function(req,res){
-     db.Coin.find({Id: req.params.id}).then(function(coinData){
-         console.log(coinData[0]);
-        let apiUrl = "https://min-api.cryptocompare.com/data/price?fsym=" 
-                         + coinData[0].Symbol + "&tsyms=USD"
-        console.log(apiUrl);                 
-        axios.get(apiUrl).then(function(priceData){
-            console.log(priceData.data.USD)
-            let outputData = JSON.parse(JSON.stringify(coinData[0]));
-            outputData.Price = priceData.data.USD ;
-           res.json(outputData);
-        })     
- 
+     db.History.find({Id: req.params.id}).then(function(historyData){
+        let outputData = []
+        for(let i =0; i< historyData[0].HistoryTimestamp.length; i++ ) {
+            outputData.push({
+                Time: historyData[0].HistoryTimestamp[i],
+                Price: historyData[0].HistoryPriceUSD[i]
+            })
+        }
+        res.json(outputData);
      })
   })
 
-  router.route("/history/:id")
+  router.route("/:id") 
   .get(function(req,res){
      db.Coin.find({Id: req.params.id}).then(function(coinData){
          console.log(coinData[0]);
