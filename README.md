@@ -1,29 +1,57 @@
-# Create React Express App
+# BLOCK 46
+## Cryptocurrency 
 
-## About This Boilerplate
+---
+## API Routes
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+[/api/admin/cryptocompare]
 
-## Starting the app locally
+[/api/admin/cryptocontrol]
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+[/api/admin/history/:id]
 
-```
-npm install
-```
+[/api/coins](#coins)
 
-This should install node modules within the server and the client folder.
+[/api/coins/:id]
 
-After both installations complete, run the following command in your terminal:
+[/api/coins/history/:id]
 
-```
-npm start
-```
+[/api/coins/info/:id]
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+[/api/coins/news/:id]
 
-## Deployment (Heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+
+
+mvnsadln sjdlkv j
+
+sad
+fSDfgADS
+
+sdg
+dsg
+wdg
+ds
+g
+sdfg
+sdf
+
+dfs
+gdsf
+g
+fsdg
+dfs
+
+sgfd
+s
+dfg
+fds
+g
+
+sdfg
+df
+gwdfg
+
+
+### coins
