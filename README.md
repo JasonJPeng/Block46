@@ -4,16 +4,22 @@
 ---
 ## API Routes
 
-/api/admin/cryptocompare
-/api/admin/cryptocontrol
-/api/admin/history/:id
+
+[/api/admin/cryptocompare]
+
+[/api/admin/cryptocontrol]
+
+[/api/admin/history/:id]
 
 [/api/coins](#coins)
 
-/api/coins/:id
-/api/coins/history/:id
-/api/coins/info/:id
-/api/coins/news/:id
+[/api/coins/:id]
+
+[/api/coins/history/:id]
+
+[/api/coins/info/:id]
+
+[/api/coins/news/:id]
 
 
 
@@ -48,4 +54,4 @@ df
 gwdfg
 
 
-#coins
+### coins
