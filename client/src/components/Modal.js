@@ -53,13 +53,17 @@ class Modal extends Component {
 			modalContent = (
 				<div className='Modal'>
 					<SignCollapsed type='signIn' onChange={this.onClickLeft}></SignCollapsed>
-					<SignExpanded type='signUp' ></SignExpanded>
+					<SignExpanded type='signUp' 
+								  onChangeForm={this.props.onChangeForm}
+								  onSubmitSignUp={this.props.onSubmitSignUp}></SignExpanded>
 				</div>
 			);
 		} else if (this.state.wasClickedLeft == true && this.state.wasClickedRight == false) {
 			modalContent = (
 				<div className='Modal'>
-					<SignExpanded type='signIn' ></SignExpanded>
+					<SignExpanded type='signIn' 
+					              onChangeForm={this.props.onChangeForm}
+								  onSubmitSignIn={this.props.onSubmitSignIn}></SignExpanded>
 					<SignCollapsed type='signUp' onChange={this.onClickRight}></SignCollapsed>
 				</div>
 			);
@@ -75,7 +79,9 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-	onSubmit: PropTypes.func
+	onSubmitSignIn: PropTypes.func,
+	onSubmitSignUp: PropTypes.func,
+	onChangeForm: PropTypes.func
 };
 
 export default Modal;

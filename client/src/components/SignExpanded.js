@@ -4,6 +4,7 @@ import '../App.css';
 import {Motion, spring} from 'react-motion';
 import Input from './Input';
 import SubmitButton from './SubmitButton';
+import { MdEmail } from 'react-icons/lib/md';
 
 class SignExpanded extends Component {
 
@@ -11,7 +12,7 @@ class SignExpanded extends Component {
 		super(props);
 		this.state = {
 			flexState: false,
-			animIsFinished: false
+			animIsFinished: false,
 		};
 	}
 
@@ -25,6 +26,7 @@ class SignExpanded extends Component {
 	}
 
 	render () {
+		//console.log(this.props.onChangeForm);
 		return (
 			<Motion style={{
 				flexVal: spring(this.state.flexState ? 8 : 1)
@@ -42,16 +44,20 @@ class SignExpanded extends Component {
 							WebkitTransform: `translate3d(0, ${y}px, 0)`,
 							transform: `translate3d(0, ${y}px, 0)`,
 							opacity: `${opacity}`
-						}}>
+						}} onSubmit={this.props.type === 'signIn' ? this.props.onSubmitSignIn : this.props.onSubmitSignUp}>
 							<h2>{this.props.type == 'signIn' ? 'SIGN IN' : 'SIGN UP'}</h2>
 							<Input
-								id="login"
-								type="text"
-								placeholder="LOGIN" />
+								id="email"
+								type="email"
+								name="email"
+								placeholder="EMAIL"
+								onChange={this.props.onChangeForm} />
 							<Input
 								id="password"
 								type="password"
-								placeholder="PASSWORD" />
+								name="password"
+								placeholder="PASSWORD"
+								onChange={this.props.onChangeForm} />
 							<SubmitButton type={this.props.type}></SubmitButton>
 							<a href="url" className='forgotPass'>{this.props.type == 'signIn' ? 'Forgot password?' : ''}</a>
 						</form>

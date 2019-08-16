@@ -16,11 +16,9 @@ const Input = (props) => {
 	return (
 		<div className="Input">
 			<input 
-				id={props.name}
 				autoComplete="false"
 				required
-				type={props.type}
-				placeholder={props.placeholder}
+				{...props}
 			/>
 			{iconVisibility}
 		</div>
