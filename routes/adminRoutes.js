@@ -2,6 +2,8 @@ const router = require("express").Router();
 const db = require("../models");
 const axios = require('axios');
 
+const fs = require('fs');
+
 // https://min-api.cryptocompare.com/data/histoday?fsym=DASH&tsym=USD&limit=2000
 
 router.route("/cryptocompare")
@@ -20,6 +22,28 @@ router.route("/cryptocompare")
     db.Coin.create(output).then(dbOut=>{
         res.json(output)
     })  
+})
+
+// cryptocontrol for coin news
+// read cryptocontrol data   Bitcoin Cash (BCH)  => {Symbol: "BCH", NewsName: "bitcoin-cash" }
+router.route("/cryptocontrol")
+.post(function(req, res){
+    fs.readFile('./data/cryptocontrol.txt', 'utf8', (err, data) => {
+        if (err) throw err;
+        let strings = data.split("\n");
+        let output = [];
+        strings.forEach(function(e){
+           let e1 = e.split(/[(,)]/); 
+           let obj={
+               Symbol: e1[1],
+               NewsName: e1[0].trim().toLowerCase().replace(" ", "-")
+           } 
+           output.push(obj)
+        })
+        db.Headline.create(output).then(dbOut=>{
+            res.send(dbOut);
+        })      
+    });  
 })
 
 // add history data to the database

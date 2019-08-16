@@ -47,12 +47,12 @@ router.route("/")
      })
   })
 
-router.route("/books/:id")
-  .delete(function(req,res) {
-      db.Book.remove({id:req.params.id}).then(function(data){
-          res.json(data)
-      })
-  })
+// router.route("/books/:id")
+//   .delete(function(req,res) {
+//       db.Book.remove({id:req.params.id}).then(function(data){
+//           res.json(data)
+//       })
+//   })
   
 
 

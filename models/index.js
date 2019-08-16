@@ -1,4 +1,5 @@
 module.exports = {
     Coin: require("./coin"),
-    History: require("./history")
+    History: require("./history"),
+    Headline: require("./headline")
   };
