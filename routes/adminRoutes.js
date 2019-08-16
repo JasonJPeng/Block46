@@ -1,8 +1,25 @@
 const router = require("express").Router();
 const db = require("../models");
 
-// Matches with "/api/books"
-router.route("/")
+
+
+router.route("/cryptocompare")
+.post(function(req, res){
+    // - read cryptocompare.json and convert it into an array for Database
+    // 
+    var obj = require("../data/cryptocompare");
+    var output = Object.values(obj.Data).map(x=> {return {
+        Id: x.Id,
+        Symbol: x.Symbol,
+        Name: x.CoinName,
+        ImageUrl: "https://cryptocompare.com" + x.ImageUrl,
+        Source: "cryptocompare"
+    }})
+    
+    db.Coin.create(output).then(dbOut=>{
+        res.json(output)
+    })  
+})
 
 .get(function(req, res){
     res.json({status: "done"})
