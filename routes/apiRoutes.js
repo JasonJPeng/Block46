@@ -10,6 +10,8 @@ const myKey = "9138ceccb8ae2a81647da57c17710ce8";
 
 // https://min-api.cryptocompare.com/data/histoday?fsym=DASH&tsym=USD&limit=2000
 
+// https://cryptocontrol.io/api/v1/public/news/coin/bitcoin-cash?latest=true&key=9138ceccb8ae2a81647da57c17710ce8
+
 // Matches with "/api/books"
 router.route("/")
   .get(function(req,res){
@@ -59,6 +61,33 @@ router.route("/")
          })
      })
   })
+
+  router.route("/news/:id") 
+  .get(function(req,res){
+     db.Coin.find({Id: req.params.id}).then(function(coinData){
+         db.Headline.find({Symbol: coinData[0].Symbol}).then(function(headlineData){
+            let apiUrl = "https://cryptocontrol.io/api/v1/public/news/coin/" + 
+                         headlineData[0].NewsName + "?latest=true&key=" + myKey;
+            axios.get(apiUrl).then(function(newsData){
+                let outputArray = []
+                newsData.data.forEach(function(e){
+                    outputArray.push({
+                      Category: e.primaryCategory,
+                      Title: e.title,
+                      Description: e.description,
+                      Date: e.publishedAt,
+                      NewsUrl: e.url,
+                      ImageUrl: e.originalImageUrl,
+                      Coins: e.coins.map(x=>x.name),
+                      Symbols:  e.coins.map(x=>x.tradingSymbol)
+                    })
+                })
+
+                 res.json(outputArray);
+            })
+         }) 
+        })
+  })          
 
   router.route("/:id") 
   .get(function(req,res){
