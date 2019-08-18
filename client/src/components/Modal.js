@@ -64,7 +64,8 @@ class Modal extends Component {
 				<div className='Modal'>
 					<SignExpanded type='signIn' 
 					              onChangeForm={this.props.onChangeForm}
-								  onSubmitSignIn={this.props.onSubmitSignIn}></SignExpanded>
+								  onSubmitSignIn={this.props.onSubmitSignIn}
+								  loginMsg={this.props.loginMsg}></SignExpanded>
 					<SignCollapsed type='signUp' onChange={this.onClickRight}></SignCollapsed>
 				</div>
 			);

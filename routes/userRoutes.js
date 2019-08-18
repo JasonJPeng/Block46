@@ -6,8 +6,8 @@ require("../config/passport")(passport);
 
 // local login
 router.route("/local/login").post(passport.authenticate("local-login", {
-    successRedirect: "/",
-    failureRedirect: "/local/loginfailure",
+    successRedirect: "/local/login",
+    failureRedirect: "/local/login",
     failureFlash: true
 }));
 
@@ -24,7 +24,7 @@ router.route("/local/signedup").get(function(req, res) {
 });
 
 // send signup message
-router.route("/local/loginfailure").get(function(req, res) {
+router.route("/local/login").get(function(req, res) {
     res.json({message: req.flash("loginMessage")});
 });
 

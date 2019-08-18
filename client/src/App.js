@@ -25,12 +25,13 @@ class App extends Component {
 	
 	handleSignInSubmit = (e) => {
 		e.preventDefault();
+		let self = this;
 		axios.post("/local/login", {
 			email : this.state.email,
 			password : this.state.password
 		}).then(function(response) {
-			console.log("login success");
-			console.log(response);
+			self.setState({loginMsg : response.data.message,
+						   signupMsg : ""})
 		})
 	}
 
@@ -41,8 +42,8 @@ class App extends Component {
 			email : this.state.email,
 			password : this.state.password
 		}).then(function(response) {
-			// console.log(response);
-			self.setState({signupMsg : response.data.message});
+			self.setState({signupMsg : response.data.message,
+			               loginMsg : ""});
 		});
 	}
 
@@ -64,7 +65,8 @@ class App extends Component {
 					<Modal onSubmitSignIn={this.handleSignInSubmit}
 					       onSubmitSignUp={this.handleSignUpSubmit}
 						   onChangeForm={this.handleChangeForm}
-						   signupMsg={this.state.signupMsg}/>
+						   signupMsg={this.state.signupMsg}
+						   loginMsg={this.state.loginMsg}/>
 				</div>
 			);
 		}
