@@ -55,7 +55,8 @@ class Modal extends Component {
 					<SignCollapsed type='signIn' onChange={this.onClickLeft}></SignCollapsed>
 					<SignExpanded type='signUp' 
 								  onChangeForm={this.props.onChangeForm}
-								  onSubmitSignUp={this.props.onSubmitSignUp}></SignExpanded>
+								  onSubmitSignUp={this.props.onSubmitSignUp}
+								  signupMsg={this.props.signupMsg}></SignExpanded>
 				</div>
 			);
 		} else if (this.state.wasClickedLeft == true && this.state.wasClickedRight == false) {

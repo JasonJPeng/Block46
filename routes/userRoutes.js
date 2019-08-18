@@ -13,10 +13,15 @@ router.route("/local/login").post(passport.authenticate("local-login", {
 
 // local signup
 router.route("/local/signup").post(passport.authenticate("local-signup", {
-    successRedirect: "/",
-    failureRedirect: "/",
+    successRedirect: "/local/signedup",
+    failureRedirect: "/local/signedup",
     failureFlash: true
 }));
+
+// send login message
+router.route("/local/signedup").get(function(req, res) {
+    res.json({message: req.flash("signupMessage")});
+});
 
 // export the login and signup router
 module.exports = router;

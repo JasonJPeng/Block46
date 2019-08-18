@@ -13,7 +13,9 @@ class App extends Component {
 		this.state = {
 			mounted: false,
 			email: "",
-			password: ""
+			password: "",
+			signupMsg: "",
+			loginMsg: ""
 		};
 	}
 
@@ -23,17 +25,23 @@ class App extends Component {
 	
 	handleSignInSubmit = (e) => {
 		e.preventDefault();
-		console.log("submit sign in");
+		axios.post("/local/login", {
+			email : this.state.email,
+			password : this.state.password
+		}).then(function(response) {
+			console.log("login success");
+			console.log(response);
+		})
 	}
 
 	handleSignUpSubmit = (e) => {
 		e.preventDefault();
+		let self = this;
 		axios.post("/local/signup", {
 			email : this.state.email,
 			password : this.state.password
 		}).then(function(response) {
-			console.log("signup success");
-			console.log(response);
+			self.setState({signupMsg : response.data.message});
 		});
 	}
 
@@ -54,7 +62,8 @@ class App extends Component {
 					<NavigationPanel></NavigationPanel>
 					<Modal onSubmitSignIn={this.handleSignInSubmit}
 					       onSubmitSignUp={this.handleSignUpSubmit}
-						   onChangeForm={this.handleChangeForm}/>
+						   onChangeForm={this.handleChangeForm}
+						   signupMsg={this.state.signupMsg}/>
 				</div>
 			);
 		}
