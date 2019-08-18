@@ -31,7 +31,8 @@ class App extends Component {
 			password : this.state.password
 		}).then(function(response) {
 			self.setState({loginMsg : response.data.message,
-						   signupMsg : ""})
+						   signupMsg : ""});
+			console.log(response.data.loginStatus)
 		})
 	}
 
@@ -43,7 +44,8 @@ class App extends Component {
 			password : this.state.password
 		}).then(function(response) {
 			self.setState({signupMsg : response.data.message,
-			               loginMsg : ""});
+						   loginMsg : ""});
+			console.log(response.data.signupStatus);
 		});
 	}
 

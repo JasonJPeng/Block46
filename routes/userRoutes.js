@@ -6,26 +6,38 @@ require("../config/passport")(passport);
 
 // local login
 router.route("/local/login").post(passport.authenticate("local-login", {
-    successRedirect: "/local/login",
-    failureRedirect: "/local/login",
+    successRedirect: "/local/loginSuccess",
+    failureRedirect: "/local/loginFail",
     failureFlash: true
 }));
 
 // local signup
 router.route("/local/signup").post(passport.authenticate("local-signup", {
-    successRedirect: "/local/signedup",
-    failureRedirect: "/local/signedup",
+    successRedirect: "/local/signupSuccess",
+    failureRedirect: "/local/signupFail",
     failureFlash: true
 }));
 
-// send signup message
-router.route("/local/signedup").get(function(req, res) {
-    res.json({message: req.flash("signupMessage")});
+//  signup redirect routes
+router.route("/local/signupSuccess").get(function(req, res) {
+    res.json({message: req.flash("signupMessage"),
+              signupStatus: "SUCCESS"});
 });
 
-// send signup message
-router.route("/local/login").get(function(req, res) {
-    res.json({message: req.flash("loginMessage")});
+router.route("/local/signupFail").get(function(req, res) {
+    res.json({message: req.flash("signupMessage"),
+              signupStatus: "FAIL"});
+});
+
+// login redirect routes
+router.route("/local/loginSuccess").get(function(req, res) {
+    res.json({message: req.flash("loginMessage"),
+              loginStatus: "SUCCESS"});
+});
+
+router.route("/local/loginFail").get(function(req, res) {
+    res.json({message: req.flash("loginMessage"),
+              loginStatus: "FAIL"});
 });
 
 // export the login and signup router
