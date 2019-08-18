@@ -41,7 +41,7 @@ class App extends Component {
 			email : this.state.email,
 			password : this.state.password
 		}).then(function(response) {
-			console.log(response);
+			// console.log(response);
 			self.setState({signupMsg : response.data.message});
 		});
 	}
