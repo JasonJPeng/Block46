@@ -1,5 +1,5 @@
 // local authentication strategy
-let localStrategy = require("passport-local").Strategy;
+let LocalStrategy = require("passport-local").Strategy;
 
 // load user model
 let User = require("../models").User;
@@ -60,7 +60,7 @@ module.exports = function(passport) {
     // =========================================================================
     // LOCAL SINGUP ============================================================
     // =========================================================================
-    passport.use("local-signup", new localStrategy({
+    passport.use("local-signup", new LocalStrategy({
         // overide username with email
         usernameField: "email",
         passwordField: "password",

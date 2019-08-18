@@ -6,6 +6,9 @@ const app = express();
 const routes = require("./routes");
 const morgan = require("morgan");
 const flash  = require('connect-flash');
+let passport = require("passport");
+let session  = require('express-session');
+
 
 // Serve up static assets (usually on heroku)
 /*
@@ -19,6 +22,15 @@ app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.use(morgan("dev"));
 app.use(flash());
+
+// required for passport
+app.use(session({
+  secret: 'ilovescotchscotchyscotchscotch', // session secret
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Define API routes here
