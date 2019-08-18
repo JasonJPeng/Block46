@@ -4,11 +4,21 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
+const morgan = require("morgan");
+const flash  = require('connect-flash');
 
 // Serve up static assets (usually on heroku)
+/*
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+*/
+
+// add static folder build of react app
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.use(morgan("dev"));
+app.use(flash());
 
 
 // Define API routes here
