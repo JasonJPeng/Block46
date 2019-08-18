@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {Motion, spring} from 'react-motion';
 import NavigationPanel from './components/NavigationPanel';
 import Modal from './components/Modal';
+import axios from "axios";
 
 class App extends Component {
 
@@ -12,7 +13,9 @@ class App extends Component {
 		this.state = {
 			mounted: false,
 			email: "",
-			password: ""
+			password: "",
+			signupMsg: "",
+			loginMsg: ""
 		};
 	}
 
@@ -21,22 +24,30 @@ class App extends Component {
 	}
 	
 	handleSignInSubmit = (e) => {
-		// TODO: add sign in authentication
-		this.setState({ mounted: false });
 		e.preventDefault();
-		console.log("submit sign in");
+		axios.post("/local/login", {
+			email : this.state.email,
+			password : this.state.password
+		}).then(function(response) {
+			console.log("login success");
+			console.log(response);
+		})
 	}
 
 	handleSignUpSubmit = (e) => {
-		// TODO: add sign up authentication
-		this.setState({mounted: false});
 		e.preventDefault();
-		console.log("submit sign up");
+		let self = this;
+		axios.post("/local/signup", {
+			email : this.state.email,
+			password : this.state.password
+		}).then(function(response) {
+			self.setState({signupMsg : response.data.message});
+		});
 	}
 
 	handleChangeForm = (event) => {
 		const {name, value} = event.target;
-		this.setState({[name] : value}, () => (console.log(this.state)));
+		this.setState({[name] : value});
 	}
 
 	render() {
@@ -51,7 +62,8 @@ class App extends Component {
 					<NavigationPanel></NavigationPanel>
 					<Modal onSubmitSignIn={this.handleSignInSubmit}
 					       onSubmitSignUp={this.handleSignUpSubmit}
-						   onChangeForm={this.handleChangeForm}/>
+						   onChangeForm={this.handleChangeForm}
+						   signupMsg={this.state.signupMsg}/>
 				</div>
 			);
 		}
