@@ -67,8 +67,6 @@ module.exports = function(passport) {
         passwordField: "password",
         passReqToCallback: true             // pass the entire request to callback
     }, function(req, email, password, done) {
-        console.log("email: " + email);
-        console.log("password: " + password);
 
         if (email) email = email.toLowerCase();     // lower-case all the email
 
@@ -77,7 +75,7 @@ module.exports = function(passport) {
 
             // if the user is not already logged in:
             if (!req.user) {
-                console.log(User);
+
                 User.findOne({ 'local.email' :  email }, function(err, user) {
                     // if there are any errors, return the error
                     if (err)

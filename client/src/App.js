@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {Motion, spring} from 'react-motion';
 import NavigationPanel from './components/NavigationPanel';
 import Modal from './components/Modal';
+import axios from "axios";
 
 class App extends Component {
 
@@ -21,17 +22,19 @@ class App extends Component {
 	}
 	
 	handleSignInSubmit = (e) => {
-		// TODO: add sign in authentication
-		this.setState({ mounted: false });
 		e.preventDefault();
 		console.log("submit sign in");
 	}
 
 	handleSignUpSubmit = (e) => {
-		// TODO: add sign up authentication
-		this.setState({mounted: false});
 		e.preventDefault();
-		console.log("submit sign up");
+		axios.post("/local/signup", {
+			email : this.state.email,
+			password : this.state.password
+		}).then(function(response) {
+			console.log("signup success");
+			console.log(response);
+		});
 	}
 
 	handleChangeForm = (event) => {
