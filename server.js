@@ -8,6 +8,11 @@ const morgan = require("morgan");
 const flash  = require('connect-flash');
 let passport = require("passport");
 let session  = require('express-session');
+let cookieParser = require('cookie-parser');
+let bodyParser   = require('body-parser');
+let dotenv       = require("dotenv");
+
+dotenv.config();
 
 
 // Serve up static assets (usually on heroku)
@@ -20,17 +25,21 @@ if (process.env.NODE_ENV === "production") {
 // add static folder build of react app
 app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.use(morgan("dev"));
-app.use(flash());
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // required for passport
 app.use(session({
-  secret: 'ilovescotchscotchyscotchscotch', // session secret
+  secret: process.env.SESSION_SECRET, // session secret
   resave: true,
   saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 
 // Define API routes here
@@ -38,7 +47,7 @@ app.use(passport.session());
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/block46");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/block46", {useNewUrlParser : true});
 
 // Send every request to the React app
 // Define any API routes before this runs

@@ -2,7 +2,8 @@
 let LocalStrategy = require("passport-local").Strategy;
 
 // load user model
-let User = require("../models").User;
+let db = require("../models");
+let User = db.User;
 
 // passport middleware export
 module.exports = function(passport) {
@@ -66,6 +67,9 @@ module.exports = function(passport) {
         passwordField: "password",
         passReqToCallback: true             // pass the entire request to callback
     }, function(req, email, password, done) {
+        console.log("email: " + email);
+        console.log("password: " + password);
+
         if (email) email = email.toLowerCase();     // lower-case all the email
 
         // asynchronous
@@ -73,6 +77,7 @@ module.exports = function(passport) {
 
             // if the user is not already logged in:
             if (!req.user) {
+                console.log(User);
                 User.findOne({ 'local.email' :  email }, function(err, user) {
                     // if there are any errors, return the error
                     if (err)
