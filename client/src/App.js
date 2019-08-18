@@ -11,7 +11,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			mounted: false,
+			pageMounted: "loginAndSignup",
 			email: "",
 			password: "",
 			signupMsg: "",
@@ -20,17 +20,18 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ mounted: true });
+		// this.setState({ mounted: true });
 	}
 	
 	handleSignInSubmit = (e) => {
 		e.preventDefault();
+		let self = this;
 		axios.post("/local/login", {
 			email : this.state.email,
 			password : this.state.password
 		}).then(function(response) {
-			console.log("login success");
-			console.log(response);
+			self.setState({loginMsg : response.data.message,
+						   signupMsg : ""})
 		})
 	}
 
@@ -41,7 +42,8 @@ class App extends Component {
 			email : this.state.email,
 			password : this.state.password
 		}).then(function(response) {
-			self.setState({signupMsg : response.data.message});
+			self.setState({signupMsg : response.data.message,
+			               loginMsg : ""});
 		});
 	}
 
@@ -51,19 +53,22 @@ class App extends Component {
 	}
 
 	render() {
-		const {mounted} = this.state;
+		const {pageMounted} = this.state;
 
+		// The child is the main content to show
+		// It will be login/signup page at the begining and then
+		// it will be the cryptocurrency data profile after logging in
 		let child;
-		let test = 12;
 
-		if(mounted) {
+		if("loginAndSignup" === pageMounted) {
 			child = (
 				<div className="App_test">
 					<NavigationPanel></NavigationPanel>
 					<Modal onSubmitSignIn={this.handleSignInSubmit}
 					       onSubmitSignUp={this.handleSignUpSubmit}
 						   onChangeForm={this.handleChangeForm}
-						   signupMsg={this.state.signupMsg}/>
+						   signupMsg={this.state.signupMsg}
+						   loginMsg={this.state.loginMsg}/>
 				</div>
 			);
 		}

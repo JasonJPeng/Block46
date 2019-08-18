@@ -38,22 +38,27 @@ module.exports = function(passport) {
 
         // asynchronous
         process.nextTick(function() {
-            User.findOne({ 'local.email' :  email }, function(err, user) {
-                // if there are any errors, return the error
-                if (err)
-                    return done(err);
-
-                // if no user is found, return the message
-                if (!user)
-                    return done(null, false, req.flash('loginMessage', 'No user found.'));
-
-                if (!user.validPassword(password))
-                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
-
-                // all is well, return user
-                else
-                    return done(null, user);
-            });
+            if (!req.user) {
+                User.findOne({ 'local.email' :  email }, function(err, user) {
+                    // if there are any errors, return the error
+                    if (err)
+                        return done(err);
+    
+                    // if no user is found, return the message
+                    if (!user)
+                        return done(null, false, req.flash('loginMessage', 'No user found.'));
+    
+                    if (!user.validPassword(password))
+                        return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+    
+                    // all is well, return user
+                    else
+                        return done(null, user);
+                });
+            } else {
+                done(null, req.user, req.flash("loginMessage", "You are already logged in"));
+            }
+            
         });
 
     }));
@@ -110,8 +115,7 @@ module.exports = function(passport) {
                         return done(err);
                     
                     if (user) {
-                        return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
-                        // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
+                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                     } else {
                         var user = req.user;
                         user.local.email = email;
@@ -126,7 +130,7 @@ module.exports = function(passport) {
                 });
             } else {
                 // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
-                return done(null, req.user);
+                return done(null, req.user, req.flash('signupMessage', 'You have logged in'));
             }
         });
     }));
