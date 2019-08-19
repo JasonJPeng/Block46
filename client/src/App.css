@@ -6,8 +6,8 @@ html {
 body {
   background-image: url('../winter_mountains.jpg');
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat-y;
+  background-size: 1000% .085%;
   color: #3E363F;
   font-family: "Roboto Condensed", sans-serif;
   height: 100vh;
@@ -32,14 +32,14 @@ body {
 }
 .Modal {
   width: 700px;
-  height: 600px;
+  height: 500px;
   display: flex;
   flex-direction: row;
   box-shadow: 0 6px 10px 0px rgba(0, 0, 0, 0.5);
   flex-grow: 5;
 }
 .NavigationPanel {
-  background-color: rgba(244, 246, 248, 0.98);
+  background-color: rgba(150, 203, 255, 0.467);
   width: 80px;
   color: rgb(64, 70, 86);
   font-size: 30px;
