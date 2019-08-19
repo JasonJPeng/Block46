@@ -29,6 +29,21 @@ router.route("/")
   router.route("/history/:id")
   .get(function(req,res){
      db.History.find({Id: req.params.id}).then(function(historyData){
+        
+        if (historyData.length > 0 && historyData[0].HistoryTimestamp.length > 0) {
+            lastTime = historyData[0].HistoryTimestamp[historyData[0].HistoryTimestamp.length];
+        } else {
+            lastTime = 0;
+        }
+        let gap = parseInt((Math.floor((new Date()).getTime() / 1000) - lastTime) / 86400)
+        if(gap>0) {  // update the data
+           gap = Math.min(gap, 2000);
+           console.log("need more data")
+           
+        }
+        
+
+        console.log("=========> ", gap)
         let outputData = []
         for(let i =0; i< historyData[0].HistoryTimestamp.length; i++ ) {
             outputData.push({
