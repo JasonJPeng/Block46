@@ -11,10 +11,13 @@ router.use("/api/coins", coinsRoutes);
 
 router.use("/api/users", usersRoutes);
 
+// user login and signup routes
+router.use("/", userRoutes);
+
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
   res.status(200).end();
- res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "/../client/build/index.html"));
 });
 
 module.exports = router;

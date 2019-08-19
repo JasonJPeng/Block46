@@ -4,54 +4,71 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {Motion, spring} from 'react-motion';
 import NavigationPanel from './components/NavigationPanel';
 import Modal from './components/Modal';
+import axios from "axios";
 
 class App extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			mounted: false,
+			pageMounted: "loginAndSignup",
 			email: "",
-			password: ""
+			password: "",
+			signupMsg: "",
+			loginMsg: ""
 		};
 	}
 
 	componentDidMount() {
-		this.setState({ mounted: true });
+		// this.setState({ mounted: true });
 	}
 	
 	handleSignInSubmit = (e) => {
-		// TODO: add sign in authentication
-		this.setState({ mounted: false });
 		e.preventDefault();
-		console.log("submit sign in");
+		let self = this;
+		axios.post("/local/login", {
+			email : this.state.email,
+			password : this.state.password
+		}).then(function(response) {
+			self.setState({loginMsg : response.data.message,
+						   signupMsg : ""})
+		})
 	}
 
 	handleSignUpSubmit = (e) => {
-		// TODO: add sign up authentication
-		this.setState({mounted: false});
 		e.preventDefault();
-		console.log("submit sign up");
+		let self = this;
+		axios.post("/local/signup", {
+			email : this.state.email,
+			password : this.state.password
+		}).then(function(response) {
+			self.setState({signupMsg : response.data.message,
+			               loginMsg : ""});
+		});
 	}
 
 	handleChangeForm = (event) => {
 		const {name, value} = event.target;
-		this.setState({[name] : value}, () => (console.log(this.state)));
+		this.setState({[name] : value});
 	}
 
 	render() {
-		const {mounted} = this.state;
+		const {pageMounted} = this.state;
 
+		// The child is the main content to show
+		// It will be login/signup page at the begining and then
+		// it will be the cryptocurrency data profile after logging in
 		let child;
-		let test = 12;
 
-		if(mounted) {
+		if("loginAndSignup" === pageMounted) {
 			child = (
 				<div className="App_test">
 					<NavigationPanel></NavigationPanel>
 					<Modal onSubmitSignIn={this.handleSignInSubmit}
 					       onSubmitSignUp={this.handleSignUpSubmit}
-						   onChangeForm={this.handleChangeForm}/>
+						   onChangeForm={this.handleChangeForm}
+						   signupMsg={this.state.signupMsg}
+						   loginMsg={this.state.loginMsg}/>
 				</div>
 			);
 		}

@@ -45,7 +45,8 @@ class SignExpanded extends Component {
 							transform: `translate3d(0, ${y}px, 0)`,
 							opacity: `${opacity}`
 						}} onSubmit={this.props.type === 'signIn' ? this.props.onSubmitSignIn : this.props.onSubmitSignUp}>
-							<h2>{this.props.type == 'signIn' ? 'SIGN IN' : 'SIGN UP'}</h2>
+							<h2>{this.props.type === 'signIn' ? 'SIGN IN' : 'SIGN UP'}</h2>
+							<p>{this.props.type === 'signIn' ? this.props.loginMsg : this.props.signupMsg}</p>
 							<Input
 								id="email"
 								type="email"
