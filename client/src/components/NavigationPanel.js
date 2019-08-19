@@ -7,13 +7,13 @@ const NavigationPanel = (props) => {
 
 	return (
 		<div className='NavigationPanel'>
-			<MdArrowBack onClick={props.initialState} className='back'/>
-			<div className='dots'>
+			{/* <MdArrowBack onClick={props.initialState} className='back'/>
+			{/* <div className='dots'>
 				<FaCircle className='dotSelected' />
 				<FaCircle className='dot' />
 				<FaCircle className='dot' />
-			</div>
-			<div style={{flex: 2}}></div>
+			</div> */}
+			{/* <div style={{flex: 2}}></div>  */}
 		</div>
 	);
 }
