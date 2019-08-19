@@ -40,5 +40,14 @@ router.route("/local/loginFail").get(function(req, res) {
               loginStatus: "FAIL"});
 });
 
+// check if a user has logged in already
+router.route("/isloggedin").get(function(req, res) {
+    if (req.user) {
+        res.json({user : req.user});
+    } else {
+        res.json({});
+    }
+})
+
 // export the login and signup router
 module.exports = router;

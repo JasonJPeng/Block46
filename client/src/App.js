@@ -20,7 +20,12 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		// this.setState({ mounted: true });
+		// check if a user has logged in when the component is mounted
+		axios
+		.get("/isloggedin")
+		.then(function(response) {
+			console.log(response.data);
+		})
 	}
 	
 	handleSignInSubmit = (e) => {
