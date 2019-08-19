@@ -15,6 +15,7 @@ const myKey = "9138ceccb8ae2a81647da57c17710ce8";
 // Matches with "/api/books"
 router.route("/")
   .get(function(req,res){
+     console.log("========", req.user) ;
      db.Coin.find({}).then(function(data){
          res.json(data);
      })
