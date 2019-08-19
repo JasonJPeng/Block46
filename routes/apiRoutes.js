@@ -2,8 +2,13 @@
 const router = require("express").Router();
 const db = require("../models");
 const axios = require('axios')
+let dotenv       = require("dotenv");
 
-const myKey = "9138ceccb8ae2a81647da57c17710ce8";
+dotenv.config();
+
+// const myKey = "9138ceccb8ae2a81647da57c17710ce8";
+const myKey = process.env.cryptoControl;
+
 
 // Coint Info = https://cryptocontrol.io/api/v1/public/details/coin/bitcoin?key=9138ceccb8ae2a81647da57c17710ce8
 // https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD
