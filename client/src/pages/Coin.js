@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavbarCoin from "../components/NavbarCoin";
 
+
 class Coin extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +18,12 @@ class Coin extends Component {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#" onClick={this.onClickSave}>Saved</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#" onClick={this.onClickSave}>Account</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/logout">Log Out</a>
                         </li>
                     </ul>
                 </NavbarCoin>
