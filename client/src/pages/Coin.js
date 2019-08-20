@@ -1,10 +1,33 @@
 import React, { Component } from "react";
 import NavbarCoin from "../components/NavbarCoin";
+import Canvas from "../components/canvas";
 
 
 class Coin extends Component {
     constructor(props) {
         super(props);
+    }
+
+    state = {
+        CoinId: "1182"
+    }
+
+    handleInput = (event) => {
+        const {value} = event.target;
+        this.setState({
+            CoinId: value,
+            History: [],
+            Display: false
+        })
+        console.log(this.state.CoinId)
+    }  
+
+    handleCanvas = (event) => {
+        event.preventDefault();
+        this.setState({
+            History: ["xxx","yyyy","zzzz"],
+            Display: true
+        })
     }
 
     render() {
@@ -25,8 +48,16 @@ class Coin extends Component {
                         <li className="nav-item">
                             <a className="nav-link" href="/logout">Log Out</a>
                         </li>
+                        <li className="nav-item">
+                            <input onChange={this.handleInput}></input>
+                            <button type="button" onClick={this.handleCanvas}>Details</button>
+                        </li> 
                     </ul>
                 </NavbarCoin>
+                <Canvas
+                    display = {this.state.Display}
+                    history = {this.state.History}
+                />
             </div>
         );
     }
