@@ -49,9 +49,42 @@ router.route("/cryptocontrol")
 // add history data to the database
 router.route("/history/:id")
 .post(function(req, res){
-    db.Coin.find({Id: req.params.id}).then(function(coinData){
+    
+    res.json(up2dateHistoricalData (req.params.id, 2000))
+})   
+
+    // db.Coin.find({Id: req.params.id}).then(function(coinData){
+    //     let sym = coinData[0].Symbol;
+    //     let apiUrl = "https://min-api.cryptocompare.com/data/histoday?fsym=" + sym + "&tsym=USD&limit=2000"
+    //     axios.get(apiUrl).then(function(historyData){
+    //        let closePrices = [], timeStamps = [];
+    //        historyData.data.Data.forEach(function(e) {
+    //            timeStamps.push(e.time);
+    //            closePrices.push(e.close);
+    //        })
+    //        db.History.create({
+    //            Id: req.params.id,
+    //            Symbol: sym,
+    //            HistoryTimestamp: timeStamps,
+    //            HistoryPriceUSD: closePrices 
+    //        }).then(dbOut=>{
+    //            res.json(dbOut)
+    //        })
+
+            // res.json(historyData.data.Data)  
+//         })
+//     })
+   
+// })
+
+.get(function(req, res){
+    res.json({status: "done"})
+})
+
+function up2dateHistoricalData(id, maxDay) {
+    db.Coin.find({Id: id}).then(function(coinData){
         let sym = coinData[0].Symbol;
-        let apiUrl = "https://min-api.cryptocompare.com/data/histoday?fsym=" + sym + "&tsym=USD&limit=2000"
+        let apiUrl = "https://min-api.cryptocompare.com/data/histoday?fsym=" + sym + "&tsym=USD&limit=" + maxDay
         axios.get(apiUrl).then(function(historyData){
            let closePrices = [], timeStamps = [];
            historyData.data.Data.forEach(function(e) {
@@ -59,38 +92,16 @@ router.route("/history/:id")
                closePrices.push(e.close);
            })
            db.History.create({
-               Id: req.params.id,
+               Id: id,
                Symbol: sym,
                HistoryTimestamp: timeStamps,
                HistoryPriceUSD: closePrices 
            }).then(dbOut=>{
-               res.json(dbOut)
+               console.log(dbOut);
+               return dbOut;
            })
-
-            // res.json(historyData.data.Data)  
-        })
-    })
-   
-})
-
-.get(function(req, res){
-    res.json({status: "done"})
-})
-
-//   .get(function(req,res){
-//      db.Book.find({}).then(function(data){
-//          res.json(data);
-//      })
-//   })
-
-// router.route("/books/:id")
-//   .delete(function(req,res) {
-//       db.Book.remove({id:req.params.id}).then(function(data){
-//           res.json(data)
-//       })
-//   })
-  
-
-
+        })   
+    })   
+}
 
 module.exports = router;

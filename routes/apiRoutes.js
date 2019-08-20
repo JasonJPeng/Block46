@@ -38,7 +38,8 @@ router.route("/")
         let gap = parseInt((Math.floor((new Date()).getTime() / 1000) - lastTime) / 86400)
         if(gap>0) {  // update the data
            gap = Math.min(gap, 2000);
-           console.log("need more data")
+           console.log("need more data") 
+           
            
         }
         
