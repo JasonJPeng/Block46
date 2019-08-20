@@ -4,7 +4,7 @@ html {
   font-family: "Roboto Condensed", sans-serif;
 }
 body {
-  background-image: url('../winter_mountains.jpg');
+  background-image: url('../bitcoin.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,7 +72,7 @@ body {
   padding-top: 15px;
 }
 .signIn {
-  background-color: rgba(151, 105, 245, 0.98);
+  background-color: #F2AA4CFF;
   color: rgb(218, 231, 241);
   font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
@@ -91,7 +91,7 @@ body {
   cursor: pointer;
 }
 .signInCollapsed {
-  background-color: rgba(151, 105, 245, 0.98);
+  background-color: #F2AA4CFF;
   color: rgb(218, 231, 241);
   font-size: 20px;
   order: 1;
@@ -108,7 +108,7 @@ body {
   flex-grow: 1.4;
 }
 .signInExpanded {
-  background-color: rgba(151, 105, 245, 0.98);
+  background-color: #F2AA4CFF;
   color: rgb(218, 231, 241);
   font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
@@ -279,7 +279,7 @@ button {
   width: 30%;
 }
 .submitSignIn {
-  background: rgba(102, 58, 173, 0.8);
+  background: #F2AA4CFF;
   cursor: pointer;
 }
 .submitSignUp {

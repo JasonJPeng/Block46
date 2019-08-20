@@ -1,13 +1,13 @@
 import React from 'react';
 import '../App.css';
-import {MdArrowBack} from 'react-icons/lib/md';
+import {FaBitcoin} from "react-icons/lib/fa";
 import {FaCircle} from 'react-icons/lib/fa';
 
 const NavigationPanel = (props) => {
 
 	return (
 		<div className='NavigationPanel'>
-			<MdArrowBack onClick={props.initialState} className='back'/>
+			<FaBitcoin onClick={props.initialState} className='back'/>
 			<div className='dots'>
 				<FaCircle className='dotSelected' />
 				<FaCircle className='dot' />
