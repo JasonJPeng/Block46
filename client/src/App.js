@@ -12,7 +12,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageMounted: "loginAndSignup",
+			pageMounted: "blank",
 			email: "",
 			password: "",
 			signupMsg: "",
@@ -119,9 +119,15 @@ class App extends Component {
 		} else if ("coinPage" === pageMounted) {
 			child = (
 				<div>
-					<Coin />
+					<Coin username={this.state.loggedInUser}/>
 				</div>
 			);
+		} else {
+			child = (
+				<div>
+
+				</div>
+			)
 		}
 
 		return (

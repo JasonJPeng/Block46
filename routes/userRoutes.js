@@ -48,6 +48,11 @@ router.route("/isloggedin").get(function(req, res) {
         res.json({});
     }
 })
+// log out 
+router.route("/logout").get(function(req, res) {
+    req.logout();
+    res.redirect("/");
+});
 
 // export the login and signup router
 module.exports = router;
