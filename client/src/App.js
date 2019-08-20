@@ -119,7 +119,7 @@ class App extends Component {
 		} else if ("coinPage" === pageMounted) {
 			child = (
 				<div>
-					<Coin />
+					<Coin username={this.state.loggedInUser}/>
 				</div>
 			);
 		} else {

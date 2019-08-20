@@ -20,7 +20,7 @@ class Coin extends Component {
                             <a className="nav-link" href="#" onClick={this.onClickSave}>Saved</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={this.onClickSave}>Account</a>
+                            <a className="nav-link" href="#" onClick={this.onClickSave}>{this.props.username}</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/logout">Log Out</a>
