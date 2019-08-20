@@ -3,7 +3,7 @@ import React from "react";
 
 function NavbarCoin({ children }) {
     return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="navBar">
         { children }
     </nav>);
 }
