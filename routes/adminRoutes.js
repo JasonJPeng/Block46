@@ -47,11 +47,11 @@ router.route("/cryptocontrol")
 })
 
 // add history data to the database
-router.route("/history/:id")
-.post(function(req, res){
+// router.route("/history/:id")
+// .post(function(req, res){
     
-    res.json(up2dateHistoricalData (req.params.id, 2000))
-})   
+//     res.json(up2dateHistoricalData (req.params.id, 2000))
+// })   
 
     // db.Coin.find({Id: req.params.id}).then(function(coinData){
     //     let sym = coinData[0].Symbol;
@@ -81,27 +81,6 @@ router.route("/history/:id")
     res.json({status: "done"})
 })
 
-function up2dateHistoricalData(id, maxDay) {
-    db.Coin.find({Id: id}).then(function(coinData){
-        let sym = coinData[0].Symbol;
-        let apiUrl = "https://min-api.cryptocompare.com/data/histoday?fsym=" + sym + "&tsym=USD&limit=" + maxDay
-        axios.get(apiUrl).then(function(historyData){
-           let closePrices = [], timeStamps = [];
-           historyData.data.Data.forEach(function(e) {
-               timeStamps.push(e.time);
-               closePrices.push(e.close);
-           })
-           db.History.create({
-               Id: id,
-               Symbol: sym,
-               HistoryTimestamp: timeStamps,
-               HistoryPriceUSD: closePrices 
-           }).then(dbOut=>{
-               console.log(dbOut);
-               return dbOut;
-           })
-        })   
-    })   
-}
+
 
 module.exports = router;
