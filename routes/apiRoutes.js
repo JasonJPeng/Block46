@@ -4,6 +4,8 @@ const db = require("../models");
 const axios = require('axios')
 let dotenv       = require("dotenv");
 
+var G_sym = "";
+
 dotenv.config();
 
 // const myKey = "9138ceccb8ae2a81647da57c17710ce8";
@@ -31,24 +33,38 @@ router.route("/")
      db.History.find({Id: req.params.id}).then(async function(historyData){
         var lastTime = 0, timeStamps=[], closePrices = [] 
         if (historyData.length > 0 && historyData[0].HistoryTimestamp.length > 0) {
-            lastTime = historyData[0].HistoryTimestamp[historyData[0].HistoryTimestamp.length];
+            lastTime = historyData[0].HistoryTimestamp[historyData[0].HistoryTimestamp.length-1];
             timeStamps =  historyData[0].HistoryTimestamp.map(x=>x);
             closePrices = historyData[0].HistoryPriceUSD.map(x=>x);
             let gap = parseInt((Math.floor((new Date()).getTime() / 1000) - lastTime) / 86400);
+            console.log("The Gap is " +  gap + "  Last Time" + lastTime)
             if(gap>0) {  // update the data
                 gap = Math.min(gap, 2000);
                 console.log("need to update historical data")   
                 updateData = await up2dateHistoricalData(req.params.id, gap);  
                 // need to update the database
                 timeStamps = timeStamps.concat(updateData.Time);
-                closePrices = closePrices.concat(update.Data.Price);     
-             }
-             res.json({Time: timeStamps, Price: closePrices} )        
+                closePrices = closePrices.concat(updateData.Price);   
+                db.History.updateOne({Id: req.params.id}, {HistoryTimestamp: timeStamps, historyPriceUSD: closePrices }) 
+                .then( function(out){
+                       res.json({Time: timeStamps, Price: closePrices} )
+                      } )    
+             } else {
+                 res.json({Time: timeStamps, Price: closePrices} )   
+             }         
         } else {    // no data exist
             // updateData = await up2dateHistoricalData(req.params.id, 2000); 
             // need to create a new record
             // res.json(updateData); 
-            res.json(await up2dateHistoricalData(req.params.id, 2000))
+            updateData = await up2dateHistoricalData(req.params.id, 2000);
+            db.History.create({
+               Id: req.params.id,
+               Symbol: G_sym,
+               HistoryTimestamp: updateData.Time,
+               HistoryPriceUSD:  updateData.Price
+            }).then(function(newHisotry){
+                res.json(updateData);
+            })
         }       
      })
   })
@@ -129,9 +145,13 @@ router.route("/")
     return new Promise((resolve, reject) => {
 
     let timeStamps=[], closePrices = [];
-    db.Coin.find({Id: id}).then(function(coinData){
-        let sym = coinData[0].Symbol;      
-        let apiUrl = "https://min-api.cryptocompare.com/data/histoday?fsym=" + sym + "&tsym=USD&limit=" + maxDay
+    db.Coin.find({Id: id}).then(function(coinData, err){
+        if(err) {
+            console.log(err)
+            reject(err);
+        }
+        G_sym = coinData[0].Symbol;      
+        let apiUrl = "https://min-api.cryptocompare.com/data/histoday?fsym=" + G_sym + "&tsym=USD&limit=" + maxDay
         axios.get(apiUrl).then(function(historyData){   
            console.log(apiUrl, historyData.data.Data)          
            closePrices = [], timeStamps = [];
