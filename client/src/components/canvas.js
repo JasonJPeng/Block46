@@ -4,9 +4,10 @@ class xxx extends Component {
 
     render() {
         let child;
+        console.log("-----------   ", this.props.history)
         if (this.props.display) {
            child = (
-               <div>dddddddddddd</div>
+               <div>XXXXXXXZXXXXXXX</div>
            )
         }
         return(    

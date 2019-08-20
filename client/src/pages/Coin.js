@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavbarCoin from "../components/NavbarCoin";
 import Canvas from "../components/canvas";
+const axios = require('axios')
 
 
 class Coin extends Component {
@@ -24,10 +25,16 @@ class Coin extends Component {
 
     handleCanvas = (event) => {
         event.preventDefault();
-        this.setState({
-            History: ["xxx","yyyy","zzzz"],
-            Display: true
+        let self = this
+        alert("KKKKK");
+        axios.get("/api/coins/history/" + this.state.CoinId).then(function(historyData){
+            console.log("=======>    ", historyData.data)
+            self.setState({
+                History: historyData.data,
+                Display: true
+            })
         })
+        
     }
 
     render() {
