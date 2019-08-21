@@ -23,15 +23,9 @@ class Coin extends Component {
     allCoins = [];
 
 
-    saveCoin = (event) => {
-        event.preventDefault();
-        alert("save");
-        // console.log(event.target.parentElement.parentElement.id);
-
-    }
-
     updateState = state => {
-        this.setState({ selectedIds: state.selectedRows });
+
+        this.setState({ selectedIds: state.selectedRows.map(x=>x.id) });
         console.log(this.state.selectedIds)
     }
 
@@ -130,9 +124,9 @@ class Coin extends Component {
                     style={{ backgroundColor: "white", overflow: "scroll" }}
                     pagination={true}
                     paginationPerPage={50}
-
-                    onRowSelected={this.updateState}
                     selectableRows
+                    onRowSelected={this.updateState}
+                    
                 />
             </div>
         );
