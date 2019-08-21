@@ -1,32 +1,103 @@
 import React, { Component } from "react";
-import NavbarCoin from "../components/NavbarCoin";
-
+import DataTable from 'react-data-table-component';
+import axios from "axios";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import FormGroup from "react-bootstrap/FormGroup";
+import Button from "react-bootstrap/Button";
 
 class Coin extends Component {
     constructor(props) {
         super(props);
     }
 
+    state = {
+        columns: [],
+        data: []
+    };
+
+    componentDidMount() {
+        // this
+        let self = this;
+
+        // use /api/coins for coin data
+        axios.get("/api/coins").then(function (response) {
+            // api data from response
+            let coinsApiData = response.data;
+
+            // table data conversed from api data
+            let coinsTableData = [];
+            coinsApiData.forEach(coin => {
+                coinsTableData.push(
+                    {
+                        symbol: coin.Symbol,
+                        name: coin.Name,
+                        source: coin.Source,
+                        image: coin.ImageUrl
+                    }
+                )
+            });
+
+            // set columns based on /api/coins response data structure
+            const coinsColumns = [
+                {
+                    name: "Coin Image",
+                    cell: row => <img src={row.image} width="20px" height="20px"></img>
+                },
+                {
+                    name: "Symbol",
+                    selector: "symbol",
+                    sortable: true
+                },
+                {
+                    name: "Name",
+                    selector: "name",
+                    sortable: true
+                },
+                {
+                    name: "Source",
+                    selector: "source",
+                    sortable: false,
+                    right: true
+                }
+            ];
+
+            self.setState({
+                columns: coinsColumns,
+                data: coinsTableData
+            })
+
+        })
+    }
+
     render() {
         return (
             <div>
-                <NavbarCoin>
-                    <a className="navbar-brand" href="/">Block46</a>
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={this.onClickSearch}>Search</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={this.onClickSave}>Saved</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={this.onClickSave}>{this.props.username}</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/logout">Log Out</a>
-                        </li>
-                    </ul>
-                </NavbarCoin>
+                <Navbar bg="dark" fixed="top" variant="dark">
+                    <Navbar.Brand href="#home">Block46</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/">Saved</Nav.Link>
+                        <Nav.Link href="/">{this.props.username}</Nav.Link>
+                        <Nav.Link href="/logout">Logout</Nav.Link>
+                    </Nav>
+                    <Form inline>
+                        <FormGroup>
+                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                            <Button variant="outline-info">Search</Button>
+                        </FormGroup>
+                    </Form>
+                </Navbar>
+
+                <DataTable
+                    title="Block Digest"
+                    columns={this.state.columns}
+                    data={this.state.data}
+                    style={{ backgroundColor: "white", overflow: "scroll" }}
+                    pagination={true}
+                    paginationPerPage={10}
+                />
             </div>
         );
     }
