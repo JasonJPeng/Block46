@@ -16,10 +16,24 @@ class Coin extends Component {
     state = {
         searchTerm: "",
         columns: [],
-        data: []
+        data: [],
+        selectedIds: []
     };
 
     allCoins = [];
+
+
+    saveCoin = (event) => {
+        event.preventDefault();
+        alert("save");
+        // console.log(event.target.parentElement.parentElement.id);
+
+    }
+
+    updateState = state => {
+        this.setState({ selectedIds: state.selectedRows });
+        console.log(this.state.selectedIds)
+    }
 
     componentDidMount() {
         // this
@@ -35,9 +49,9 @@ class Coin extends Component {
             coinsApiData.forEach(coin => {
                 coinsTableData.push(
                     {
+                        id: coin.Id,
                         symbol: coin.Symbol,
                         name: coin.Name,
-                        source: coin.Source,
                         image: coin.ImageUrl
                     }
                 )
@@ -58,12 +72,6 @@ class Coin extends Component {
                     name: "Name",
                     selector: "name",
                     sortable: true
-                },
-                {
-                    name: "Source",
-                    selector: "source",
-                    sortable: false,
-                    right: true
                 }
             ];
 
@@ -96,6 +104,7 @@ class Coin extends Component {
         
     }
 
+
     render() {
         return (
             <div>
@@ -120,7 +129,10 @@ class Coin extends Component {
                     data={this.state.data}
                     style={{ backgroundColor: "white", overflow: "scroll" }}
                     pagination={true}
-                    paginationPerPage={10}
+                    paginationPerPage={50}
+
+                    onRowSelected={this.updateState}
+                    selectableRows
                 />
             </div>
         );
