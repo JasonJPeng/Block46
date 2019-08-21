@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import FormGroup from "react-bootstrap/FormGroup";
 import Button from "react-bootstrap/Button";
 
 class Coin extends Component {
@@ -82,11 +83,13 @@ class Coin extends Component {
                         <Nav.Link href="/logout">Logout</Nav.Link>
                     </Nav>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Search</Button>
+                        <FormGroup>
+                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                            <Button variant="outline-info">Search</Button>
+                        </FormGroup>
                     </Form>
                 </Navbar>
-                
+
                 <DataTable
                     title="Block Digest"
                     columns={this.state.columns}
