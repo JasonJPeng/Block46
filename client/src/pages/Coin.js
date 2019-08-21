@@ -19,6 +19,8 @@ class Coin extends Component {
         data: []
     };
 
+    allCoins = [];
+
     componentDidMount() {
         // this
         let self = this;
@@ -70,6 +72,7 @@ class Coin extends Component {
                 data: coinsTableData
             })
 
+            self.allCoins = coinsTableData; // save for search
         })
     }
 
@@ -83,7 +86,7 @@ class Coin extends Component {
         let newTable = [];
         let q = this.state.searchTerm;
         let searchRegEx = new RegExp(q, "i") 
-        this.state.data.forEach(function(e) {
+        this.allCoins.forEach(function(e) {
             if (e.symbol.match(searchRegEx)|| e.name.match(searchRegEx)) {
                 newTable.push(e);
             }
