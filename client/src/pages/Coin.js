@@ -75,7 +75,7 @@ class Coin extends Component {
     render() {
         return (
             <div>
-                <Navbar bg="dark" variant="dark">
+                <Navbar bg="dark" fixed="top" variant="dark">
                     <Navbar.Brand href="#home">Block46</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Saved</Nav.Link>
