@@ -14,6 +14,7 @@ class Coin extends Component {
     }
 
     state = {
+        searchTerm: "",
         columns: [],
         data: []
     };
@@ -72,6 +73,26 @@ class Coin extends Component {
         })
     }
 
+    handleSearchInput = (event) => {
+      const {value} = event.target ;
+      this.setState({searchTerm: value})
+    }
+
+    searchCoin = (event) => {
+        event.preventDefault();
+        let newTable = [];
+        let q = this.state.searchTerm;
+        let searchRegEx = new RegExp(q, "i") 
+        this.state.data.forEach(function(e) {
+            if (e.symbol.match(searchRegEx)|| e.name.match(searchRegEx)) {
+                newTable.push(e);
+            }
+        })
+
+        this.setState({data: newTable})
+        
+    }
+
     render() {
         return (
             <div>
@@ -84,8 +105,8 @@ class Coin extends Component {
                     </Nav>
                     <Form inline>
                         <FormGroup>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-info">Search</Button>
+                            <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleSearchInput} />
+                            <Button variant="outline-info" onClick={this.searchCoin}>Search</Button>
                         </FormGroup>
                     </Form>
                 </Navbar>
