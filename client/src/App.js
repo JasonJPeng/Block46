@@ -7,6 +7,8 @@ import Modal from './components/Modal';
 import Coin from "./pages/Coin";
 import axios from "axios";
 
+
+
 class App extends Component {
 
 	constructor(props) {
