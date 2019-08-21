@@ -1,22 +1,15 @@
-import React, { Component } from "react";
-
-class xxx extends Component {
-
-    render() {
-        let child;
-        console.log("-----------   ", this.props.history)
-        if (this.props.display) {
-           child = (
-               <div>XXXXXXXZXXXXXXX</div>
-           )
-        }
-        return(    
-        <div id="details">
-   ==========================================================
-        {child}
-        </div>
-        )
-}   
-
-}    
-export default xxx;
+var React = require('react');
+var Component = React.Component;
+var CanvasJSReact = require('./canvasjs.react');
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+class App extends Component {
+	render() {		
+		return (
+		<div style="color:#777777">
+			jadshlkjfhskljafhsal
+		</div>
+		);
+	}
+}
+module.exports = App;     
