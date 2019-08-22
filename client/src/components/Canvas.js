@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 
-class App extends Component {
+class Canvas extends Component {
 
     render () {
         return (
-            <div> sdajkhksdjkjs============= </div>
+            <Jumbotron>
+                <h1>Canvas Under Construction.... :-)</h1>
+            </Jumbotron>
         )
     }
       
 }
 
-export default App;
+export default Canvas;
