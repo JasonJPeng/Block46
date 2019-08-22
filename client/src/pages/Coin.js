@@ -32,7 +32,7 @@ class Coin extends Component {
     addCoin = (event)=> {
       event.preventDefault();
       console.log("Adding   => ", this.state.selectedIds)
-      console.log("User => ", this.props.username)
+      let userId = this.props.username
       this.setState({ toggledClearRows: !this.state.toggledClearRows})
 
     }

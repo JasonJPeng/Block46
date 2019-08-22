@@ -35,7 +35,11 @@ let userSchema = mongoose.Schema({
         token : String,
         email : String,
         name : String
-    }
+    },
+    
+    // common informaion
+    role: String,
+    selected: [String]
 });
 
 // methods

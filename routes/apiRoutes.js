@@ -141,6 +141,44 @@ router.route("/")
      })
   })
 
+
+
+// /api/coins/jason@gmail.com/add?coinIds=23,1183,3445
+  router.route("/:user/add")
+  .put(function(req,res){
+      let Ids = req.query.coinIds.split(",");
+    //   console.log(req.params.user, " Coins ", req.query.coinIds.split(","))
+      db.User.findOne({"local.email": req.params.user}).then(function(data){
+          let newIds = [...data.selected, ...Ids]; // add two Array A + B
+          newIds = newIds.filter((x,i)=>newIds.indexOf(x) === i)   // uniqueness 
+          db.User.updateOne({"local.email": req.params.user}, {selected: newIds})
+         .then(function(data1){
+            res.json(newIds)
+         }) 
+      })
+  })
+
+  router.route("/:user/view")
+  .get(function(req,res){
+    db.User.findOne({"local.email": req.params.user}).then(function(data){
+        res.json(data.selected)
+    })
+  })
+
+// /api/coins/jason@gmail.com/add?coinIds=23,1183,3445
+  router.route("/:user/remove")
+  .put(function(req,res){
+      let Ids = req.query.coinIds.split(",");
+    //   console.log(req.params.user, " Coins ", req.query.coinIds.split(","))
+      db.User.findOne({"local.email": req.params.user}).then(function(data){
+          let newIds = data.selected.filter(x=>!Ids.includes(x))  //A -B  Array subtracting
+          db.User.updateOne({"local.email": req.params.user}, {selected: newIds})
+         .then(function(data1){
+            res.json(newIds)
+         }) 
+      })
+  })
+
   async function up2dateHistoricalData(id, maxDay) {
     return new Promise((resolve, reject) => {
 
