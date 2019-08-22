@@ -124,6 +124,7 @@ router.route("/")
         })
   })          
 
+
   router.route("/:id") 
   .get(function(req,res){
      db.Coin.find({Id: req.params.id}).then(function(coinData){
@@ -140,6 +141,8 @@ router.route("/")
  
      })
   })
+
+
 
 
 

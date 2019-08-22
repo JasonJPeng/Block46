@@ -34,15 +34,19 @@ class Coin extends Component {
       console.log("Adding   => ", this.state.selectedIds)
       let userId = this.props.username
       this.setState({ toggledClearRows: !this.state.toggledClearRows})
+      // ToDo axios /api/coins/userId/add?coinIds=...this.state.selectedIds
 
     }
 
     removeCoin = (event)=> {
         event.preventDefault();
+        let userId = this.props.username
         console.log("Removing ==>  ", this.state.selectedIds)
         let newCoins = this.state.data.filter(x=> this.state.selectedIds.indexOf(x.id) < 0);
         this.setState({data: newCoins, selectedIds: []})
         this.setState({ toggledClearRows: !this.state.toggledClearRows})
+       //ToDo axios /api/cooinc/userId/remove"coinIds=...this.state.selectedIds
+
       }
 
     componentDidMount() {
@@ -113,7 +117,7 @@ class Coin extends Component {
         this.setState({data: newTable})
         
     }
-
+// ToDO adding "saved" to display axios /api/coins/userId/view  
 
     render() {
         return (
