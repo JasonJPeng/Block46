@@ -17,17 +17,33 @@ class Coin extends Component {
         searchTerm: "",
         columns: [],
         data: [],
-        selectedIds: []
+        selectedIds: [],
+        toggledClearRows: false
     };
 
     allCoins = [];
 
-
+// Add selected roows data[i] in state.selectedIds
     updateState = state => {
-
         this.setState({ selectedIds: state.selectedRows.map(x=>x.id) });
-        console.log(this.state.selectedIds)
+        // console.log(this.state.selectedIds)
     }
+
+    addCoin = (event)=> {
+      event.preventDefault();
+      console.log("Adding   => ", this.state.selectedIds)
+      console.log("User => ", this.props.username)
+      this.setState({ toggledClearRows: !this.state.toggledClearRows})
+
+    }
+
+    removeCoin = (event)=> {
+        event.preventDefault();
+        console.log("Removing ==>  ", this.state.selectedIds)
+        let newCoins = this.state.data.filter(x=> this.state.selectedIds.indexOf(x.id) < 0);
+        this.setState({data: newCoins, selectedIds: []})
+        this.setState({ toggledClearRows: !this.state.toggledClearRows})
+      }
 
     componentDidMount() {
         // this
@@ -112,6 +128,8 @@ class Coin extends Component {
                     <Form inline>
                         <FormGroup>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleSearchInput} />
+                            <Button variant="outline-info" onClick={this.addCoin}>Add</Button>
+                            <Button variant="outline-info" onClick={this.removeCoin}>Remove</Button>
                             <Button variant="outline-info" onClick={this.searchCoin}>Search</Button>
                         </FormGroup>
                     </Form>
@@ -126,6 +144,7 @@ class Coin extends Component {
                     paginationPerPage={50}
                     selectableRows
                     onRowSelected={this.updateState}
+                    clearSelectedRows={this.state.toggledClearRows}
                     
                 />
             </div>
