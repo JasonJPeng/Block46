@@ -7,8 +7,6 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import FormGroup from "react-bootstrap/FormGroup";
 import Button from "react-bootstrap/Button";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Canvas from "../components/Canvas";
 
 class Coin extends Component {
     constructor(props) {
@@ -37,21 +35,8 @@ class Coin extends Component {
       let userId = this.props.username
       this.setState({ toggledClearRows: !this.state.toggledClearRows})
       // ToDo axios /api/coins/userId/add?coinIds=...this.state.selectedIds
-      //      
-      if (this.state.selectedIds.length >0) {
-       let self = this;   
-       axios.put("/api/coins/" + 
-                      userId + "/add?coinIds=" + 
-                      self.state.selectedIds.reduce((a,b)=>a + ',' + b)) 
-                      .then(function(res){
-                          console.log("added" , self.state.selectedIds)
-                          self.setState({selectedIds: []})
-                      })
-       
-       }             
-      }
 
-    
+    }
 
     removeCoin = (event)=> {
         event.preventDefault();
@@ -61,14 +46,10 @@ class Coin extends Component {
         this.setState({data: newCoins, selectedIds: []})
         this.setState({ toggledClearRows: !this.state.toggledClearRows})
        //ToDo axios /api/cooinc/userId/remove"coinIds=...this.state.selectedIds
-        
-
 
       }
 
-    // componentDidMount() {
-    // send request /api/coins via axios
-    requestApiCoins() {
+    componentDidMount() {
         // this
         let self = this;
 
@@ -114,11 +95,7 @@ class Coin extends Component {
             })
 
             self.allCoins = coinsTableData; // save for search
-        });
-    }
-
-    componentDidMount() {
-        this.requestApiCoins();
+        })
     }
 
     handleSearchInput = (event) => {
@@ -144,22 +121,19 @@ class Coin extends Component {
 
     render() {
         return (
-            <Router>
+            <div>
                 <Navbar bg="dark" fixed="top" variant="dark">
                     <Navbar.Brand href="#home">Block46</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Saved</Nav.Link>
-                        <Nav.Link><Link to="/digest/">Block Digest</Link></Nav.Link>
-                        <Nav.Link><Link to="/canvas/">Block canvas</Link></Nav.Link>
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
                         <Nav.Link href="/logout">Logout</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormGroup>
-                           <Button variant="outline-info" onClick={this.addCoin}>Add</Button>
-                            <Button variant="outline-info" onClick={this.removeCoin}>Remove</Button>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleSearchInput} />
-                            
+                            <Button variant="outline-info" onClick={this.addCoin}>Add</Button>
+                            <Button variant="outline-info" onClick={this.removeCoin}>Remove</Button>
                             <Button variant="outline-info" onClick={this.searchCoin}>Search</Button>
                         </FormGroup>
                     </Form>
@@ -177,32 +151,7 @@ class Coin extends Component {
                     clearSelectedRows={this.state.toggledClearRows}
                     
                 />
-
-                
-                {/* <Route path="/" exact component={() => (<DataTable
-                    title="Block Digest"
-                    columns={this.state.columns}
-                    data={this.state.data}
-                    style={{ backgroundColor: "white", overflow: "scroll" }}
-                    pagination={true}
-                    paginationPerPage={30}
-                    selectableRows
-                    onRowSelected={this.updateState}
-                    clearSelectedRows={this.state.toggledClearRows}
-                />)} /> */}
-                {/* <Route path="/digest/" component={() => ((<DataTable
-                    title="Block Digest"
-                    columns={this.state.columns}
-                    data={this.state.data}
-                    style={{ backgroundColor: "white", overflow: "scroll" }}
-                    pagination={true}
-                    selectableRows
-                    onRowSelected={this.updateState}
-                    clearSelectedRows={this.state.toggledClearRows}
-                    paginationPerPage={30}
-                />))} /> */}
-                <Route path="/canvas/" component={Canvas} />
-            </Router>
+            </div>
         );
     }
 }

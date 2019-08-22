@@ -29,7 +29,6 @@ class App extends Component {
 		axios
 			.get("/isloggedin")
 			.then(function (response) {
-				console.log(response.data);
 				if (!response.data.user) {
 					self.setState({
 						pageMounted: "loginAndSignup",
