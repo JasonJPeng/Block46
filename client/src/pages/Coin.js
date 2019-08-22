@@ -7,6 +7,8 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import FormGroup from "react-bootstrap/FormGroup";
 import Button from "react-bootstrap/Button";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Canvas from "../components/Canvas";
 
 class Coin extends Component {
     constructor(props) {
@@ -21,7 +23,8 @@ class Coin extends Component {
 
     allCoins = [];
 
-    componentDidMount() {
+    // send request /api/coins via axios
+    requestApiCoins() {
         // this
         let self = this;
 
@@ -37,7 +40,6 @@ class Coin extends Component {
                     {
                         symbol: coin.Symbol,
                         name: coin.Name,
-                        source: coin.Source,
                         image: coin.ImageUrl
                     }
                 )
@@ -59,12 +61,6 @@ class Coin extends Component {
                     selector: "name",
                     sortable: true
                 },
-                {
-                    name: "Source",
-                    selector: "source",
-                    sortable: false,
-                    right: true
-                }
             ];
 
             self.setState({
@@ -73,7 +69,11 @@ class Coin extends Component {
             })
 
             self.allCoins = coinsTableData; // save for search
-        })
+        });
+    }
+
+    componentDidMount() {
+        this.requestApiCoins();
     }
 
     handleSearchInput = (event) => {
@@ -98,11 +98,13 @@ class Coin extends Component {
 
     render() {
         return (
-            <div>
+            <Router>
                 <Navbar bg="dark" fixed="top" variant="dark">
                     <Navbar.Brand href="#home">Block46</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Saved</Nav.Link>
+                        <Nav.Link><Link to="/digest/">Block Digest</Link></Nav.Link>
+                        <Nav.Link><Link to="/canvas/">Block canvas</Link></Nav.Link>
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
                         <Nav.Link href="/logout">Logout</Nav.Link>
                     </Nav>
@@ -114,15 +116,25 @@ class Coin extends Component {
                     </Form>
                 </Navbar>
 
-                <DataTable
+                
+                <Route path="/" exact component={() => (<DataTable
                     title="Block Digest"
                     columns={this.state.columns}
                     data={this.state.data}
                     style={{ backgroundColor: "white", overflow: "scroll" }}
                     pagination={true}
                     paginationPerPage={10}
-                />
-            </div>
+                />)} />
+                <Route path="/digest/" component={() => ((<DataTable
+                    title="Block Digest"
+                    columns={this.state.columns}
+                    data={this.state.data}
+                    style={{ backgroundColor: "white", overflow: "scroll" }}
+                    pagination={true}
+                    paginationPerPage={10}
+                />))} />
+                <Route path="/canvas/" component={Canvas} />
+            </Router>
         );
     }
 }
