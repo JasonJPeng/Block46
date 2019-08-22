@@ -20,7 +20,8 @@ class Coin extends Component {
         columns: [],
         data: [],
         selectedIds: [],
-        toggledClearRows: false
+        toggledClearRows: false,
+        searchMode: true
     };
 
     allCoins = [];
@@ -29,6 +30,25 @@ class Coin extends Component {
     updateState = state => {
         this.setState({ selectedIds: state.selectedRows.map(x=>x.id) });
         // console.log(this.state.selectedIds)
+    }
+
+    displaySavedCoins = (event) => {
+        event.preventDefault();
+        this.setState({searchMode: false})
+        let userId = this.props.username;
+        let self = this
+        axios.get("/api/coins/" + userId + "/view").then(function (selected){
+            console.log(selected.data)
+            // let myCoins = self.allCoins.filter(x=> selected.indexOf(x.id)>=0)
+            // let myCoins = selected.data.map(x=>{return self.allCoins.find(y=>y.id===x)})
+            let myCoins = [];
+            selected.data.forEach(function(e){
+                let coin = self.allCoins.find(x=> x.id === e)
+                coin ? myCoins.push(coin): console.log(e + " is not a valid ID");
+            })
+
+            self.setState({data: myCoins})    
+        }) 
     }
 
     addCoin = (event)=> {
@@ -51,8 +71,6 @@ class Coin extends Component {
        }             
       }
 
-    
-
     removeCoin = (event)=> {
         event.preventDefault();
         let userId = this.props.username
@@ -61,9 +79,14 @@ class Coin extends Component {
         this.setState({data: newCoins, selectedIds: []})
         this.setState({ toggledClearRows: !this.state.toggledClearRows})
        //ToDo axios /api/cooinc/userId/remove"coinIds=...this.state.selectedIds
-        
-
-
+       let self = this;   
+       axios.put("/api/coins/" + 
+                      userId + "/remove?coinIds=" + 
+                      self.state.selectedIds.reduce((a,b)=>a + ',' + b)) 
+                      .then(function(res){
+                          console.log("removed " , self.state.selectedIds)
+                          self.setState({selectedIds: []})
+                      })
       }
 
     // componentDidMount() {
@@ -137,7 +160,9 @@ class Coin extends Component {
             }
         })
 
-        this.setState({data: newTable})
+        this.setState({data: newTable,
+                       searchMode: true 
+                      })
         
     }
 // ToDO adding "saved" to display axios /api/coins/userId/view  
@@ -148,7 +173,8 @@ class Coin extends Component {
                 <Navbar bg="dark" fixed="top" variant="dark">
                     <Navbar.Brand href="#home">Block46</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Saved</Nav.Link>
+                        <Nav.Link href="/"
+                          onClick = {this.displaySavedCoins}>Saved</Nav.Link>
                         <Nav.Link><Link to="/digest/">Block Digest</Link></Nav.Link>
                         <Nav.Link><Link to="/canvas/">Block canvas</Link></Nav.Link>
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
@@ -156,8 +182,10 @@ class Coin extends Component {
                     </Nav>
                     <Form inline>
                         <FormGroup>
-                           <Button variant="outline-info" onClick={this.addCoin}>Add</Button>
-                            <Button variant="outline-info" onClick={this.removeCoin}>Remove</Button>
+                          {this.state.searchMode ?
+                           <Button variant="outline-info" onClick={this.addCoin}>Add</Button>:
+                           <Button variant="outline-info" onClick={this.removeCoin}>Remove</Button>
+                          }
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleSearchInput} />
                             
                             <Button variant="outline-info" onClick={this.searchCoin}>Search</Button>
