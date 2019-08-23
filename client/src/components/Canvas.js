@@ -10,25 +10,55 @@ class LineChart extends Component {
 	}
 	
 	componentDidMount() {
-         this.getData(this.props.Ids[0]);
+         this.getData(this.props.Ids);
 	}
 	
 
-	getData = (id) => {
-
-		let self = this
+	getDataPoints = (id) => {
+		return new Promise((resolve, reject) => {
 		axios.get("/api/coins/history/" + id).then (function(history){
 			console.log(history.data);
-			let data = []
+			
+			let dataPoints = []
             for (let i=1; i<history.data.Time.length; i++) {
-			   data.push({
+			   dataPoints.push({
 							 x: new Date(history.data.Time[i]*1000) ,
 							 y: history.data.Price[i]
 			             })
-			} 
-            console.log("29 ----->", data);
-			self.setState({data: data})
-	})
+			}
+			resolve(dataPoints); 
+		})		
+		})	
+	}
+
+	getInfo = (id) => {
+		return new Promise((resolve, reject) => {
+			axios.get("/api/coins/" + id).then (function(info){
+				resolve(info.data);
+			})	
+		})	
+	}
+	
+	
+	getData = async (Ids) => {
+		// let id = Ids[0];
+		let data = [];
+		for (let i=0; i< Ids.length; i++) {
+		   let self = this
+		   let id = Ids[i];
+		   let coinInfo = await self.getInfo(id);
+		   let dataPoints = await self.getDataPoints(id);
+		   
+            data.push({
+				type: "line",
+				showInLegend: true, 
+                legendText: `(${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} | `,
+				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
+				dataPoints: dataPoints
+		    })
+            console.log("47 ----->", data);
+	    }
+	    this.setState({data: data})
 	}
 
 
@@ -52,11 +82,12 @@ class LineChart extends Component {
 				prefix: " "
 				// interval: 2
 			},
-			data: [{
-				type: "line",
-				toolTipContent: " {x}: $ {y}",
-				dataPoints: this.state.data
-			}]
+			data: this.state.data
+			// data: [{
+			// 	type: "line",
+			// 	toolTipContent: " {x}: $ {y}",
+			// 	dataPoints: this.state.data
+			// }]
 		}
 
 		console.log("87 =======> ", this.state.data)
