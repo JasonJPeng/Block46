@@ -131,11 +131,11 @@ class Coin extends Component {
             // set columns based on /api/coins response data structure
             const coinsColumns = [
                 {
-                    name: "Coin Image",
-                    cell: row => <img src={row.image} width="20px" height="20px"></img>
+                    name: "Select All",
+                    cell: row => <img src={row.image} width="50px" height="50px"></img>
                 },
                 {
-                    name: "Symbol",
+                    name: "Coin Symbol",
                     selector: "symbol",
                     sortable: true
                 },
@@ -221,7 +221,7 @@ class Coin extends Component {
                             Block Digest
                         </Nav.Link>
                         <Nav.Link onClick={this.displayCanvas}>
-                            Block canvas
+                            blockCanvas
                         </Nav.Link>
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
                         <Nav.Link href="/logout">Logout</Nav.Link>
