@@ -10,9 +10,6 @@ import Button from "react-bootstrap/Button";
 import Canvas from "../components/Canvas";
 
 class Coin extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         searchTerm: "",
@@ -32,6 +29,13 @@ class Coin extends Component {
         this.setState({ selectedIds: state.selectedRows.map(x => x.id) });
         // console.log(this.state.selectedIds)
     }
+// !! logout route should send something to the client
+    logOut = () => {
+        axios.get("/logout").then(response => {
+            //  do something with the message or the response?
+            alert(JSON.stringify(response.data.message))
+        })
+    }
 
     displaySavedCoins = (event) => {
         event.preventDefault();
@@ -44,7 +48,7 @@ class Coin extends Component {
             // let myCoins = selected.data.map(x=>{return self.allCoins.find(y=>y.id===x)})
             let myCoins = [];
             selected.data.forEach(function (e) {
-                let coin = self.allCoins.find(x => x.id === e)
+                let coin = self.allCoins.find(x => x.id === e);
                 coin ? myCoins.push(coin) : console.log(e + " is not a valid ID");
             })
 
@@ -132,7 +136,7 @@ class Coin extends Component {
             const coinsColumns = [
                 {
                     name: "Select All",
-                    cell: row => <img src={row.image} width="50px" height="50px"></img>
+                    cell: row => <img src={row.image} alt="select all" width="50px" height="50px"></img>
                 },
                 {
                     name: "Coin Symbol",
@@ -224,7 +228,7 @@ class Coin extends Component {
                             blockCanvas
                         </Nav.Link>
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
-                        <Nav.Link href="/logout">Logout</Nav.Link>
+                        <Nav.Link  onClick={this.logOut} href="/logout">Logout</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormGroup>
