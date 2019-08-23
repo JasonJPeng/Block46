@@ -55,12 +55,14 @@ class Coin extends Component {
 
     displayApiCoins = (event) => {
         event.preventDefault();
+        this.setState({ searchMode: true })
         this.requestApiCoins();
         this.setState({ componentShow: "datatable" });
     }
 
     displayCanvas = (event) => {
         event.preventDefault();
+        this.setState({ searchMode: true })
         this.setState({ componentShow: "canvas" });
     }
 
