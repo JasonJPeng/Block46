@@ -51,6 +51,9 @@ class LineChart extends Component {
 		   
             data.push({
 				type: "line",
+				showInLegend: true, 
+                name: "",
+                legendText: "current price: $" + coinInfo.Price + " " + coinInfo.Symbol + " " + coinInfo.Name ,
 				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
 				dataPoints: dataPoints
 		    })
