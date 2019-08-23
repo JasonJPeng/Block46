@@ -37,6 +37,7 @@ class LineChart extends Component {
 			animationEnabled: true,
 			exportEnabled: true,
 			theme: "light2", // "light1", "dark1", "dark2"
+			zoomEnabled: true,
 			title:{
 				text: "Historical Chart"
 			},
