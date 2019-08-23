@@ -34,7 +34,7 @@ class LineChart extends Component {
 	getInfo = (id) => {
 		return new Promise((resolve, reject) => {
 			axios.get("/api/coins/" + id).then (function(info){
-				resolve(info.data.Symbol);
+				resolve(info.data);
 			})	
 		})	
 	}
@@ -46,11 +46,12 @@ class LineChart extends Component {
 		for (let i=0; i< Ids.length; i++) {
 		   let self = this
 		   let id = Ids[i];
-		   let symbol = await self.getInfo(id);
+		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
+		   
             data.push({
 				type: "line",
-				toolTipContent: `${symbol} {x} $ {y}`,
+				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
 				dataPoints: dataPoints
 		    })
             console.log("47 ----->", data);
