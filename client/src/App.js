@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component } from 'react';
+import {BrowserRouter as Router, Route, Link, Swtich} from 'react-router-dom';
 import './App.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Motion, spring } from 'react-motion';
 import NavigationPanel from './components/NavigationPanel';
-import Modal from './components/Modal';
 import Coin from "./pages/Coin";
 import axios from "axios";
-
-
+import Home from "./components/Home";
 
 class App extends Component {
 
@@ -34,6 +32,7 @@ class App extends Component {
 						pageMounted: "loginAndSignup",
 						loggedInUser: ""
 					})
+					console
 				} else if (response.data.user.local) {
 					self.setState({
 						pageMounted: "coinPage",
@@ -90,8 +89,17 @@ class App extends Component {
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
 	}
-
 	render() {
+		return (
+			<div>
+				<Router>
+					<Route exact path="/" component={Home} /> 
+					<Route exact path="/coins" component={Coin} />
+				</Router>
+			</div>
+		)
+	}
+	renderX() {
 		const { pageMounted } = this.state;
 
 		// The child is the main content to show
