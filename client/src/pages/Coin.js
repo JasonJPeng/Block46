@@ -202,7 +202,7 @@ class Coin extends Component {
             );
         } else if ("canvas" === this.state.componentShow) {
             child = (
-                <Canvas />
+                <Canvas Ids = {this.state.selectedIds} />
             );
         } else {
             child = (
