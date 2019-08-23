@@ -21,7 +21,8 @@ class Coin extends Component {
         selectedIds: [],
         toggledClearRows: false,
         searchMode: true,
-        componentShow: "datatable"
+        componentShow: "datatable",
+        tableName: "Block Digest"
     };
 
     allCoins = [];
@@ -49,7 +50,7 @@ class Coin extends Component {
 
             self.setState({ data: myCoins })
         }).then(function () {
-            self.setState({ componentShow: "datatable" })
+            self.setState({ componentShow: "datatable", tableName : "Saved Blocks" })
         })
     }
 
@@ -57,7 +58,7 @@ class Coin extends Component {
         event.preventDefault();
         this.setState({ searchMode: true })
         this.requestApiCoins();
-        this.setState({ componentShow: "datatable" });
+        this.setState({ componentShow: "datatable", tableName : "Block Digest" });
     }
 
     displayCanvas = (event) => {
@@ -188,7 +189,7 @@ class Coin extends Component {
         if ("datatable" === this.state.componentShow) {
             child = (
                 <DataTable
-                    title="Block Digest"
+                    title={this.state.tableName}
                     columns={this.state.columns}
                     data={this.state.data}
                     style={{ backgroundColor: "white", overflow: "scroll" }}
