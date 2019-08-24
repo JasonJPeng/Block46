@@ -71,12 +71,12 @@ router.route("/")
 
   router.route("/info/:id") 
   .get(function(req,res){
-     db.Coin.find({Id: req.params.id}).then(function(coinData){
+     db.Coin.findOne({Id: req.params.id}).then(function(coinData){
         if(!coinData || coinData.length <= 0) res.json({})
-         db.Headline.find({Symbol: coinData[0].Symbol}).then(function(headlineData){
+         db.Headline.findOne({Symbol: coinData.Symbol}).then(function(headlineData){
             if(!headlineData || headlineData.length <= 0) res.json({})
             let apiUrl = "https://cryptocontrol.io/api/v1/public/details/coin/" + 
-                         headlineData[0].NewsName + "?key=" + myKey;
+                         headlineData.NewsName + "?key=" + myKey;
             axios.get(apiUrl).then(function(infoData){
                  let infoLinks = []
                  infoData.data.links.forEach(function(e){
@@ -88,9 +88,10 @@ router.route("/")
 
                  let outObj = {
                      Id: req.params.id,
-                     Name: coinData[0].Name,
-                     Symbol: coinData[0].Symbol,
+                     Name: coinData.Name,
+                     Symbol: coinData.Symbol,
                      Description: infoData.data.description,
+                     ImageUrl: coinData.ImageUrl,
                      Links: infoLinks
                  }
                  res.json(outObj)
