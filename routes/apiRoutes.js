@@ -72,7 +72,9 @@ router.route("/")
   router.route("/info/:id") 
   .get(function(req,res){
      db.Coin.find({Id: req.params.id}).then(function(coinData){
+        if(!coinData || coinData.length <= 0) res.json({})
          db.Headline.find({Symbol: coinData[0].Symbol}).then(function(headlineData){
+            if(!headlineData || headlineData.length <= 0) res.json({})
             let apiUrl = "https://cryptocontrol.io/api/v1/public/details/coin/" + 
                          headlineData[0].NewsName + "?key=" + myKey;
             axios.get(apiUrl).then(function(infoData){
@@ -100,7 +102,10 @@ router.route("/")
   router.route("/news/:id") 
   .get(function(req,res){
      db.Coin.find({Id: req.params.id}).then(function(coinData){
+        if(!coinData || coinData.length <= 0) res.json({})
          db.Headline.find({Symbol: coinData[0].Symbol}).then(function(headlineData){
+            if(!headlineData || headlineData.length <= 0) res.json({})
+
             let apiUrl = "https://cryptocontrol.io/api/v1/public/news/coin/" + 
                          headlineData[0].NewsName + "?latest=true&key=" + myKey;
             axios.get(apiUrl).then(function(newsData){

@@ -2,37 +2,51 @@ import React, { Component } from 'react';
 import CanvasJSReact from './canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 import axios from "axios";
+
+import NewsInfo from "../components/NewsInfo";
  
 class LineChart extends Component {
 	
 	state = {
 		data : [],
-		title: ""
+		title: "",
+		factors: {}
 	}
 	
 	componentDidMount() {
-         this.getData(this.props.Ids);
+		let factors = {};
+		this.props.Ids.forEach(e=>{
+            factors[e]=1
+		})
+		this.setState({factors: factors})
+        this.getData(this.props.Ids);
 	}
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
-		let newData = [];
+		// let newData = [];
+		let factors = {}
 		console.log("State Data=> ", this.state.data)
 		for (let i=0; i < this.state.data.length; i++) {
 			let maxValue = Math.max(...this.state.data[i].dataPoints.map(element=>element.y));
 			let factor = 10 ** parseInt(Math.log10(maxValue));
-			console.log("factor->", factor)	
-			let newPoints = this.state.data[i];
-			newPoints.dataPoints.map(ele=> ele.y = ele.y/factor)
-			newData.push(newPoints)				
+			console.log("1 factor->  ", maxValue, factor)
+			factors[this.props.Ids[i]] = factor
+
+			console.log("2 factor->", factor)	
+			// let newPoints = this.state.data[i];
+			// newPoints.dataPoints.map(ele=> ele.y = ele.y/factor)
+			// newData.push(newPoints)				
 		}
 
-		this.setState({data: newData})
+		this.setState({factors: factors})
+		console.log(this.state.factors)
 		
 	}
 
 	getDataPoints = (id) => {
 		return new Promise((resolve, reject) => {
+		let self = this	;
 		axios.get("/api/coins/history/" + id).then (function(history){
 			console.log(history.data);
 			
@@ -40,7 +54,7 @@ class LineChart extends Component {
             for (let i=1; i<history.data.Time.length; i++) {
 			   dataPoints.push({
 							 x: new Date(history.data.Time[i]*1000) ,
-							 y: history.data.Price[i]
+							 y: history.data.Price[i] / self.state.factors[id]
 			             })
 			}
 			resolve(dataPoints); 
@@ -65,14 +79,12 @@ class LineChart extends Component {
 		   let id = Ids[i];
 		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
-        this.setState({title: this.state.title + " ~ " + coinInfo.Name})
-		   
-		   
+        this.setState({title: this.state.title + coinInfo.Name + " / "})
             data.push({
 				type: "line",
 				showInLegend: true, 
-                legendText: `(${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} | `,
-				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
+                legendText: ` (${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} / `,
+				toolTipContent: `${coinInfo.Symbol} {x} $ {y}X${self.state.factors[id]}`,
 				dataPoints: dataPoints
 		    })
             console.log("47 ----->", data);
@@ -88,7 +100,8 @@ class LineChart extends Component {
 			theme: "light2", // "light1", "dark1", "dark2"
 			zoomEnabled: true,
 			title:{
-				text: "Historical Chart: " + this.state.title
+				text: "/ " + this.state.title,
+				fontSize: 20
 			},
 			axisY: {
 				title: "USD",
@@ -119,6 +132,7 @@ class LineChart extends Component {
 			/>
 			<button onClick={this.normalizeChart}>Normalize the chart</button>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+		    <NewsInfo Ids = {this.props.Ids}/>
 		</div>
 		);
 	}

@@ -329,3 +329,8 @@ button:active {
   opacity: .01;
   transition: opacity .3s ease, margin .5s ease;
 }
+
+#NewsInfo {
+  background-color: azure;
+  color: red;
+}
