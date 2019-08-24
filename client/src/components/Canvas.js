@@ -127,7 +127,7 @@ class LineChart extends Component {
 		return (
 		<div>
 			<h1>React Line Chart</h1>
-			<CanvasJSChart options = {options} 
+			<CanvasJSChart options={options} 
 				/* onRef={ref => this.chart = ref} */
 			/>
 			<button onClick={this.normalizeChart}>Normalize the chart</button>

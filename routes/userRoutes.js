@@ -50,8 +50,11 @@ router.route("/isloggedin").get(function(req, res) {
 })
 // log out 
 router.route("/logout").get(function(req, res) {
+    
+    
     req.logout();
-    res.redirect("/");
+    // res.redirect("/");
+    res.send({message: "You have successfully logged out"})
 });
 
 // export the login and signup router
