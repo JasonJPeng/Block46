@@ -4,7 +4,8 @@ import axios from "axios";
 class App extends Component {
     state = {
         infos: [],
-        news:[]
+        news:[],
+        prices: {}
     }
 
     componentDidMount() {
@@ -27,18 +28,32 @@ class App extends Component {
      })  
    }
 
+   getPrice = (id) => {
+    return new Promise((resolve, reject) => {
+        axios.get("/api/coins/" + id).then(function(priceData){
+            console.log("=+++++++===>", priceData.data)
+            resolve(priceData.data.Price)
+        })
+     })    
+
+   }
+
     setInfo = async (Ids) => {
        let newInfos = [] 
        let newNews = []
+       let newPrices = {}
        for(let i=0; i<Ids.length; i++) {
            let info = await this.getInfo(Ids[i]);
-           if (Object.keys(info).length >= 3) {
+        //    if (Object.keys(info).length >= 3) {
                 newInfos.push(info)
-           }
+        //    }
            let news = await this.getNews(Ids[i]);
            if (news.length > 0) { 
                newNews.push(...news)
            }
+           let price = await this.getPrice(Ids[i]);
+           console.log("$$$$$$$$", price)
+           newPrices[[Ids[i]]] = price;
        }
        newNews.sort((a,b)=>{return b.Date>a.Date})
 
@@ -53,7 +68,11 @@ class App extends Component {
           }
        }
 
-       this.setState({infos:newInfos, news: uniqueNews})
+       this.setState({
+           infos:newInfos, 
+           news: uniqueNews,
+           prices: newPrices
+        })
 
     }
 
@@ -64,7 +83,8 @@ class App extends Component {
             <div id = "NewsInfo">
                 {this.state.infos.map(item => (
                    <div key={item.Id + "info"} className="item"> 
-                   <img src = {item.ImageUrl} height = "20"/> {item.Name}({item.Symbol})
+                   <img src = {item.ImageUrl} height = "20"/> 
+                   {item.Name}({item.Symbol}) Current market price: {this.state.prices[item.Id]}
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 

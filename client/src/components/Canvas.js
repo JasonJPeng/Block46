@@ -10,6 +10,7 @@ class LineChart extends Component {
 	state = {
 		data : [],
 		title: "",
+		prices: {},
 		factors: {}
 	}
 	
@@ -74,12 +75,14 @@ class LineChart extends Component {
 	getData = async (Ids) => {
 		// let id = Ids[0];
 		let data = [];
+		let prices = {};
 		for (let i=0; i< Ids.length; i++) {
 		   let self = this
 		   let id = Ids[i];
 		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
-        this.setState({title: this.state.title + coinInfo.Name + " / "})
+		this.setState({title: this.state.title + coinInfo.Name + " / "})
+		    prices[Ids[i]] = coinInfo.Price
             data.push({
 				type: "line",
 				showInLegend: true, 
@@ -88,8 +91,9 @@ class LineChart extends Component {
 				dataPoints: dataPoints
 		    })
             console.log("47 ----->", data);
-	    }
-	    this.setState({data: data})
+		}
+		// prices = {"id": $$$$, "1182": 120000.00}
+	    this.setState({data: data, prices:prices})
 	}
 
 
@@ -132,7 +136,7 @@ class LineChart extends Component {
 			/>
 			<button onClick={this.normalizeChart}>Normalize the chart</button>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-		    <NewsInfo Ids = {this.props.Ids}/>
+		    <NewsInfo Ids={this.props.Ids} />
 		</div>
 		);
 	}
