@@ -3,7 +3,6 @@ import axios from "axios";
  
 class App extends Component {
     state = {
-        more : 3,
         infos: [],
         news:[]
     }
@@ -33,7 +32,7 @@ class App extends Component {
        let newNews = []
        for(let i=0; i<Ids.length; i++) {
            let info = await this.getInfo(Ids[i]);
-           if (Object.keys(info).length > 3) {
+           if (Object.keys(info).length >= 3) {
                 newInfos.push(info)
            }
            let news = await this.getNews(Ids[i]);
@@ -66,10 +65,16 @@ class App extends Component {
                 {this.state.infos.map(item => (
                    <div key={item.Id + "info"} className="item"> 
                    <img src = {item.ImageUrl} height = "20"/> {item.Name}({item.Symbol})
-                   <span>{item.Description} </span> 
-                    {item.Links.map(linkItem=>(
+                   {item.Description ?
+                     <div>
+                     <span>{item.Description} </span> 
+                       {item.Links.map(linkItem=>(
                        <a href={linkItem.url} target="_blank">{linkItem.Website}</a>
-                    ))}
+                      
+                      ))}
+                    </div> :
+                    <div></div>
+                   }
                    </div>
                 ))}
             </div>

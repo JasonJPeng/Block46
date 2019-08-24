@@ -72,9 +72,16 @@ router.route("/")
   router.route("/info/:id") 
   .get(function(req,res){
      db.Coin.findOne({Id: req.params.id}).then(function(coinData){
-        if(!coinData || coinData.length <= 0) res.json({})
+        if(!coinData) res.json({})
          db.Headline.findOne({Symbol: coinData.Symbol}).then(function(headlineData){
-            if(!headlineData || headlineData.length <= 0) res.json({})
+        // return the basic information if no detail info is found     
+            if(!headlineData || headlineData.length <= 0) {
+                res.json({
+                    Symbol: coinData.Symbol, 
+                    Name: coinData.Name,
+                    ImageUrl: coinData.ImageUrl
+                })
+            }    
             let apiUrl = "https://cryptocontrol.io/api/v1/public/details/coin/" + 
                          headlineData.NewsName + "?key=" + myKey;
             axios.get(apiUrl).then(function(infoData){
