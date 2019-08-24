@@ -43,12 +43,18 @@ class App extends Component {
        }
        newNews.sort((a,b)=>{return b.Date>a.Date})
 
-       // need to remobve the news of same title 
-       
-    //    newNews = newNews.filter((e, i, self)=> {
-    //        if (e.Title)
-    //    })
-       this.setState({infos:newInfos, news: newNews})
+       // need to remove the news of same title next to each other
+       // newNews is a sorted array
+       let uniqueNews = [newNews[0]] 
+       let newsTitle = newNews[0].Title;
+       for(let i=1; i<newNews.length; i++){
+          if (newNews[i].Title != newsTitle) {
+              uniqueNews.push(newNews[i]);
+              newsTitle = newNews[i].Title;
+          }
+       }
+
+       this.setState({infos:newInfos, news: uniqueNews})
 
     }
 
@@ -70,7 +76,13 @@ class App extends Component {
             <div id = "Headline">
                {this.state.news.map((newsItem, idx) => (
                    <div key={idx + "news"} className = "item">
-                       <p>{newsItem.Date}  {newsItem.Title}</p>
+                       <p>
+                        <img src={newsItem.ImageUrl} height="50"/>
+                       {newsItem.Date.split("T")[0]}  
+                       {newsItem.Title}
+                       {newsItem.Description}
+                       <a href={newsItem.NewsUrl} target="_blank">details</a>
+                       </p>
                    </div>
                ))}
             </div>
