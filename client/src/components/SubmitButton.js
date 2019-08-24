@@ -26,7 +26,9 @@ const SubmitButton = (props) => {
 	return (
 		<div className={'submitButton'}>
 			{socialNets}
-			<button className={props.type === 'signIn' ? 'submitSignIn' : 'submitSignUp'}><MdArrowForward/></button>
+			<button className={props.type=='signIn' ? 'submitSignIn' : 'submitSignUp'}>
+				<MdArrowForward/>
+			</button>
 		</div>
 	);
 } 
