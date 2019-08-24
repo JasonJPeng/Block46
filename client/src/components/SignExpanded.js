@@ -4,7 +4,7 @@ import '../App.css';
 import {Motion, spring} from 'react-motion';
 import Input from './Input';
 import SubmitButton from './SubmitButton';
-import { MdEmail } from 'react-icons/lib/md';
+// import { MdEmail } from 'react-icons/lib/md';
 
 class SignExpanded extends Component {
 
@@ -32,7 +32,7 @@ class SignExpanded extends Component {
 				flexVal: spring(this.state.flexState ? 8 : 1)
 			}} onRest={this.isFinished}>
 			{({flexVal}) =>
-			<div className={this.props.type=='signIn' ? 'signInExpanded' : 'signUpExpanded'} style={{
+			<div className={this.props.type === 'signIn' ? 'signInExpanded' : 'signUpExpanded'} style={{
 				flexGrow: `${flexVal}`
 			}}>
 				<Motion style={{ 

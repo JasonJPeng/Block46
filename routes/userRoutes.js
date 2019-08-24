@@ -49,7 +49,7 @@ router.route("/isloggedin").get(function(req, res) {
     }
 })
 // log out 
-router.route("/logout").get(function(req, res) {
+router.route("/logout").get(function(req, res) {    
     req.logout();
     res.redirect("/");
 });
