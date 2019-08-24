@@ -30,11 +30,12 @@ class Coin extends Component {
         // console.log(this.state.selectedIds)
     }
 // !! logout route should send something to the client
-    logOut = () => {
-        axios.get("/logout").then(response => {
+    logOut = async () => {
+        await axios.get("/logout").then(response => {
             //  do something with the message or the response?
-            alert(JSON.stringify(response.data.message))
+            alert("You have successfully logged out");
         })
+        document.location.href = "/";
     }
 
     displaySavedCoins = (event) => {
