@@ -4,6 +4,7 @@ import '../App.css';
 import {MdArrowForward} from 'react-icons/lib/md';
 import {FaGooglePlus, FaTwitter, FaFacebook} from 'react-icons/lib/fa';
 import {Motion, spring} from 'react-motion';
+import { Link } from "react-router-dom";
 
 const SubmitButton = (props) => {
 
@@ -26,7 +27,9 @@ const SubmitButton = (props) => {
 	return (
 		<div className={'submitButton'}>
 			{socialNets}
-			<button className={props.type=='signIn' ? 'submitSignIn' : 'submitSignUp'}><MdArrowForward/></button>
+			<button className={props.type=='signIn' ? 'submitSignIn' : 'submitSignUp'}>
+				<MdArrowForward/>
+			</button>
 		</div>
 	);
 } 
