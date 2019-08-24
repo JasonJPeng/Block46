@@ -20,6 +20,14 @@ class App extends Component {
     })  
    }
 
+   getNews = (id) => {
+    return new Promise((resolve, reject) => {
+        axios.get("/api/coins/news/" + id).then(function(newsData){
+            resolve(newsData.data)
+        })
+     })  
+   }
+
     setInfo = async (Ids) => {
        let newInfos = [] 
        let newNews = []
@@ -29,21 +37,22 @@ class App extends Component {
                 newInfos.push(info)
            }
            let news = await this.getNews(Ids[i]);
-           if (news.length > 1) { 
-               news.show = this.state.more;
-               newNews.push(news)
+           if (news.length > 0) { 
+               newNews.push(...news)
            }
        }
-       console.log(newInfos)
-       this.setState({infos:newInfos})
+       
+       this.setState({infos:newInfos, news: newNews})
+
     }
 
 
     render() {
         return(
+            <div>
             <div id = "NewsInfo">
                 {this.state.infos.map(item => (
-                   <div key={item.Id} className="item"> 
+                   <div key={item.Id + "info"} className="item"> 
                    <img src = {item.ImageUrl} height = "20"/> {item.Name}({item.Symbol})
                    <span>{item.Description} </span> 
                     {item.Links.map(linkItem=>(
@@ -51,6 +60,14 @@ class App extends Component {
                     ))}
                    </div>
                 ))}
+            </div>
+            <div id = "Headline">
+               {this.state.news.map((newsItem, idx) => (
+                   <div key={idx + "news"} className = "item">
+                       <p>{newsItem.Title}</p>
+                   </div>
+               ))}
+            </div>
             </div>
         )
     }

@@ -330,7 +330,7 @@ button:active {
   transition: opacity .3s ease, margin .5s ease;
 }
 
-#NewsInfo {
+#NewsInfo, #Headline {
   background-color: #ffffff;
   color: #222222;
   font-size: 10pt;
