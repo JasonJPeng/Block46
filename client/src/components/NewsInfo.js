@@ -41,7 +41,13 @@ class App extends Component {
                newNews.push(...news)
            }
        }
+       newNews.sort((a,b)=>{return b.Date>a.Date})
+
+       // need to remobve the news of same title 
        
+    //    newNews = newNews.filter((e, i, self)=> {
+    //        if (e.Title)
+    //    })
        this.setState({infos:newInfos, news: newNews})
 
     }
@@ -64,7 +70,7 @@ class App extends Component {
             <div id = "Headline">
                {this.state.news.map((newsItem, idx) => (
                    <div key={idx + "news"} className = "item">
-                       <p>{newsItem.Title}</p>
+                       <p>{newsItem.Date}  {newsItem.Title}</p>
                    </div>
                ))}
             </div>
