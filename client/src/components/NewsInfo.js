@@ -5,7 +5,6 @@ class App extends Component {
     state = {
         infos: [],
         news:[],
-        prices: {}
     }
 
     componentDidMount() {
@@ -28,15 +27,15 @@ class App extends Component {
      })  
    }
 
-   getPrice = (id) => {
-    return new Promise((resolve, reject) => {
-        axios.get("/api/coins/" + id).then(function(priceData){
-            console.log("=+++++++===>", priceData.data)
-            resolve(priceData.data.Price)
-        })
-     })    
+//    getPrice = (id) => {
+//     return new Promise((resolve, reject) => {
+//         axios.get("/api/coins/" + id).then(function(priceData){
+//             console.log("=+++++++===>", priceData.data)
+//             resolve(priceData.data.Price)
+//         })
+//      })    
 
-   }
+//    }
 
     setInfo = async (Ids) => {
        let newInfos = [] 
@@ -51,9 +50,9 @@ class App extends Component {
            if (news.length > 0) { 
                newNews.push(...news)
            }
-           let price = await this.getPrice(Ids[i]);
-           console.log("$$$$$$$$", price)
-           newPrices[[Ids[i]]] = price;
+        //    let price = await this.getPrice(Ids[i]);
+        //    console.log("$$$$$$$$", price)
+        //    newPrices[[Ids[i]]] = price;
        }
        newNews.sort((a,b)=>{return b.Date>a.Date})
 
@@ -84,7 +83,7 @@ class App extends Component {
                 {this.state.infos.map(item => (
                    <div key={item.Id + "info"} className="item"> 
                    <img src = {item.ImageUrl} height = "20"/> 
-                   {item.Name}({item.Symbol}) Current market price: {this.state.prices[item.Id]}
+                   {item.Name}({item.Symbol}) Current market price: {this.props.prices[item.Id]}
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 

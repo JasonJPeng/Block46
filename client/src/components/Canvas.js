@@ -11,37 +11,38 @@ class LineChart extends Component {
 		data : [],
 		title: "",
 		prices: {},
-		factors: {}
+		normalization: false,
 	}
 	
 	componentDidMount() {
-		let factors = {};
-		this.props.Ids.forEach(e=>{
-            factors[e]=1
-		})
-		this.setState({factors: factors})
+		// let factors = {};
+		// this.props.Ids.forEach(e=>{
+        //     factors[e]=1
+		// })
+		// this.setState({factors: factors})
         this.getData(this.props.Ids);
 	}
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
 		// let newData = [];
-		let factors = {}
-		console.log("State Data=> ", this.state.data)
-		for (let i=0; i < this.state.data.length; i++) {
-			let maxValue = Math.max(...this.state.data[i].dataPoints.map(element=>element.y));
-			let factor = 10 ** parseInt(Math.log10(maxValue));
-			console.log("1 factor->  ", maxValue, factor)
-			factors[this.props.Ids[i]] = factor
+		// let factors = {}
+		// for (let i=0; i < this.state.data.length; i++) {
 
-			console.log("2 factor->", factor)	
-			// let newPoints = this.state.data[i];
-			// newPoints.dataPoints.map(ele=> ele.y = ele.y/factor)
-			// newData.push(newPoints)				
-		}
+		// 	let maxValue = Math.max(...this.state.data[i].dataPoints.map(element=>{return element.y}));
+            
 
-		this.setState({factors: factors})
-		console.log(this.state.factors)
+		// 	let factor = 10 ** parseInt(Math.log10(maxValue));
+		// 	factors[this.props.Ids[i]] = factor
+
+		// 	console.log("2 factor->", factor)	
+		// 	// let newPoints = this.state.data[i];
+		// 	// newPoints.dataPoints.map(ele=> ele.y = ele.y/factor)
+		// 	// newData.push(newPoints)				
+		// }
+
+		// this.setState({factors: factors})
+		// console.log(this.state.factors)
 		
 	}
 
@@ -55,7 +56,7 @@ class LineChart extends Component {
             for (let i=1; i<history.data.Time.length; i++) {
 			   dataPoints.push({
 							 x: new Date(history.data.Time[i]*1000) ,
-							 y: history.data.Price[i] / self.state.factors[id]
+							 y: history.data.Price[i]
 			             })
 			}
 			resolve(dataPoints); 
@@ -76,24 +77,29 @@ class LineChart extends Component {
 		// let id = Ids[0];
 		let data = [];
 		let prices = {};
+		let title = "";
 		for (let i=0; i< Ids.length; i++) {
 		   let self = this
 		   let id = Ids[i];
 		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
-		this.setState({title: this.state.title + coinInfo.Name + " / "})
-		    prices[Ids[i]] = coinInfo.Price
+		   title = title + coinInfo.Name + "/";
+		// this.setState({title: this.state.title + coinInfo.Name + " / "})
+		   console.log("Price----->", coinInfo)
+			prices[Ids[i]] = coinInfo.Price
+			console.log("$$$$$$$" , prices);
             data.push({
 				type: "line",
 				showInLegend: true, 
                 legendText: ` (${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} / `,
-				toolTipContent: `${coinInfo.Symbol} {x} $ {y}X${self.state.factors[id]}`,
+				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
 				dataPoints: dataPoints
-		    })
-            console.log("47 ----->", data);
+			})
+			console.log("96====", Ids[i], dataPoints)
 		}
 		// prices = {"id": $$$$, "1182": 120000.00}
-	    this.setState({data: data, prices:prices})
+		console.log("99------", data)
+	    this.setState({data:data, prices:prices, title:title})
 	}
 
 
@@ -126,7 +132,7 @@ class LineChart extends Component {
 			// }]
 		}
 
-		console.log("87 =======> ", this.state.data)
+		console.log("132 =======> ", this.state.data)
 		
 		return (
 		<div>
@@ -136,7 +142,7 @@ class LineChart extends Component {
 			/>
 			<button onClick={this.normalizeChart}>Normalize the chart</button>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-		    <NewsInfo Ids={this.props.Ids} />
+		    <NewsInfo Ids={this.props.Ids} prices={this.state.prices} />
 		</div>
 		);
 	}

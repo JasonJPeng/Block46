@@ -30,12 +30,18 @@ router.route("/")
 
   router.route("/history/:id")
   .get(function(req,res){
-     db.History.find({Id: req.params.id}).then(async function(historyData){
+     db.History.findOne({Id: req.params.id}).then(async function(historyData){
         var lastTime = 0, timeStamps=[], closePrices = [] 
-        if (historyData.length > 0 && historyData[0].HistoryTimestamp.length > 0) {
-            lastTime = historyData[0].HistoryTimestamp[historyData[0].HistoryTimestamp.length-1];
-            timeStamps =  historyData[0].HistoryTimestamp.map(x=>x);
-            closePrices = historyData[0].HistoryPriceUSD.map(x=>x);
+        if (historyData.length > 0 && historyData.HistoryTimestamp.length > 0) {
+// Clean up the data. -- make sure timeStamps and closePrices are matched
+// in case the data is not matched
+
+            for (let i=0; i< historyData.HistoryTimestamp.length 
+                          && i< historyData.HistoryPriceUSD.length; i++ ) {                  timeStamps.push(historyData.HistoryTimestamp[i]);
+                closePrices.push(historyData.HistoryPriceUSD[i]);
+                lastTime = historyData.HistoryTimestamp[i];
+            }
+
             let gap = parseInt((Math.floor((new Date()).getTime() / 1000) - lastTime) / 86400);
             console.log("The Gap is " +  gap + "  Last Time" + lastTime)
             if(gap>0) {  // update the data
