@@ -8,6 +8,7 @@ import NewsInfo from "../components/NewsInfo";
 class LineChart extends Component {
 	
 	state = {
+		status: "",
 		title: "",
         chartInfo: {
 		  data : [],
@@ -18,17 +19,27 @@ class LineChart extends Component {
 	}
 	
 	componentDidMount() {
-		// let factors = {};
-		// this.props.Ids.forEach(e=>{
-        //     factors[e]=1
-		// })
-		// this.setState({factors: factors})
         this.getData(this.props.Ids);
 	}
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
-		
+		if (this.state.status === "norm") return;
+
+		let newData = [];
+		console.log("-------->", this.state.chartInfo)
+		for (let i=0; i<this.state.chartInfo.data.length; i++) {
+			let element = this.state.chartInfo.data[i];
+			element.dataPoints = this.state.chartInfo.originDataPoints[i].map(ele=>{ 
+														   ele.y = ele.y / this.state.chartInfo.norm[i];
+														   return ele;
+														});
+			newData.push(element)
+		}
+		let newChartInfo = this.state.chartInfo;
+		newChartInfo.data = newData;
+		console.log("------", newData)
+		this.setState({chartInfo:newChartInfo, status: "norm"} )		
 	}
 
 	getDataPoints = (id) => {
