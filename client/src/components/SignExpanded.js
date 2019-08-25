@@ -60,7 +60,7 @@ class SignExpanded extends Component {
 								placeholder="PASSWORD"
 								onChange={this.props.onChangeForm} />
 							<SubmitButton type={this.props.type} />
-							<a href="url" className='forgotPass'>{this.props.type == 'signIn' ? 'Forgot password?' : ''}</a>
+							<a href="url" className='forgotPass'>{this.props.type === 'signIn' ? 'Forgot password?' : ''}</a>
 						</form>
 						}
 				</Motion>

@@ -4,9 +4,9 @@ import Login from "./pages/Login";
 import {
 	BrowserRouter as Router,
 	Route,
-	Link,
+	// Link,
 	Redirect,
-	withRouter
+	// withRouter
 } from "react-router-dom";
 
 import Auth from "./util/Auth";

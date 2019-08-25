@@ -5,11 +5,12 @@ import NavigationPanel from '../components/NavigationPanel';
 import Modal from '../components/Modal';
 
 import {
-	BrowserRouter as Router,
-	Route,
-	Link,
-	Redirect,
-	withRouter
+    BrowserRouter as 
+    // Router,
+	// Route,
+	// Link,
+	Redirect
+	//, withRouter
 } from 'react-router-dom'
 
 import Auth from "../util/Auth";

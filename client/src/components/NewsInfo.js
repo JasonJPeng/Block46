@@ -62,7 +62,7 @@ class App extends Component {
        let uniqueNews = [newNews[0]] 
        let newsTitle = newNews[0].Title;
        for(let i=1; i<newNews.length; i++){
-          if (newNews[i].Title != newsTitle) {
+          if (newNews[i].Title !== newsTitle) {
               uniqueNews.push(newNews[i]);
               newsTitle = newNews[i].Title;
           }
@@ -80,16 +80,16 @@ class App extends Component {
     render() {
         return(
             <div>
-            <div id = "NewsInfo">
+            <div id="NewsInfo">
                 {this.state.infos.map(item => (
                    <div key={item.Id + "info"} className="item"> 
-                   <img src = {item.ImageUrl} height = "20"/> 
+                   <img src={item.ImageUrl} alt="" height="20"/> 
                    {item.Name}({item.Symbol}) Current market price: {this.state.prices[item.Id]}
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 
                        {item.Links.map(linkItem=>(
-                       <a href={linkItem.url} target="_blank">{linkItem.Website}</a>
+                       <a href={linkItem.url} alt="" target="_blank">{linkItem.Website}</a>
                       
                       ))}
                     </div> :
@@ -98,11 +98,11 @@ class App extends Component {
                    </div>
                 ))}
             </div>
-            <div id = "Headline">
+            <div id="Headline">
                {this.state.news.map((newsItem, idx) => (
-                   <div key={idx + "news"} className = "item">
+                   <div key={idx + "news"} className="item">
                        <p>
-                        <img src={newsItem.ImageUrl} height="50"/>
+                        <img src={newsItem.ImageUrl} alt="" height="50"/>
                        {newsItem.Date.split("T")[0]}  
                        {newsItem.Title}
                        {newsItem.Description}
