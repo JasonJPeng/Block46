@@ -8,9 +8,10 @@ import NewsInfo from "../components/NewsInfo";
 class LineChart extends Component {
 	
 	state = {
-		status: "",
+		isNorm: false,
 		title: "",
         chartInfo: {
+	      symbols: [],		
 		  data : [],
 		  prices: [],
 		  norm: [],
@@ -24,7 +25,7 @@ class LineChart extends Component {
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
-		if (this.state.status === "norm") return;
+		if (this.state.isNorm) return;
 
 		let newData = [];
 		console.log("-------->", this.state.chartInfo)
@@ -38,8 +39,9 @@ class LineChart extends Component {
 		}
 		let newChartInfo = this.state.chartInfo;
 		newChartInfo.data = newData;
-		console.log("------", newData)
-		this.setState({chartInfo:newChartInfo, status: "norm"} )		
+		let newSym = this.state.chartInfo.symbols.map( (e,i) => {return 1/this.state.chartInfo.norm[i]+ " x " + e})
+		let newTitle = newSym.join(" / ")
+		this.setState({chartInfo:newChartInfo, isNorm: true, title: newTitle} )		
 	}
 
 	getDataPoints = (id) => {
@@ -76,15 +78,17 @@ class LineChart extends Component {
 		let prices = [];
 		let title = "";
 		let norm = [];
+		let symbols = [];
 		let originDataPoints = [];
 		for (let i=0; i< Ids.length; i++) {
 		   let self = this
 		   let id = Ids[i];
 		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
-		   title = title + coinInfo.Name + " / ";
+		//    title = title + coinInfo.Name + " / ";
 		   console.log("Price----->", coinInfo)
 			prices.push(coinInfo.Price)
+			symbols.push(coinInfo.Symbol)
             data.push({
 				type: "line",
 				showInLegend: true, 
@@ -97,16 +101,12 @@ class LineChart extends Component {
 			// 1 to 10 normalization  
 			let maxValue = Math.max(...dataPoints.map(element=>element.y))
 			norm.push(10 ** parseInt(Math.log10(maxValue)));
-			chartInfo = {
-				data:data,
-				norm:norm,
-				prices:prices,
-				originDataPoints:originDataPoints
-			}	
 		}
-		
-		this.setState({title:title, chartInfo:chartInfo})
-		
+		let minNorm = Math.min(...norm)
+		norm = norm.map(e=>e/minNorm) // use cheap coin as base
+		chartInfo = {data, symbols, norm, prices, originDataPoints}
+        title = symbols.join(" / ")
+		this.setState({title, chartInfo})
 	}
 
 
@@ -117,7 +117,7 @@ class LineChart extends Component {
 			theme: "light2", // "light1", "dark1", "dark2"
 			zoomEnabled: true,
 			title:{
-				text: "/ " + this.state.title,
+				text: this.state.title,
 				fontSize: 20
 			},
 			axisY: {
