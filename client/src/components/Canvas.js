@@ -8,10 +8,13 @@ import NewsInfo from "../components/NewsInfo";
 class LineChart extends Component {
 	
 	state = {
-		data : [],
 		title: "",
-		prices: {},
-		normalization: false,
+        chartInfo: {
+		  data : [],
+		  prices: [],
+		  norm: [],
+		  originDataPoints: []
+		}  
 	}
 	
 	componentDidMount() {
@@ -25,24 +28,6 @@ class LineChart extends Component {
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
-		// let newData = [];
-		// let factors = {}
-		// for (let i=0; i < this.state.data.length; i++) {
-
-		// 	let maxValue = Math.max(...this.state.data[i].dataPoints.map(element=>{return element.y}));
-            
-
-		// 	let factor = 10 ** parseInt(Math.log10(maxValue));
-		// 	factors[this.props.Ids[i]] = factor
-
-		// 	console.log("2 factor->", factor)	
-		// 	// let newPoints = this.state.data[i];
-		// 	// newPoints.dataPoints.map(ele=> ele.y = ele.y/factor)
-		// 	// newData.push(newPoints)				
-		// }
-
-		// this.setState({factors: factors})
-		// console.log(this.state.factors)
 		
 	}
 
@@ -75,19 +60,20 @@ class LineChart extends Component {
 	
 	getData = async (Ids) => {
 		// let id = Ids[0];
+		let chartInfo = {};
 		let data = [];
-		let prices = {};
+		let prices = [];
 		let title = "";
+		let norm = [];
+		let originDataPoints = [];
 		for (let i=0; i< Ids.length; i++) {
 		   let self = this
 		   let id = Ids[i];
 		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
-		   title = title + coinInfo.Name + "/";
-		// this.setState({title: this.state.title + coinInfo.Name + " / "})
+		   title = title + coinInfo.Name + " / ";
 		   console.log("Price----->", coinInfo)
-			prices[Ids[i]] = coinInfo.Price
-			console.log("$$$$$$$" , prices);
+			prices.push(coinInfo.Price)
             data.push({
 				type: "line",
 				showInLegend: true, 
@@ -95,11 +81,21 @@ class LineChart extends Component {
 				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
 				dataPoints: dataPoints
 			})
-			console.log("96====", Ids[i], dataPoints)
+			originDataPoints.push(dataPoints);
+			// 	let maxValue = Math.max(...this.state.data[i].dataPoints.map(element=>{return element.y}));
+			// 1 to 10 normalization  
+			let maxValue = Math.max(...dataPoints.map(element=>element.y))
+			norm.push(10 ** parseInt(Math.log10(maxValue)));
+			chartInfo = {
+				data:data,
+				norm:norm,
+				prices:prices,
+				originDataPoints:originDataPoints
+			}	
 		}
-		// prices = {"id": $$$$, "1182": 120000.00}
-		console.log("99------", data)
-	    this.setState({data:data, prices:prices, title:title})
+		
+		this.setState({title:title, chartInfo:chartInfo})
+		
 	}
 
 
@@ -124,7 +120,7 @@ class LineChart extends Component {
 				prefix: " "
 				// interval: 2
 			},
-			data: this.state.data
+			data: this.state.chartInfo.data
 			// data: [{
 			// 	type: "line",
 			// 	toolTipContent: " {x}: $ {y}",
@@ -132,7 +128,6 @@ class LineChart extends Component {
 			// }]
 		}
 
-		console.log("132 =======> ", this.state.data)
 		
 		return (
 		<div>
@@ -142,7 +137,7 @@ class LineChart extends Component {
 			/>
 			<button onClick={this.normalizeChart}>Normalize the chart</button>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-		    <NewsInfo Ids={this.props.Ids} prices={this.state.prices} />
+		    <NewsInfo Ids={this.props.Ids} prices={this.state.chartInfo.prices} />
 		</div>
 		);
 	}

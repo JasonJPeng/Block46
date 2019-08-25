@@ -83,7 +83,7 @@ class App extends Component {
                 {this.state.infos.map(item => (
                    <div key={item.Id + "info"} className="item"> 
                    <img src = {item.ImageUrl} height = "20"/> 
-                   {item.Name}({item.Symbol}) Current market price: {this.props.prices[item.Id]}
+                   {item.Name}({item.Symbol}) Current market price: {this.props.prices[0]}
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 
