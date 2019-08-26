@@ -220,13 +220,13 @@ class Coin extends Component {
                     <Navbar.Brand href="#home">Block46</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link onClick={this.displaySavedCoins}>
-                            Saved
+                            My Coins
                         </Nav.Link>
                         <Nav.Link onClick={this.displayApiCoins}>
-                            Block Digest
+                            All Coins
                         </Nav.Link>
                         <Nav.Link onClick={this.displayCanvas}>
-                            blockCanvas
+                            Graphs &amp; News
                         </Nav.Link>
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
                         <Nav.Link  onClick={this.logOut} href="/logout">Logout</Nav.Link>

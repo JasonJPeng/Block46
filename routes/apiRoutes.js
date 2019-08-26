@@ -30,9 +30,9 @@ router.route("/")
 
   router.route("/history/:id")
   .get(function(req,res){
-     db.History.findOne({Id: req.params.id}).then(async function(historyData){
+     db.History.findOne({Id: req.params.id}).then(async function(historyData, err){
         var lastTime = 0, timeStamps=[], closePrices = [] 
-        if (historyData.length > 0 && historyData.HistoryTimestamp.length > 0) {
+        if ( !err && historyData) {  
 // Clean up the data. -- make sure timeStamps and closePrices are matched
 // in case the data is not matched
 
@@ -163,8 +163,6 @@ router.route("/")
 
 
 
-
-
 // /api/coins/jason@gmail.com/add?coinIds=23,1183,3445
   router.route("/:user/add")
   .put(function(req,res){
@@ -187,7 +185,7 @@ router.route("/")
     })
   })
 
-// /api/coins/jason@gmail.com/add?coinIds=23,1183,3445
+// /api/coins/jason@gmail.com/remove?coinIds=23,1183,3445
   router.route("/:user/remove")
   .put(function(req,res){
       let Ids = req.query.coinIds.split(",");
@@ -235,7 +233,5 @@ router.route("/")
    })    
 }
   
-
-
 
 module.exports = router;
