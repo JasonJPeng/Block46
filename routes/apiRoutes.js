@@ -187,7 +187,7 @@ router.route("/")
     })
   })
 
-// /api/coins/jason@gmail.com/add?coinIds=23,1183,3445
+// /api/coins/jason@gmail.com/remove?coinIds=23,1183,3445
   router.route("/:user/remove")
   .put(function(req,res){
       let Ids = req.query.coinIds.split(",");
