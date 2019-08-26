@@ -16,39 +16,34 @@ class LineChart extends Component {
 		norm: []
 	}
 
-	// 
-	originData = [];
 	
 	componentDidMount() {
         this.getData(this.props.Ids);
 	}
 
-	undoNormChart = (event) => {
-		event.preventDefault();
-		if (!this.state.isNorm)  return;
-
-		let newData = JSON.parse(JSON.stringify(this.originData))
-		let newTitle = this.state.symbols.join(" / ")
-
-		this.setState({data:newData, title:newTitle, isNorm:false})
-	}
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
-		if (this.state.isNorm) return;
-
+		
 		let newData = this.state.data.map( (ele, idx)=>{
 			    ele.dataPoints = ele.dataPoints.map(ele1=>{ 
-					ele1.y = ele1.y/this.state.norm[idx];
-					return ele1;
+				ele1.y = this.state.isNorm? 
+				         ele1.y*this.state.norm[idx]: 
+				         ele1.y/this.state.norm[idx];
+				return ele1;
 				})
 			return ele;
 		})
-
-		let newSym = this.state.symbols.map( (e,i) => {return 1/this.state.norm[i]+ " x " + e})
+		let newSym=[];
+        if (!this.state.isNorm) {
+		   newSym = this.state.symbols.map( (e,i) => {return 1/this.state.norm[i]+ " x " + e});
+		} else {
+		   newSym = this.state.symbols; 	
+		}   
 		let newTitle = newSym.join(" / ")
-		
-		this.setState({data:newData, title:newTitle, isNorm:true})
+	
+		this.setState({data:newData, title:newTitle, isNorm: !this.state.isNorm})
+	
 	}
 
 	getDataPoints = (id) => {
@@ -98,14 +93,12 @@ class LineChart extends Component {
 			norm.push(10 ** parseInt(Math.log10(maxValue)));
 		}
 
-        // Deep Copy of the original data
-		this.originData = JSON.parse(JSON.stringify(data));
-
 		let minNorm = Math.min(...norm)
-		norm = norm.map(e=>e/minNorm) // use cheap coin as base
+		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
 	
         title = symbols.join(" / ")
 		this.setState({title, data, prices, norm, symbols})
+	
 	}
 
 
@@ -145,12 +138,13 @@ class LineChart extends Component {
 			<CanvasJSChart options={options} 
 				/* onRef={ref => this.chart = ref} */
 			/>
-			{this.state.isNorm?
-			<button onClick={this.undoNormChart}>Original Chart</button>:
-			<button onClick={this.normalizeChart}>Normalize the chart</button>
-			}
+			
+			<button onClick={this.normalizeChart}>{
+				this.state.isNorm? <span>Original Chart</span>: <span>Normalized Chart</span> 
+			}</button>
+
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-		    {/* <NewsInfo Ids={this.props.Ids} prices={this.state.chartInfo.prices} /> */}
+		    <NewsInfo Ids={this.props.Ids} prices={this.state.prices} />
 		</div>
 		);
 	}
