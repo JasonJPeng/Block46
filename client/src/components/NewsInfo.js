@@ -5,11 +5,11 @@ class App extends Component {
     state = {
         infos: [],
         news:[],
-        prices: {}
     }
 
     componentDidMount() {
        this.setInfo(this.props.Ids)
+       console.log(this.props.prices)
     }
 
    getInfo = (id) => {
@@ -28,32 +28,23 @@ class App extends Component {
      })  
    }
 
-   getPrice = (id) => {
-    return new Promise((resolve, reject) => {
-        axios.get("/api/coins/" + id).then(function(priceData){
-            console.log("=+++++++===>", priceData.data)
-            resolve(priceData.data.Price)
-        })
-     })    
-
-   }
-
     setInfo = async (Ids) => {
        let newInfos = [] 
        let newNews = []
        let newPrices = {}
+
        for(let i=0; i<Ids.length; i++) {
-           let info = await this.getInfo(Ids[i]);
-        //    if (Object.keys(info).length >= 3) {
-                newInfos.push(info)
-        //    }
+           let info = await this.getInfo(Ids[i]);  
+            newInfos.push(info)
+    
            let news = await this.getNews(Ids[i]);
            if (news.length > 0) { 
                newNews.push(...news)
            }
-           let price = await this.getPrice(Ids[i]);
-           console.log("$$$$$$$$", price)
-           newPrices[[Ids[i]]] = price;
+
+        //    newPrices[Ids[i]] = this.props.prices[i]
+              newPrices[Ids[i]] = "100"
+       
        }
        newNews.sort((a,b)=>{return b.Date>a.Date})
 
@@ -74,17 +65,28 @@ class App extends Component {
            prices: newPrices
         })
 
+        console.log(this.state.prices)
+
     }
 
 
     render() {
         return(
             <div>
+<<<<<<< HEAD
             <div id="NewsInfo">
                 {this.state.infos.map(item => (
                    <div key={item.Id + "info"} className="item"> 
                    <img src={item.ImageUrl} alt="" height="20"/> 
                    {item.Name}({item.Symbol}) Current market price: {this.state.prices[item.Id]}
+=======
+            <div id = "NewsInfo">
+                {this.state.infos.map((item,idx) => (
+                   <div key={idx + "info"} className="item"> 
+                   <img src = {item.ImageUrl} height = "30"/> 
+                
+                   {item.Name}({item.Symbol}) Current market price: $ {this.props.prices[idx]}
+>>>>>>> 75527459b6dda799bc8065693602fd3200e84341
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 
@@ -96,11 +98,13 @@ class App extends Component {
                     <div></div>
                    }
                    </div>
+                
                 ))}
             </div>
             <div id="Headline">
                {this.state.news.map((newsItem, idx) => (
                    <div key={idx + "news"} className="item">
+<<<<<<< HEAD
                        <p>
                         <img src={newsItem.ImageUrl} alt="" height="50"/>
                        {newsItem.Date.split("T")[0]}  
@@ -108,6 +112,19 @@ class App extends Component {
                        {newsItem.Description}
                        <a href={newsItem.NewsUrl} target="_blank">details</a>
                        </p>
+=======
+                    
+                        <img className="newsImg" src={newsItem.ImageUrl} height="80"/>
+                        
+                       <span className="date">{newsItem.Date.split("T")[0]} </span> 
+
+                       <a href={newsItem.NewsUrl} target="_blank"> 
+                       <span className="title">{newsItem.Title}</span>
+                       </a>
+                       <span className="desc"> {newsItem.Description} </span>
+                       {/* <a href={newsItem.NewsUrl} target="_blank">details</a> */}
+                
+>>>>>>> 75527459b6dda799bc8065693602fd3200e84341
                    </div>
                ))}
             </div>
