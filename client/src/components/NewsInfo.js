@@ -75,9 +75,10 @@ class App extends Component {
             <div>
             <div id = "NewsInfo">
                 {this.state.infos.map((item,idx) => (
-                   <div key={item.Id + "info"} className="item"> 
-                   <img src = {item.ImageUrl} height = "20"/> 
-                   {item.Name}({item.Symbol}) Current market price: {this.props.prices[idx]}
+                   <div key={idx + "info"} className="item"> 
+                   <img src = {item.ImageUrl} height = "30"/> 
+                
+                   {item.Name}({item.Symbol}) Current market price: $ {this.props.prices[idx]}
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 
@@ -89,18 +90,23 @@ class App extends Component {
                     <div></div>
                    }
                    </div>
+                
                 ))}
             </div>
             <div id = "Headline">
                {this.state.news.map((newsItem, idx) => (
-                   <div key={idx + "news"} className = "item">
-                       <p>
-                        <img src={newsItem.ImageUrl} height="50"/>
-                       {newsItem.Date.split("T")[0]}  
-                       {newsItem.Title}
-                       {newsItem.Description}
-                       <a href={newsItem.NewsUrl} target="_blank">details</a>
-                       </p>
+                   <div key={idx + "news"} className="item">
+                    
+                        <img className="newsImg" src={newsItem.ImageUrl} height="80"/>
+                        
+                       <span className="date">{newsItem.Date.split("T")[0]} </span> 
+
+                       <a href={newsItem.NewsUrl} target="_blank"> 
+                       <span className="title">{newsItem.Title}</span>
+                       </a>
+                       <span className="desc"> {newsItem.Description} </span>
+                       {/* <a href={newsItem.NewsUrl} target="_blank">details</a> */}
+                
                    </div>
                ))}
             </div>
