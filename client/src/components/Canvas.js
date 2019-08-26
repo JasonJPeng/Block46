@@ -134,7 +134,7 @@ class LineChart extends Component {
 			<CanvasJSChart options={options} 
 				/* onRef={ref => this.chart = ref} */
 			/>
-			<button onClick={this.normalizeChart}>Normalize the chart</button>
+			<button onClick={this.normalizeChart}>Graph Normalization</button>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		    <NewsInfo Ids={this.props.Ids} />
 		</div>
