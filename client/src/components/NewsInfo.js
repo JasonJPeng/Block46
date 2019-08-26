@@ -9,6 +9,7 @@ class App extends Component {
 
     componentDidMount() {
        this.setInfo(this.props.Ids)
+       console.log(this.props.prices)
     }
 
    getInfo = (id) => {
@@ -27,32 +28,23 @@ class App extends Component {
      })  
    }
 
-//    getPrice = (id) => {
-//     return new Promise((resolve, reject) => {
-//         axios.get("/api/coins/" + id).then(function(priceData){
-//             console.log("=+++++++===>", priceData.data)
-//             resolve(priceData.data.Price)
-//         })
-//      })    
-
-//    }
-
     setInfo = async (Ids) => {
        let newInfos = [] 
        let newNews = []
        let newPrices = {}
+
        for(let i=0; i<Ids.length; i++) {
-           let info = await this.getInfo(Ids[i]);
-        //    if (Object.keys(info).length >= 3) {
-                newInfos.push(info)
-        //    }
+           let info = await this.getInfo(Ids[i]);  
+            newInfos.push(info)
+    
            let news = await this.getNews(Ids[i]);
            if (news.length > 0) { 
                newNews.push(...news)
            }
-        //    let price = await this.getPrice(Ids[i]);
-        //    console.log("$$$$$$$$", price)
-        //    newPrices[[Ids[i]]] = price;
+
+        //    newPrices[Ids[i]] = this.props.prices[i]
+              newPrices[Ids[i]] = "100"
+       
        }
        newNews.sort((a,b)=>{return b.Date>a.Date})
 
@@ -73,6 +65,8 @@ class App extends Component {
            prices: newPrices
         })
 
+        console.log(this.state.prices)
+
     }
 
 
@@ -80,10 +74,10 @@ class App extends Component {
         return(
             <div>
             <div id = "NewsInfo">
-                {this.state.infos.map(item => (
+                {this.state.infos.map((item,idx) => (
                    <div key={item.Id + "info"} className="item"> 
                    <img src = {item.ImageUrl} height = "20"/> 
-                   {item.Name}({item.Symbol}) Current market price: {this.props.prices[0]}
+                   {item.Name}({item.Symbol}) Current market price: {this.props.prices[idx]}
                    {item.Description ?
                      <div>
                      <span>{item.Description} </span> 
