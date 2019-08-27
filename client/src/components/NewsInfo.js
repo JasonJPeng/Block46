@@ -97,7 +97,7 @@ class App extends Component {
                {this.state.news.map((newsItem, idx) => (
                    <div key={idx + "news"} className="item">
                     
-                        <img className="newsImg" src={newsItem.ImageUrl} height="80"/>
+                        <img className="newsImg" src={newsItem.ImageUrl} height="80" alt="Block46 News"/>
                         
                        <span className="date">{newsItem.Date.split("T")[0]} </span> 
 
