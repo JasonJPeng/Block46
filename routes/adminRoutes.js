@@ -18,7 +18,7 @@ router.route("/cryptocompare")
         ImageUrl: "https://cryptocompare.com" + x.ImageUrl,
         Source: "cryptocompare"
     }})
-    
+    console.log(output)
     db.Coin.create(output).then(dbOut=>{
         res.json(output)
     })  
