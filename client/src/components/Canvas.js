@@ -151,6 +151,13 @@ class LineChart extends Component {
 				this.state.isNorm? <span>Original Chart</span>: <span>Normalized Chart</span> 
 			}</button>
 
+            <select>
+			  <option value="usd" selected> USD</option>
+			  {this.state.symbols.map(x=>(	
+				  <option value={x}>{x}</option>  			  
+			  ))  }          
+            </select>
+
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		    <NewsInfo Ids={this.props.Ids} prices={this.state.prices} />
 		</div>
