@@ -110,6 +110,13 @@ class LineChart extends Component {
 		return dataPoints.map(x=> {return Object.assign({}, x)});
 	}
 
+	handleCurrencyChange = (event) => {
+		event.preventDefault();
+		console.log(event.target)
+		const {name, value}= event.target;
+		alert(name + value)
+	}
+
 	render() {
 		const options = {
 			animationEnabled: true,
@@ -151,10 +158,10 @@ class LineChart extends Component {
 				this.state.isNorm? <span>Original Chart</span>: <span>Normalized Chart</span> 
 			}</button>
 
-            <select>
+            <select name="base" onChange={this.handleCurrencyChange}>
 			  <option value="usd" selected> USD</option>
 			  {this.state.symbols.map(x=>(	
-				  <option value={x}>{x}</option>  			  
+				  <option  value={x}>{x}</option>  			  
 			  ))  }          
             </select>
 
