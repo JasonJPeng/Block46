@@ -13,7 +13,8 @@ class LineChart extends Component {
 		data: [],
 		prices: [],
 		symbols: [],
-		norm: []
+		norm: [],
+		arrayDataPoints: []
 	}
 
 	
@@ -24,6 +25,8 @@ class LineChart extends Component {
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
+
+		console.log(this.state.arrayDataPoints)
 		
 		let newData = this.state.data.map( (ele, idx)=>{
 			    ele.dataPoints = ele.dataPoints.map(ele1=>{ 
@@ -73,13 +76,14 @@ class LineChart extends Component {
 	
 	getData = async (Ids) => {
 		// let id = Ids[0];
-		let data = [], prices=[], title="", norm=[], symbols=[];
+		let data = [], prices=[], title="", norm=[], symbols=[], arrayDataPoints=[];
 	
 		for (let i=0; i< Ids.length; i++) {
 		   let self = this
 		   let id = Ids[i];
 		   let coinInfo = await self.getInfo(id);
 		   let dataPoints = await self.getDataPoints(id);
+		   arrayDataPoints.push(this.cloneDatapoints(dataPoints));
 			 prices.push(coinInfo.Price)
 			 symbols.push(coinInfo.Symbol)
              data.push({
@@ -97,10 +101,14 @@ class LineChart extends Component {
 		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
 	
         title = symbols.join(" / ")
-		this.setState({title, data, prices, norm, symbols})
+		this.setState({title, data, prices, norm, symbols, arrayDataPoints})
 	
 	}
 
+	// deep copy for dataPoints  [{x:1, y:23}, {x:2, y:44}, .....]
+	cloneDatapoints = (dataPoints) => {
+		return dataPoints.map(x=> {return Object.assign({}, x)});
+	}
 
 	render() {
 		const options = {
