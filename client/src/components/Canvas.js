@@ -110,11 +110,57 @@ class LineChart extends Component {
 		return dataPoints.map(x=> {return Object.assign({}, x)});
 	}
 
+
+	changeBase = (arrayDataPoints, basePoints) => {
+		// romve 0 value
+		let newBase = []
+		for (let i = basePoints.length-1; i >=0; i--) {
+           if (basePoints.y >= 0) {
+			   newBase.shift(basePoints[i]);
+		   } else {
+			   break;
+		   }
+		}
+		let newArrayDP=[];
+        let newDP = [];
+		arrayDataPoints.forEach(function(dp, idx){
+			let diffL = dp.length - newBase.length;
+            if (diffL>0 ) {  // get only the last newBase.length points				
+				// get last 7 from 10 -> A.slice(3)    
+				newDP = dp.slice( diffL); 			
+			}  else if (diffL<0) {  // add |diffL| 0 for the shorter one
+				let zeroArray = [];
+				for(let i=0; i<(diffL*(-1)); i++) {
+                    zeroArray.push({x:newBase[i].x, y:0});
+				}
+				newDP = [...zeroArray, ...dp];			
+			} else {   // no need to change if both array are in the same length
+                newDP = dp;
+			}
+			newArrayDP.push(newDP.map(pt=>{pt.y/newBase[i].y; return pt}))
+		})
+	    return newArrayDP;
+
+	}
+
 	handleCurrencyChange = (event) => {
 		event.preventDefault();
-		console.log(event.target)
-		const {name, value}= event.target;
-		alert(name + value)
+		const {value: baseCurrency}= event.target;
+		let idx = this.state.symbols.indexOf(baseCurrency);
+		let newDataPoints = this.state.arrayDataPoints.map(x=>this.cloneDatapoints(x));
+		if (idx >= 0) {
+			let basePoints  = this.cloneDatapoints(newDataPoints[idx]);
+			newDataPoints[idx].map(point=>{point.y =1;  return point})  // make all 1's
+			newDataPoints = this.changeBase(newDataPoints, basePoints);
+		} else {  // cased of USD base
+            // nothing
+		}
+		let newData = this.state.data;
+		newData.map((data, i) => {
+            data.dataPoints = newDataPoints[i];
+			return data;
+		})
+		this.setState({data:newData, isNorm: false});	
 	}
 
 	render() {
@@ -159,7 +205,7 @@ class LineChart extends Component {
 			}</button>
 
             <select name="base" onChange={this.handleCurrencyChange}>
-			  <option value="usd" selected> USD</option>
+			  <option value="USD" selected> USD</option>
 			  {this.state.symbols.map(x=>(	
 				  <option  value={x}>{x}</option>  			  
 			  ))  }          
