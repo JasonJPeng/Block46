@@ -20,7 +20,7 @@ class LineChart extends Component {
 		arrayDataPoints: []
 	}
 
-	G_original_datas = {}; 
+	G_original_data_array = {}; 
 
 	componentDidMount() {
         this.getData(this.props.Ids);
@@ -54,20 +54,20 @@ class LineChart extends Component {
 
 	normalizeChart = (event) => {
 		event.preventDefault();
-
+		let newData=[];
+		let self = this
 		if (this.state.isNorm) { // recover to original
-			let newDatas = []
-            this.G_original_datas.forEach(function(e) {
-				newDatas.push(this.cloneCanvasData(e))
+            this.G_original_data_array.forEach(function(e) {
+				newData.push(self.cloneCanvasData(e))
 			})
 			
 		} else {
-            this.G_original_data = this.state.data.map(data=>{
-				return this.cloneCanvasData(data);
+            this.G_original_data_array = this.state.data.map(data=>{
+				return self.cloneCanvasData(data);
 			})
-            let newData = this.normalize(this.state.data)       
+            newData = this.normalize(this.state.data)       
 		}
-        this.setState({data:newDatas})
+        this.setState({data:newData, isNorm: !this.state.isNorm})
 	}	
 
 	normalize = (data) => {
