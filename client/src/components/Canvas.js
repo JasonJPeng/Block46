@@ -153,24 +153,34 @@ class LineChart extends Component {
 		const {value: baseCurrency}= event.target;
 		let idx = this.state.symbols.indexOf(baseCurrency);
 		let newDataPoints = this.state.arrayDataPoints.map(x=>this.cloneDatapoints(x));
+		let newSymbols = Object.assign([], this.state.symbols);
+		let newPrices = Object.assign([], this.state.prices);
+		
 		if (idx >= 0) {
 			let basePoints  = this.cloneDatapoints(newDataPoints[idx]);
-			newDataPoints[idx].map(point=>{point.y =1;  return point})  // make all 1's
-			newDataPoints = this.changeBase(newDataPoints, basePoints);
-		} else {  // cased of USD base
-            // nothing
+			newDataPoints[idx].map(point=>{point.y =1;  return point})  // make all 1's for the based coin
+			newDataPoints = this.changeBase(newDataPoints, basePoints)
+			newSymbols[idx] = "USD";
+			newPrices[idx] = 1.0;
+			newPrices = newPrices.map(x=> x/this.state.prices[idx])
+		} else {  // cased of USD base  
+            // no need to change new data points
 		}
 		let newData = this.state.data;
-		newData.map((data, i) => {
-            data.dataPoints = newDataPoints[i];
-			return data;
+		newData.map((d, i) => {
+			d.dataPoints = newDataPoints[i];
+			d.legendText= ` (${newSymbols[i]}-${newSymbols[i]})=>$${newPrices[i]} / `;
+			d.toolTipContent= `${newSymbols[i]} {x} ${baseCurrency} {y}`;		
+			return d;
 		})
+        let newTitle = "Prices based on " + baseCurrency + " : " + newSymbols.join(" / ")
 
 		// need to redo this.state.norm for different norm table
 		this.setState({
 			data:newData, 
+			title: newTitle,
 			isNorm: false, 
-			ytitle: baseCurrency + "based value", 
+			ytitle: baseCurrency + " based prices", 
 			ySymbol: baseCurrency
 		});	
 	}
