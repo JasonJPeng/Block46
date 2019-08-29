@@ -4,6 +4,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 import axios from "axios";
 
 import NewsInfo from "../components/NewsInfo";
+import { normalize } from 'path';
  
 class LineChart extends Component {
 	
@@ -19,37 +20,74 @@ class LineChart extends Component {
 		arrayDataPoints: []
 	}
 
-	
+	G_original_datas = {}; 
+
 	componentDidMount() {
         this.getData(this.props.Ids);
 	}
 	
+	// normalizeChart = (event) => {
+	// 	event.preventDefault();
+
+	// 	console.log(this.state.arrayDataPoints)
+		
+	// 	let newData = this.state.data.map( (ele, idx)=>{
+	// 		    ele.dataPoints = ele.dataPoints.map(ele1=>{ 
+	// 			ele1.y = this.state.isNorm? 
+	// 			         ele1.y*this.state.norm[idx]: 
+	// 			         ele1.y/this.state.norm[idx];
+	// 			return ele1;
+	// 			})
+	// 		return ele;
+	// 	})
+	// 	let newSym=[];
+    //     if (!this.state.isNorm) {
+	// 	   newSym = this.state.symbols.map( (e,i) => {return 1/this.state.norm[i]+ " x " + e});
+	// 	} else {
+	// 	   newSym = this.state.symbols; 	
+	// 	}   
+	// 	let newTitle = newSym.join(" / ")
+	
+	// 	this.setState({data:newData, title:newTitle, isNorm: !this.state.isNorm})
+	
+	// }
+
 	normalizeChart = (event) => {
 		event.preventDefault();
 
-		console.log(this.state.arrayDataPoints)
-		
-		let newData = this.state.data.map( (ele, idx)=>{
-			    ele.dataPoints = ele.dataPoints.map(ele1=>{ 
-				ele1.y = this.state.isNorm? 
-				         ele1.y*this.state.norm[idx]: 
-				         ele1.y/this.state.norm[idx];
-				return ele1;
-				})
-			return ele;
-		})
-		let newSym=[];
-        if (!this.state.isNorm) {
-		   newSym = this.state.symbols.map( (e,i) => {return 1/this.state.norm[i]+ " x " + e});
+		if (this.state.isNorm) { // recover to original
+			let newDatas = []
+            this.G_original_datas.forEach(function(e) {
+				newDatas.push(this.cloneCanvasData(e))
+			})
+			
 		} else {
-		   newSym = this.state.symbols; 	
-		}   
-		let newTitle = newSym.join(" / ")
-	
-		this.setState({data:newData, title:newTitle, isNorm: !this.state.isNorm})
-	
-	}
+            this.G_original_data = this.state.data.map(data=>{
+				return this.cloneCanvasData(data);
+			})
+            let newData = this.normalize(this.state.data)       
+		}
+        this.setState({data:newDatas})
+	}	
 
+	normalize = (data) => {
+		let norm = []
+		data.forEach(function(e){
+			let maxValue = Math.max(...e.dataPoints.map(element=>element.y))
+			norm.push(10 ** parseInt(Math.log10(maxValue)));
+		})
+		let minNorm = Math.min(...norm)
+		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
+
+		return data.map((element, i) =>{
+			element.dataPoints = element.dataPoints.map(element2=>{
+				  element2.y = element2.y/norm[i];
+				  return element2;  
+			})
+			return element;
+		})
+	}
+ 
 	getDataPoints = (id) => {
 		return new Promise((resolve, reject) => {
 		let self = this	;
@@ -109,6 +147,13 @@ class LineChart extends Component {
 	// deep copy for dataPoints  [{x:1, y:23}, {x:2, y:44}, .....]
 	cloneDatapoints = (dataPoints) => {
 		return dataPoints.map(x=> {return Object.assign({}, x)});
+	}
+
+	// copy Canvas data structure  
+    cloneCanvasData = (data) => {
+	  let newData = Object.assign({}, data)  // shadow copy
+	  newData.dataPoints = this.cloneDatapoints(data.dataPoints);
+	  return newData;
 	}
 
 
