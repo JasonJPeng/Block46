@@ -112,15 +112,18 @@ class LineChart extends Component {
 
 
 	changeBase = (arrayDataPoints, basePoints) => {
-		// romve 0 value
+		// romove 0 value
+		console.log(arrayDataPoints)
+		console.log(basePoints)
 		let newBase = []
 		for (let i = basePoints.length-1; i >=0; i--) {
-           if (basePoints.y >= 0) {
-			   newBase.shift(basePoints[i]);
+           if (basePoints[i].y > 0) {
+			   newBase.unshift(basePoints[i]);
 		   } else {
 			   break;
 		   }
 		}
+		console.log("newBase" , newBase)
 		let newArrayDP=[];
         let newDP = [];
 		arrayDataPoints.forEach(function(dp, idx){
@@ -137,8 +140,9 @@ class LineChart extends Component {
 			} else {   // no need to change if both array are in the same length
                 newDP = dp;
 			}
-			newArrayDP.push(newDP.map(pt=>{pt.y/newBase[i].y; return pt}))
+			newArrayDP.push(newDP.map(pt=>{pt.y/newBase[idx].y; return pt}))
 		})
+		console.log(newArrayDP)
 	    return newArrayDP;
 
 	}
