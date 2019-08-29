@@ -169,7 +169,7 @@ class LineChart extends Component {
 		let newData = this.state.data;
 		newData.map((d, i) => {
 			d.dataPoints = newDataPoints[i];
-			d.legendText= ` (${newSymbols[i]}-${newSymbols[i]})=>$${newPrices[i]} / `;
+			d.legendText= ` (${newSymbols[i]}-${newSymbols[i]})=>${newPrices[i].toFixed(4)} ${baseCurrency} / `;
 			d.toolTipContent= `${newSymbols[i]} {x} ${baseCurrency} {y}`;		
 			return d;
 		})
