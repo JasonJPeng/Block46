@@ -8,6 +8,8 @@ import NewsInfo from "../components/NewsInfo";
 class LineChart extends Component {
 	
 	state = {
+		yTitle: "USD",
+		ySymbol: "$",
 		isNorm: false,
 		title: "",
 		data: [],
@@ -21,7 +23,6 @@ class LineChart extends Component {
 	componentDidMount() {
         this.getData(this.props.Ids);
 	}
-
 	
 	normalizeChart = (event) => {
 		event.preventDefault();
@@ -140,7 +141,7 @@ class LineChart extends Component {
 			} else {   // no need to change if both array are in the same length
                 newDP = dp;
 			}
-			newArrayDP.push(newDP.map(pt=>{pt.y/newBase[idx].y; return pt}))
+			newArrayDP.push(newDP.map((pt, j)=>{pt.y = pt.y/newBase[j].y; return pt}))
 		})
 		console.log(newArrayDP)
 	    return newArrayDP;
@@ -164,7 +165,14 @@ class LineChart extends Component {
             data.dataPoints = newDataPoints[i];
 			return data;
 		})
-		this.setState({data:newData, isNorm: false});	
+
+		// need to redo this.state.norm for different norm table
+		this.setState({
+			data:newData, 
+			isNorm: false, 
+			ytitle: baseCurrency + "based value", 
+			ySymbol: baseCurrency
+		});	
 	}
 
 	render() {
@@ -178,9 +186,9 @@ class LineChart extends Component {
 				fontSize: 20
 			},
 			axisY: {
-				title: "USD",
+				title: this.state.ytitle,
 				includeZero: false,
-				prefix: "$"
+				prefix: this.state.ySymbol
 			},
 			axisX: {
 				title: "Date",
