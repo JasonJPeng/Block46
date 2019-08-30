@@ -9,6 +9,7 @@ import { normalize } from 'path';
 class LineChart extends Component {
 	
 	state = {
+		base: "USD",
 		yTitle: "USD",
 		ySymbol: "$",
 		isNorm: false,
@@ -16,6 +17,7 @@ class LineChart extends Component {
 		data: [],
 		prices: [],
 		symbols: [],
+		names:[],
 		norm: [],
 		arrayDataPoints: []
 	}
@@ -25,32 +27,44 @@ class LineChart extends Component {
 	componentDidMount() {
         this.getData(this.props.Ids);
 	}
-	
-	// normalizeChart = (event) => {
-	// 	event.preventDefault();
 
-	// 	console.log(this.state.arrayDataPoints)
-		
-	// 	let newData = this.state.data.map( (ele, idx)=>{
-	// 		    ele.dataPoints = ele.dataPoints.map(ele1=>{ 
-	// 			ele1.y = this.state.isNorm? 
-	// 			         ele1.y*this.state.norm[idx]: 
-	// 			         ele1.y/this.state.norm[idx];
-	// 			return ele1;
-	// 			})
-	// 		return ele;
-	// 	})
-	// 	let newSym=[];
-    //     if (!this.state.isNorm) {
-	// 	   newSym = this.state.symbols.map( (e,i) => {return 1/this.state.norm[i]+ " x " + e});
-	// 	} else {
-	// 	   newSym = this.state.symbols; 	
-	// 	}   
-	// 	let newTitle = newSym.join(" / ")
+	// Start from here	
+	getData = async (Ids) => {
+		// let id = Ids[0];
+		let data = [], prices=[], norm=[], symbols=[],names=[], arrayDataPoints=[];
 	
-	// 	this.setState({data:newData, title:newTitle, isNorm: !this.state.isNorm})
+		for (let i=0; i< Ids.length; i++) {
+		   let self = this
+		   let id = Ids[i];
+		   let coinInfo = await self.getInfo(id);
+		   let dataPoints = await self.getDataPoints(id);
+		   arrayDataPoints.push(this.cloneDatapoints(dataPoints));
+			 prices.push(coinInfo.Price)
+			 symbols.push(coinInfo.Symbol)
+			 names.push(coinInfo.Name)
+			 // -- for CanvasJs   -- dataSeries
+             data.push({						
+				type: "line",
+				name: id,   // use id identify different dataSearies
+				yValueFormatString: "###,###.0000" ,
+				xValueFormatString: "MMM-DD-YYYY" ,
+				showInLegend: true, 
+                legendText: ` (${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} / `,
+				// toolTipContent: `${coinInfo.Symbol} <br/> {x} <br/> {y}`,
+				dataPoints: dataPoints
+			})
+			let maxValue = Math.max(...dataPoints.map(element=>element.y))
+			norm.push(10 ** parseInt(Math.log10(maxValue)));
+		}
+
+		let minNorm = Math.min(...norm)
+		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
 	
-	// }
+		this.setState({data, prices, norm, symbols, names, arrayDataPoints})
+	
+	}
+	//========================================================================================
+	
 
 	normalizeChart = (event) => {
 		event.preventDefault();
@@ -112,37 +126,7 @@ class LineChart extends Component {
 		})	
 	}
 	
-	
-	getData = async (Ids) => {
-		// let id = Ids[0];
-		let data = [], prices=[], title="", norm=[], symbols=[], arrayDataPoints=[];
-	
-		for (let i=0; i< Ids.length; i++) {
-		   let self = this
-		   let id = Ids[i];
-		   let coinInfo = await self.getInfo(id);
-		   let dataPoints = await self.getDataPoints(id);
-		   arrayDataPoints.push(this.cloneDatapoints(dataPoints));
-			 prices.push(coinInfo.Price)
-			 symbols.push(coinInfo.Symbol)
-             data.push({
-				type: "line",
-				showInLegend: true, 
-                legendText: ` (${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} / `,
-				toolTipContent: `${coinInfo.Symbol} {x} $ {y}`,
-				dataPoints: dataPoints
-			})
-			let maxValue = Math.max(...dataPoints.map(element=>element.y))
-			norm.push(10 ** parseInt(Math.log10(maxValue)));
-		}
 
-		let minNorm = Math.min(...norm)
-		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
-	
-        title = symbols.join(" / ")
-		this.setState({title, data, prices, norm, symbols, arrayDataPoints})
-	
-	}
 
 	// deep copy for dataPoints  [{x:1, y:23}, {x:2, y:44}, .....]
 	cloneDatapoints = (dataPoints) => {
@@ -230,6 +214,37 @@ class LineChart extends Component {
 		});	
 	}
 
+	// functions for anvas JS  
+
+	formatToolTip =  ( e ) => {
+		return "==>" + e.entries[0].dataSeries.legendText + "<br/>" +  e.entries[0].dataPoint.y;
+	}
+	
+	makeTitle = () => {
+	   let str = this.state.base + " Base Historical Chart" ;
+	   if (this.state.isNorm) {
+		   str = "Normalized " + str;
+	   }
+		return str;
+	}
+
+	makeSubtitle = ()=> {
+		let str = "";
+		let self = this
+		if (!self.state.isNorm) {
+           self.state.symbols.forEach(function (e, i) {
+               str += e + `(${self.state.names[i]})` + "    ";
+		   })
+		} else {
+			self.state.symbols.forEach(function (e, i) {
+				str +=  (1/self.state.norm[i]).toString() + " x " + e + `(${self.state.names[i]})` + "    " ;  
+			})	
+		}
+
+		return str;
+	}
+	//=============================================================================
+
 	render() {
 		const options = {
 			animationEnabled: true,
@@ -237,20 +252,33 @@ class LineChart extends Component {
 			theme: "light1", // "light1", "dark1", "dark2"
 			zoomEnabled: true,
 			title:{
-				text: this.state.title,
-				fontSize: 20
+				text: this.makeTitle(),
+				fontSize: 26,
+				fontFamily: "tahoma",
+				fontColor: "#6A5ACD"
 			},
+			subtitles:[{
+				text: this.makeSubtitle(),
+				fontSize: 16,
+				fontFamily: "tahoma",
+				fontColor: "#6A5ACD"
+			}],
 			axisY: {
 				title: this.state.ytitle,
 				includeZero: false,
+				valueFormatString: "###,###.####",
 				prefix: this.state.ySymbol
 			},
 			axisX: {
 				title: "Date",
 				xValueType: "dateTime",
+				valueFormatString: "MMM-DD-YYYY",
 				prefix: " "
 				// interval: 2
 			},
+			toolTip:{
+				contentFormatter: this.formatToolTip
+			},		
 			data: this.state.data
 			// data: [{
 			// 	type: "line",
