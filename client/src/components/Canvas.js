@@ -10,10 +10,7 @@ class LineChart extends Component {
 	
 	state = {
 		base: "USD",
-		yTitle: "USD",
-		ySymbol: "$",
 		isNorm: false,
-		title: "",
 		data: [],
 		prices: [],
 		symbols: [],
@@ -21,14 +18,26 @@ class LineChart extends Component {
 		norm: [],
 		arrayDataPoints: []
 	}
+// data array before normalization while arrayDataPoints in state isn the rezl origin in USD base
+	G_original_data_array = [];  
 
-	G_original_data_array = {}; 
+// G_names, prices, symbols would be changed when the base chanegd, but the corresponding arrays in state would be changed.	
+	G_symbols = [];	
+	G_names = [];
+	G_prices = []
+
+	setGlobals = () => {
+		this.G_names = Object.assign([], this.state.names);
+		this.G_prices = Object.assign([], this.state.prices);
+		this.G_symbols = Object.assign([], this.state.symbols);
+	}
 
 	componentDidMount() {
         this.getData(this.props.Ids);
 	}
 
 	// Start from here	
+	//========================================================================================================
 	getData = async (Ids) => {
 		// let id = Ids[0];
 		let data = [], prices=[], norm=[], symbols=[],names=[], arrayDataPoints=[];
@@ -61,11 +70,37 @@ class LineChart extends Component {
 		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
 	
 		this.setState({data, prices, norm, symbols, names, arrayDataPoints})
-	
+		this.setGlobals();
 	}
-	//========================================================================================
-	
 
+	getDataPoints = (id) => {
+		return new Promise((resolve, reject) => {
+		let self = this	;
+		axios.get("/api/coins/history/" + id).then (function(history){			
+			let dataPoints = []
+            for (let i=1; i<history.data.Time.length; i++) {
+			   dataPoints.push({
+							 x: new Date(history.data.Time[i]*1000) ,
+							 y: history.data.Price[i]
+			             })
+			}
+			resolve(dataPoints); 
+		})		
+		})	
+	}
+
+	getInfo = (id) => {
+		return new Promise((resolve, reject) => {
+			axios.get("/api/coins/" + id).then (function(info){
+				resolve(info.data);
+			})	
+		})	
+	}
+	
+	//========================================================================================
+	// Normalization 
+	//=======================================================================================
+	
 	normalizeChart = (event) => {
 		event.preventDefault();
 		let newData=[];
@@ -102,43 +137,7 @@ class LineChart extends Component {
 		})
 	}
  
-	getDataPoints = (id) => {
-		return new Promise((resolve, reject) => {
-		let self = this	;
-		axios.get("/api/coins/history/" + id).then (function(history){			
-			let dataPoints = []
-            for (let i=1; i<history.data.Time.length; i++) {
-			   dataPoints.push({
-							 x: new Date(history.data.Time[i]*1000) ,
-							 y: history.data.Price[i]
-			             })
-			}
-			resolve(dataPoints); 
-		})		
-		})	
-	}
-
-	getInfo = (id) => {
-		return new Promise((resolve, reject) => {
-			axios.get("/api/coins/" + id).then (function(info){
-				resolve(info.data);
-			})	
-		})	
-	}
-	
-
-
-	// deep copy for dataPoints  [{x:1, y:23}, {x:2, y:44}, .....]
-	cloneDatapoints = (dataPoints) => {
-		return dataPoints.map(x=> {return Object.assign({}, x)});
-	}
-
-	// copy Canvas data structure  
-    cloneCanvasData = (data) => {
-	  let newData = Object.assign({}, data)  // shadow copy
-	  newData.dataPoints = this.cloneDatapoints(data.dataPoints);
-	  return newData;
-	}
+	//=================================================================================
 
 
 	changeBase = (arrayDataPoints, basePoints) => {
@@ -182,41 +181,54 @@ class LineChart extends Component {
 		const {value: baseCurrency}= event.target;
 		let idx = this.state.symbols.indexOf(baseCurrency);
 		let newDataPoints = this.state.arrayDataPoints.map(x=>this.cloneDatapoints(x));
-		let newSymbols = Object.assign([], this.state.symbols);
-		let newPrices = Object.assign([], this.state.prices);
+		this.setGlobals();  // make G_symbols, names prices as state values
 		
 		if (idx >= 0) {
 			let basePoints  = this.cloneDatapoints(newDataPoints[idx]);
-			newDataPoints[idx].map(point=>{point.y =1;  return point})  // make all 1's for the based coin
+			this.G_symbols[idx] = "$";
+			this.G_names[idx] = "USD"
+			this.G_prices[idx] = 1.0;
+			newDataPoints[idx].map(point=>{point.y =1;  return point})  // make all 1's for the USD
 			newDataPoints = this.changeBase(newDataPoints, basePoints)
-			newSymbols[idx] = "USD";
-			newPrices[idx] = 1.0;
-			newPrices = newPrices.map(x=> x/this.state.prices[idx])
+			
+			this.G_prices = this.G_prices.map(x=> x/this.state.prices[idx])
 		} else {  // cased of USD base  
             // no need to change new data points
 		}
 		let newData = this.state.data;
 		newData.map((d, i) => {
 			d.dataPoints = newDataPoints[i];
-			d.legendText= ` (${newSymbols[i]}-${newSymbols[i]})=>${newPrices[i].toFixed(4)} ${baseCurrency} / `;
-			d.toolTipContent= `${newSymbols[i]} {x} ${baseCurrency} {y}`;		
+			d.legendText= ` (${this.G_symbols[i]}-${this.G_names[i]})=>${this.G_prices[i].toFixed(4)} ${baseCurrency} / `;	
 			return d;
 		})
-        let newTitle = "Prices based on " + baseCurrency + " : " + newSymbols.join(" / ")
 
 		// need to redo this.state.norm for different norm table
 		this.setState({
 			data:newData, 
-			title: newTitle,
 			isNorm: false, 
-			ytitle: baseCurrency + " based prices", 
-			ySymbol: baseCurrency
+			base: baseCurrency
 		});	
 	}
 
-	// functions for anvas JS  
+//    Deep Copy for this program
+//====================================================================================================
+	// deep copy for dataPoints  [{x:1, y:23}, {x:2, y:44}, .....]
+	cloneDatapoints = (dataPoints) => {
+		return dataPoints.map(x=> {return Object.assign({}, x)});
+	}
 
+	// copy Canvas data structure  
+    cloneCanvasData = (data) => {
+	  let newData = Object.assign({}, data)  // shadow copy
+	  newData.dataPoints = this.cloneDatapoints(data.dataPoints);
+	  return newData;
+	}
+//====================================================================================================
+
+// functions for anvas JS  
+//================================================================================================================
 	formatToolTip =  ( e ) => {
+
 		return "==>" + e.entries[0].dataSeries.legendText + "<br/>" +  e.entries[0].dataPoint.y;
 	}
 	
@@ -232,18 +244,18 @@ class LineChart extends Component {
 		let str = "";
 		let self = this
 		if (!self.state.isNorm) {
-           self.state.symbols.forEach(function (e, i) {
-               str += e + `(${self.state.names[i]})` + "    ";
+           self.G_symbols.forEach(function (e, i) {
+               str += e + `(${self.G_names[i]})` + "    ";
 		   })
 		} else {
-			self.state.symbols.forEach(function (e, i) {
-				str +=  (1/self.state.norm[i]).toString() + " x " + e + `(${self.state.names[i]})` + "    " ;  
+			self.G_symbols.forEach(function (e, i) {
+				str +=  (1/self.state.norm[i]).toString() + " x " + e + `(${self.G_names[i]})` + "    " ;  
 			})	
 		}
 
 		return str;
 	}
-	//=============================================================================
+//====================================================================================================================
 
 	render() {
 		const options = {
