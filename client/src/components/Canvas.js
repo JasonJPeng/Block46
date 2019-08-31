@@ -15,7 +15,6 @@ class LineChart extends Component {
 		prices: [],
 		symbols: [],
 		names:[],
-		norm: [],
 		arrayDataPoints: []
 	}
 // data array before normalization while arrayDataPoints in state isn the rezl origin in USD base
@@ -24,7 +23,8 @@ class LineChart extends Component {
 // G_names, prices, symbols would be changed when the base chanegd, but the corresponding arrays in state would be changed.	
 	G_symbols = [];	
 	G_names = [];
-	G_prices = []
+	G_prices = [];
+	G_norm = [];
 
 	setGlobals = () => {
 		this.G_names = Object.assign([], this.state.names);
@@ -51,26 +51,33 @@ class LineChart extends Component {
 			 prices.push(coinInfo.Price)
 			 symbols.push(coinInfo.Symbol)
 			 names.push(coinInfo.Name)
+			 this.G_norm.push(1);
 			 // -- for CanvasJs   -- dataSeries
              data.push({						
 				type: "line",
-				name: id,   // use id identify different dataSearies
+				name: `${coinInfo.Symbol} (${coinInfo.Name})`,   // use id identify different dataSearies
 				yValueFormatString: "###,###.0000" ,
 				xValueFormatString: "MMM-DD-YYYY" ,
 				showInLegend: true, 
                 legendText: ` (${coinInfo.Symbol}-${coinInfo.Name})=>$${coinInfo.Price} / `,
-				// toolTipContent: `${coinInfo.Symbol} <br/> {x} <br/> {y}`,
+				// toolTipContent: ,
+				radius: 1,
 				dataPoints: dataPoints
 			})
 			let maxValue = Math.max(...dataPoints.map(element=>element.y))
 			norm.push(10 ** parseInt(Math.log10(maxValue)));
 		}
-
-		let minNorm = Math.min(...norm)
-		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
-	
-		this.setState({data, prices, norm, symbols, names, arrayDataPoints})
+        
+		// let minNorm = Math.min(...norm)
+		// norm = norm.map(e=>e/minNorm) // use cheapest coin as base
+  
+		this.state.names = names;
+		this.state.symbols = symbols;
+		this.state.prices = prices;
 		this.setGlobals();
+	
+		this.setState({data, arrayDataPoints})
+		
 	}
 
 	getDataPoints = (id) => {
@@ -106,8 +113,10 @@ class LineChart extends Component {
 		let newData=[];
 		let self = this
 		if (this.state.isNorm) { // recover to original
+            self.G_norm = [];
             this.G_original_data_array.forEach(function(e) {
 				newData.push(self.cloneCanvasData(e))
+				self.G_norm.push(1);
 			})
 			
 		} else {
@@ -127,14 +136,15 @@ class LineChart extends Component {
 		})
 		let minNorm = Math.min(...norm)
 		norm = norm.map(e=>e/minNorm) // use cheapest coin as base
-
+        this.G_norm = norm;
 		return data.map((element, i) =>{
-			element.dataPoints = element.dataPoints.map(element2=>{
-				  element2.y = element2.y/norm[i];
-				  return element2;  
-			})
-			return element;
-		})
+			      element.radius = this.G_norm[i];  // save factor into radius
+			      element.dataPoints = element.dataPoints.map(element2=>{
+				         element2.y = element2.y/norm[i];
+				          return element2;  
+			      })
+			      return element;
+		        })
 	}
  
 	//=================================================================================
@@ -198,6 +208,7 @@ class LineChart extends Component {
 		let newData = this.state.data;
 		newData.map((d, i) => {
 			d.dataPoints = newDataPoints[i];
+			d.name = `${this.G_symbols[i]} (${this.G_names[i]})`;
 			d.legendText= ` (${this.G_symbols[i]}-${this.G_names[i]})=>${this.G_prices[i].toFixed(4)} ${baseCurrency} / `;	
 			return d;
 		})
@@ -228,8 +239,9 @@ class LineChart extends Component {
 // functions for anvas JS  
 //================================================================================================================
 	formatToolTip =  ( e ) => {
-
-		return "==>" + e.entries[0].dataSeries.legendText + "<br/>" +  e.entries[0].dataPoint.y;
+		let yVal = this.state.isNorm ? e.entries[0].dataPoint.y * e.entries[0].dataSeries.radius : e.entries[0].dataPoint.y 
+		let str = e.entries[0].dataSeries.name + "<br/>" + e.entries[0].dataPoint.x + "<br/>" + yVal;
+		return str;
 	}
 	
 	makeTitle = () => {
@@ -249,7 +261,7 @@ class LineChart extends Component {
 		   })
 		} else {
 			self.G_symbols.forEach(function (e, i) {
-				str +=  (1/self.state.norm[i]).toString() + " x " + e + `(${self.G_names[i]})` + "    " ;  
+				str +=  (1/self.G_norm[i]).toString() + " x " + e + `(${self.G_names[i]})` + "    " ;  
 			})	
 		}
 
