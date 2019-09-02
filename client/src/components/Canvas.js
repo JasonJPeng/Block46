@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CanvasJSReact from './canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+const CanvasJS = CanvasJSReact.CanvasJS;
 import axios from "axios";
 
 import NewsInfo from "../components/NewsInfo";
@@ -8,6 +9,10 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Button from "react-bootstrap/Button";
 import Dropdown from 'react-bootstrap/Dropdown'
 import { normalize } from 'path';
+
+var block46Colors = ["red", "orange", "blue", "green", "yellow", "purple", "pink", "cyan", "purple", "magenta"];
+CanvasJS.addColorSet("block46", block46Colors);
+
  
 class LineChart extends Component {
 	
@@ -277,15 +282,20 @@ class LineChart extends Component {
 
 	render() {
 		const options = {
+			colorSet: "block46",
 			animationEnabled: true,
 			exportEnabled: true,
 			theme: "light1", // "light1", "dark1", "dark2"
 			zoomEnabled: true,
+
 			title:{
 				text: this.makeTitle(),
 				fontSize: 26,
 				fontFamily: "tahoma",
 				fontColor: "#6A5ACD"
+			},
+			legend: {
+                 fontColor: "red"
 			},
 			subtitles:[{
 				text: this.makeSubtitle(),
