@@ -4,6 +4,9 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 import axios from "axios";
 
 import NewsInfo from "../components/NewsInfo";
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import Button from "react-bootstrap/Button";
+import Dropdown from 'react-bootstrap/Dropdown'
 import { normalize } from 'path';
  
 class LineChart extends Component {
@@ -189,6 +192,7 @@ class LineChart extends Component {
 	handleCurrencyChange = (event) => {
 		event.preventDefault();
 		const {value: baseCurrency}= event.target;
+		// let baseCurrency = event.target.value;
 		let idx = this.state.symbols.indexOf(baseCurrency);
 		let newDataPoints = this.state.arrayDataPoints.map(x=>this.cloneDatapoints(x));
 		this.setGlobals();  // make G_symbols, names prices as state values
@@ -316,20 +320,41 @@ class LineChart extends Component {
 		return (
 		<div>
 			<h1>React Line Chart</h1>
-			<CanvasJSChart options={options} 
-				/* onRef={ref => this.chart = ref} */
-			/>
 			
-			<button onClick={this.normalizeChart}>{
+<ButtonToolbar>			
+			<Button  variant="info"  onClick={this.normalizeChart}>{
 				this.state.isNorm? <span>Original Chart</span>: <span>Normalized Chart</span> 
-			}</button>
-
+			}</Button>
+            <Button variant="info" active disabled >Use different base =></Button>
             <select name="base" onChange={this.handleCurrencyChange}>
 			  <option value="USD" selected> USD</option>
 			  {this.state.symbols.map(x=>(	
 				  <option  value={x}>{x}</option>  			  
 			  ))  }          
             </select>
+						
+
+{/* <Dropdown>
+  <Dropdown.Toggle variant="info" id="dropdown-basic">
+    Change the Price Base
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu onClick={this.handleCurrencyChange}>
+    <Dropdown.Item value="USD" eventKey="USD">USD</Dropdown.Item>
+	{this.state.symbols.map(x=>(	
+	<Dropdown.Item value={x} eventKey={x}>{x}</Dropdown.Item>  			  
+	 ))  }  
+   
+  </Dropdown.Menu>
+</Dropdown> */}
+
+</ButtonToolbar>
+
+<CanvasJSChart options={options} 
+				/* onRef={ref => this.chart = ref} */
+			/>
+
+            
 
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		    <NewsInfo Ids={this.props.Ids} prices={this.state.prices} />
