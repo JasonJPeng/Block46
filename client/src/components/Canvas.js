@@ -240,7 +240,9 @@ class LineChart extends Component {
 //================================================================================================================
 	formatToolTip =  ( e ) => {
 		let yVal = this.state.isNorm ? e.entries[0].dataPoint.y * e.entries[0].dataSeries.radius : e.entries[0].dataPoint.y 
-		let str = e.entries[0].dataSeries.name + "<br/>" + e.entries[0].dataPoint.x + "<br/>" + yVal;
+		let str = e.entries[0].dataSeries.name + "<br/>" 
+		              + e.entries[0].dataPoint.x.toISOString().split("T")[0]
+		              + "<br/>" + yVal.toFixed(4) + " " +this.state.base;
 		return str;
 	}
 	
@@ -288,10 +290,9 @@ class LineChart extends Component {
 				fontColor: "#6A5ACD"
 			}],
 			axisY: {
-				title: this.state.ytitle,
+				title: "Price in " + this.state.base,
 				includeZero: false,
 				valueFormatString: "###,###.####",
-				prefix: this.state.ySymbol
 			},
 			axisX: {
 				title: "Date",
