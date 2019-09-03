@@ -228,15 +228,21 @@ class Coin extends Component {
                         <Nav.Link onClick={this.displayCanvas}>
                             Graphs &amp; News
                         </Nav.Link>
+                        
+                        {this.state.searchMode ?
+                                <Nav.Link variant="outline-info" onClick={this.addCoin}>Add Coins</Nav.Link> :
+                                <Nav.Link variant="outline-info" onClick={this.removeCoin}>Remove Coins</Nav.Link>
+                        } 
+                    
                         <Nav.Link href="/">{this.props.username}</Nav.Link>
                         <Nav.Link  onClick={this.logOut} href="/logout">Logout</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormGroup>
-                            {this.state.searchMode ?
+                            {/* {this.state.searchMode ?
                                 <Button variant="outline-info" onClick={this.addCoin}>Add</Button> :
                                 <Button variant="outline-info" onClick={this.removeCoin}>Remove</Button>
-                            }
+                            } */}
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleSearchInput} />
 
                             <Button variant="outline-info" onClick={this.searchCoin}>Search</Button>
